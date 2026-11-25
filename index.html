@@ -3,53 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Matematica, Statistica e Python — Guida &amp; Simulatore Esame</title>
+  <title>Matematica, Statistica &amp; Python — Appunti &amp; Quiz Esame</title>
   <style>
     :root {
-      --bg: #f3f6fb;
+      --bg: #f8fafc;
       --surface: #ffffff;
-      --surface-alt: #eef3fa;
-      --border: #d7e0ec;
-      --text: #132033;
-      --text-muted: #53647a;
-      --primary: #2563eb;
-      --primary-2: #0ea5e9;
-      --primary-soft: #e6efff;
-      --accent: #0d9488;
-      --accent-soft: #e3f9f6;
-      --warn: #d97706;
-      --warn-soft: #fef3c7;
-      --ok: #16a34a;
-      --ok-soft: #dcfce7;
-      --err: #dc2626;
-      --err-soft: #fee2e2;
+      --surface-alt: #f1f5f9;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #4f46e5;
+      --primary-soft: #eef2ff;
+      --accent: #0f766e;
+      --accent-soft: #f0fdfa;
+      --warn: #b45309;
+      --warn-soft: #fffbeb;
+      --ok: #15803d;
+      --ok-soft: #f0fdf4;
+      --err: #b91c1c;
+      --err-soft: #fef2f2;
       --code-bg: #0f172a;
-      --code-text: #e2e8f0;
-      --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
-      --radius: 14px;
+      --code-text: #f1f5f9;
+      --shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.04);
+      --radius: 12px;
     }
 
     [data-theme="dark"] {
-      --bg: #090e1a;
+      --bg: #090d16;
       --surface: #111827;
-      --surface-alt: #1a2436;
-      --border: #28354c;
-      --text: #e7eef8;
+      --surface-alt: #1e293b;
+      --border: #263248;
+      --text: #f1f5f9;
       --text-muted: #94a3b8;
-      --primary: #60a5fa;
-      --primary-2: #38bdf8;
-      --primary-soft: #172554;
+      --primary: #818cf8;
+      --primary-soft: #1e1b4b;
       --accent: #2dd4bf;
-      --accent-soft: #11423e;
+      --accent-soft: #0f2e2b;
       --warn: #fbbf24;
-      --warn-soft: #422006;
+      --warn-soft: #291d06;
       --ok: #4ade80;
-      --ok-soft: #052e16;
+      --ok-soft: #072614;
       --err: #f87171;
-      --err-soft: #450a0a;
+      --err-soft: #2e0b0b;
       --code-bg: #020617;
       --code-text: #e2e8f0;
-      --shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
 
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -61,50 +59,93 @@
       font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.6;
       transition: background 0.2s, color 0.2s;
     }
 
     .container {
-      max-width: 1060px;
+      max-width: 1140px;
       margin: 0 auto;
-      padding: 0 16px;
+      padding: 0 18px;
     }
 
-    /* Header */
+    /* Clean Editorial Header */
     header {
-      background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
-      color: #ffffff;
-      box-shadow: var(--shadow);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 40;
     }
 
-    [data-theme="dark"] header {
-      background: linear-gradient(135deg, #0f172a 0%, #134e4a 100%);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .header-top {
+    .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 14px 0 10px;
+      gap: 14px;
+      padding: 12px 0;
     }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    [data-theme="dark"] .brand-mark { color: #090d16; }
 
     .brand h1 {
       margin: 0;
-      font-size: 1.18rem;
+      font-size: 1.08rem;
       line-height: 1.2;
-      letter-spacing: -0.01em;
+      letter-spacing: -0.015em;
     }
 
     .brand p {
-      margin: 3px 0 0;
-      font-size: 0.82rem;
-      opacity: 0.88;
+      margin: 2px 0 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-desktop {
+      display: flex;
+      gap: 4px;
+      background: var(--surface-alt);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      padding: 7px 14px;
+      border-radius: 7px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--primary);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     .header-actions {
@@ -118,95 +159,30 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      min-height: 44px;
-      padding: 9px 14px;
-      border-radius: 10px;
+      min-height: 40px;
+      padding: 8px 14px;
+      border-radius: 9px;
       border: 1px solid var(--border);
       background: var(--surface);
       color: var(--text);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
       cursor: pointer;
-      transition: transform 0.08s, background 0.15s, border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.15s, background 0.15s, transform 0.08s;
     }
-
     .btn:hover { border-color: var(--primary); }
-    .btn:active { transform: scale(0.97); }
+    .btn:active { transform: scale(0.98); }
     .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
-    .btn-sm {
-      min-height: 36px;
-      padding: 6px 11px;
-      font-size: 0.82rem;
-      border-radius: 8px;
-    }
+    .btn-sm { min-height: 34px; padding: 5px 10px; font-size: 0.8rem; border-radius: 8px; }
 
-    .btn-glass {
-      background: rgba(255, 255, 255, 0.16);
-      border-color: rgba(255, 255, 255, 0.28);
-      color: #ffffff;
-      min-height: 38px;
-      padding: 7px 11px;
-      font-size: 0.84rem;
-    }
-    .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.26);
-      border-color: rgba(255, 255, 255, 0.5);
-    }
+    .btn-primary { background: var(--primary); border-color: var(--primary); color: #ffffff; }
+    [data-theme="dark"] .btn-primary { color: #090d16; }
 
-    .btn-primary {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #ffffff;
-    }
-    [data-theme="dark"] .btn-primary { color: #071327; }
-
-    .btn-accent {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
+    .btn-accent { background: var(--accent); border-color: var(--accent); color: #ffffff; }
     [data-theme="dark"] .btn-accent { color: #042f2e; }
 
-    .btn-danger {
-      background: var(--err-soft);
-      border-color: var(--err);
-      color: var(--err);
-    }
-
-    /* Desktop Tabs */
-    .tabs-desktop {
-      display: flex;
-      gap: 8px;
-      padding-bottom: 12px;
-      overflow-x: auto;
-    }
-
-    .tab-btn {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.9);
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.15s;
-    }
-
-    .tab-btn:hover { background: rgba(255, 255, 255, 0.2); }
-
-    .tab-btn.active {
-      background: #ffffff;
-      color: #1d4ed8;
-      border-color: #ffffff;
-    }
-    [data-theme="dark"] .tab-btn.active {
-      background: var(--primary);
-      color: #091326;
-      border-color: var(--primary);
-    }
+    .btn-danger { background: var(--err-soft); border-color: var(--err); color: var(--err); }
 
     /* Mobile Bottom Nav */
     .bottom-nav {
@@ -218,114 +194,151 @@
       z-index: 50;
       background: var(--surface);
       border-top: 1px solid var(--border);
-      padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
-      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+      padding: 6px 10px calc(6px + env(safe-area-inset-bottom));
     }
-
     .bottom-nav-inner {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 6px;
     }
-
     .bnav-btn {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 2px;
-      min-height: 50px;
+      min-height: 48px;
       border: none;
-      border-radius: 10px;
+      border-radius: 9px;
       background: transparent;
       color: var(--text-muted);
       font-size: 0.74rem;
       font-weight: 700;
       cursor: pointer;
     }
-
-    .bnav-btn .bnav-ico { font-size: 1.15rem; line-height: 1; }
     .bnav-btn.active {
       background: var(--primary-soft);
       color: var(--primary);
     }
 
-    main { padding: 20px 0 60px; }
-
-    .tab-panel { display: none; animation: fadeIn 0.18s ease-out; }
+    main { padding: 22px 0 64px; }
+    .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Two-Pane Notes Reader */
+    .notes-shell {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      gap: 20px;
+      align-items: start;
     }
 
-    /* Cards & Progress */
-    .card {
+    .notes-sidebar {
+      position: sticky;
+      top: 76px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 16px;
+      padding: 14px;
       box-shadow: var(--shadow);
-      margin-bottom: 14px;
+      max-height: calc(100vh - 96px);
+      overflow-y: auto;
     }
 
-    .study-tracker {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+    .sidebar-progress {
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
     }
-
-    .tracker-bar-wrap {
-      flex: 1 1 220px;
-    }
-
-    .tracker-label {
+    .sidebar-progress-top {
       display: flex;
       justify-content: space-between;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 6px;
     }
-
     .progress-track {
-      height: 10px;
+      height: 7px;
       background: var(--surface-alt);
       border-radius: 999px;
       overflow: hidden;
-      border: 1px solid var(--border);
     }
-
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transition: width 0.25s ease;
+      background: var(--primary);
+      transition: width 0.25s;
     }
 
-    .toolbar {
+    .mod-nav-btn {
+      width: 100%;
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
+      padding: 9px 10px;
+      margin-bottom: 4px;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+    }
+    .mod-nav-btn:hover { background: var(--surface-alt); }
+    .mod-nav-btn.active {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-color: var(--primary);
     }
 
-    .search-box {
-      flex: 1 1 240px;
+    .chap-toc {
+      margin: 4px 0 10px 8px;
+      padding-left: 10px;
+      border-left: 2px solid var(--border);
+      display: none;
+    }
+    .chap-toc.open { display: block; }
+
+    .chap-link {
+      display: block;
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    .chap-link:hover {
+      background: var(--surface-alt);
+      color: var(--text);
+    }
+
+    /* Mobile Module Bar */
+    .mobile-mod-bar {
+      display: none;
+      margin-bottom: 14px;
+    }
+    .chip-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .search-bar {
       display: flex;
       align-items: center;
-      gap: 8px;
-      background: var(--surface-alt);
+      gap: 10px;
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 8px 12px;
-      min-height: 44px;
+      border-radius: var(--radius);
+      padding: 9px 14px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
     }
-
-    .search-box input {
+    .search-bar input {
       width: 100%;
       border: none;
       background: transparent;
@@ -334,131 +347,122 @@
       outline: none;
     }
 
-    /* Accordion Modules */
-    .module-card {
+    .mod-hero {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+    .mod-hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .mod-hero h2 {
+      margin: 4px 0 6px;
+      font-size: 1.25rem;
+      letter-spacing: -0.015em;
+    }
+    .mod-hero p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    /* Chapter Cards */
+    .chap-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
       margin-bottom: 14px;
       box-shadow: var(--shadow);
-      overflow: hidden;
+      scroll-margin-top: 84px;
     }
 
-    .module-card.reviewed {
-      border-color: var(--ok);
-    }
-
-    .module-header {
-      width: 100%;
+    .chap-head {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 10px;
-      padding: 14px 16px;
-      background: var(--surface);
-      border: none;
-      color: var(--text);
-      text-align: left;
-      cursor: pointer;
-      min-height: 54px;
-    }
-
-    .module-header:hover { background: var(--surface-alt); }
-
-    .module-title-wrap {
-      display: flex;
-      align-items: center;
-      gap: 8px;
       flex-wrap: wrap;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 700;
+    .chap-num {
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
       background: var(--primary-soft);
       color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
     }
 
-    .badge-ok {
-      background: var(--ok-soft);
-      color: var(--ok);
-    }
-
-    .badge-warn {
-      background: var(--warn-soft);
-      color: var(--warn);
-    }
-
-    .module-header h2 {
+    .chap-head h3 {
       margin: 0;
-      font-size: 1.02rem;
+      font-size: 1.05rem;
     }
 
-    .chevron {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      transition: transform 0.2s;
-      flex-shrink: 0;
+    .chap-blocks {
+      display: grid;
+      gap: 10px;
     }
-    .module-card.open .chevron { transform: rotate(180deg); }
 
-    .module-body {
-      display: none;
-      padding: 0 16px 16px;
-      border-top: 1px solid var(--border);
+    .block-simple {
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      font-size: 0.92rem;
     }
-    .module-card.open .module-body { display: block; }
+    .block-simple strong.blk-lbl {
+      color: var(--accent);
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 2px;
+    }
 
-    .module-actions-row {
+    .block-example {
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: var(--surface-alt);
+      font-size: 0.9rem;
+    }
+    .block-example strong.blk-lbl {
+      color: var(--text);
+      display: block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 2px;
+    }
+
+    .block-tech {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
+      align-items: center;
+      font-size: 0.87rem;
+      padding-top: 4px;
     }
-
-    .topic-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 12px;
-      margin-top: 12px;
-    }
-
-    .topic-box {
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-    }
-
-    .topic-box h3 {
-      margin: 0 0 8px;
-      font-size: 0.94rem;
-      color: var(--primary);
-    }
-
-    .topic-box ul {
-      margin: 0;
-      padding-left: 18px;
-      font-size: 0.89rem;
-    }
-
-    .topic-box li { margin-bottom: 6px; }
 
     .formula {
       display: inline-block;
       font-family: "Cambria Math", "Times New Roman", serif;
-      background: var(--surface);
+      background: var(--surface-alt);
       border: 1px solid var(--border);
       border-radius: 6px;
-      padding: 1px 7px;
-      font-size: 0.92rem;
-      margin: 2px 0;
+      padding: 2px 8px;
+      font-size: 0.94rem;
     }
 
     code {
@@ -467,10 +471,85 @@
       color: var(--code-text);
       padding: 2px 6px;
       border-radius: 5px;
-      font-size: 0.83rem;
+      font-size: 0.82rem;
     }
 
-    /* Interactive Python Trap Cards */
+    /* Interactive Mini-Labs */
+    .mini-lab {
+      background: var(--surface);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+    .mini-lab h4 {
+      margin: 0 0 8px;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+    .lab-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+    }
+    .lab-controls input[type="range"] {
+      flex: 1 1 160px;
+      accent-color: var(--primary);
+    }
+    .lab-outputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+      gap: 8px;
+    }
+    .lab-pill {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 8px 10px;
+      text-align: center;
+      font-size: 0.82rem;
+    }
+    .lab-pill strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+
+    .mod-footer-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    /* Badges & Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+    .badge-ok { background: var(--ok-soft); color: var(--ok); }
+    .badge-warn { background: var(--warn-soft); color: var(--warn); }
+
+    /* Traps & Formulas */
     .section-head {
       display: flex;
       justify-content: space-between;
@@ -492,54 +571,27 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 14px;
+      padding: 14px 16px;
       box-shadow: var(--shadow);
       cursor: pointer;
       text-align: left;
       color: var(--text);
-      transition: border-color 0.15s, transform 0.08s;
       width: 100%;
     }
     .trap-card:hover { border-color: var(--primary); }
-    .trap-card:active { transform: scale(0.99); }
-
-    .trap-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .trap-q {
-      font-weight: 700;
-      font-size: 0.94rem;
-      margin-bottom: 6px;
-    }
-
-    .trap-hint {
-      font-size: 0.8rem;
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .trap-answer {
-      display: none;
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top: 1px dashed var(--border);
-      font-size: 0.87rem;
-    }
+    .trap-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .trap-q { font-weight: 700; font-size: 0.93rem; margin-bottom: 6px; }
+    .trap-hint { font-size: 0.8rem; color: var(--primary); font-weight: 600; }
+    .trap-answer { display: none; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); font-size: 0.87rem; }
     .trap-card.revealed .trap-answer { display: block; }
     .trap-card.revealed .trap-hint { display: none; }
     .trap-card.revealed { border-color: var(--accent); }
 
     .formula-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 12px;
     }
-
     .f-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -547,13 +599,7 @@
       padding: 14px 16px;
       box-shadow: var(--shadow);
     }
-
-    .f-card h3 {
-      margin: 0 0 10px;
-      font-size: 0.96rem;
-      color: var(--primary);
-    }
-
+    .f-card h3 { margin: 0 0 10px; font-size: 0.96rem; color: var(--primary); }
     .f-row {
       display: flex;
       justify-content: space-between;
@@ -561,59 +607,41 @@
       gap: 10px;
       padding: 6px 0;
       border-bottom: 1px dashed var(--border);
-      font-size: 0.87rem;
+      font-size: 0.86rem;
     }
     .f-row:last-child { border-bottom: none; }
 
-    /* Quiz Lobby */
-    .lobby-grid {
-      display: grid;
-      gap: 16px;
-    }
-
+    /* Quiz Lobby & Stage */
     .config-section-title {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       color: var(--text-muted);
       font-weight: 800;
       margin: 0 0 8px;
     }
-
-    .chip-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
+    .chip-group { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
     .chip {
-      min-height: 40px;
-      padding: 7px 13px;
+      min-height: 38px;
+      padding: 6px 13px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: var(--surface-alt);
       color: var(--text);
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.12s;
+      white-space: nowrap;
     }
-
     .chip:hover { border-color: var(--primary); }
-
-    .chip.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #ffffff;
-    }
-    [data-theme="dark"] .chip.active { color: #071327; }
+    .chip.active { background: var(--primary); border-color: var(--primary); color: #ffffff; }
+    [data-theme="dark"] .chip.active { color: #090d16; }
 
     .custom-num {
-      width: 90px;
-      min-height: 40px;
-      padding: 6px 10px;
-      border-radius: 10px;
+      width: 86px;
+      min-height: 38px;
+      padding: 5px 10px;
+      border-radius: 9px;
       border: 1px solid var(--border);
       background: var(--surface-alt);
       color: var(--text);
@@ -627,7 +655,6 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 10px;
     }
-
     .mode-card {
       border: 2px solid var(--border);
       border-radius: 12px;
@@ -636,32 +663,20 @@
       color: var(--text);
       text-align: left;
       cursor: pointer;
-      transition: border-color 0.15s, background 0.15s;
     }
-
-    .mode-card strong { display: block; font-size: 0.96rem; margin-bottom: 3px; }
+    .mode-card strong { display: block; font-size: 0.95rem; margin-bottom: 3px; }
     .mode-card span { font-size: 0.83rem; color: var(--text-muted); }
-
-    .mode-card.active {
-      border-color: var(--primary);
-      background: var(--primary-soft);
-    }
+    .mode-card.active { border-color: var(--primary); background: var(--primary-soft); }
 
     .toggle-row {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
-      user-select: none;
     }
-
-    .toggle-row input {
-      width: 18px;
-      height: 18px;
-      accent-color: var(--primary);
-    }
+    .toggle-row input { width: 18px; height: 18px; accent-color: var(--primary); }
 
     .start-row {
       display: flex;
@@ -669,15 +684,11 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding-top: 8px;
+      padding-top: 10px;
       border-top: 1px solid var(--border);
     }
 
-    .history-list {
-      display: grid;
-      gap: 8px;
-    }
-
+    .history-list { display: grid; gap: 8px; }
     .history-item {
       display: flex;
       justify-content: space-between;
@@ -685,12 +696,11 @@
       flex-wrap: wrap;
       gap: 8px;
       padding: 9px 12px;
-      border-radius: 10px;
+      border-radius: 9px;
       background: var(--surface-alt);
       font-size: 0.85rem;
     }
 
-    /* Active Quiz Screen */
     .quiz-topbar {
       display: flex;
       flex-wrap: wrap;
@@ -699,28 +709,21 @@
       gap: 10px;
       margin-bottom: 12px;
     }
-
     .timer-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
+      padding: 5px 12px;
       border-radius: 999px;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       background: var(--surface-alt);
       border: 1px solid var(--border);
     }
     .timer-pill.warn { background: var(--warn-soft); color: var(--warn); border-color: var(--warn); }
     .timer-pill.danger { background: var(--err-soft); color: var(--err); border-color: var(--err); }
 
-    .nav-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 14px;
-    }
-
+    .nav-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
     .nav-pill {
       min-width: 34px;
       height: 34px;
@@ -747,59 +750,29 @@
       font-size: 0.84rem;
       color: var(--text-muted);
     }
-
-    .q-stage-text {
-      font-size: 1.08rem;
-      font-weight: 700;
-      margin: 0 0 14px;
-      line-height: 1.45;
-    }
-
-    .options-list {
-      display: grid;
-      gap: 10px;
-    }
-
+    .q-stage-text { font-size: 1.08rem; font-weight: 700; margin: 0 0 14px; line-height: 1.45; }
+    .options-list { display: grid; gap: 10px; }
     .opt-btn {
       width: 100%;
-      min-height: 52px;
+      min-height: 50px;
       text-align: left;
       padding: 12px 14px;
-      border-radius: 12px;
+      border-radius: 11px;
       border: 2px solid var(--border);
       background: var(--surface-alt);
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 0.94rem;
       cursor: pointer;
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      transition: border-color 0.12s, background 0.12s, transform 0.06s;
     }
     .opt-btn:hover:not(:disabled) { border-color: var(--primary); }
-    .opt-btn:active:not(:disabled) { transform: scale(0.99); }
     .opt-btn:disabled { cursor: default; }
-
-    .opt-letter {
-      font-weight: 800;
-      color: var(--primary);
-      min-width: 24px;
-    }
-
-    .opt-btn.selected {
-      border-color: var(--primary);
-      background: var(--primary-soft);
-    }
-
-    .opt-btn.correct {
-      border-color: var(--ok);
-      background: var(--ok-soft);
-    }
-
-    .opt-btn.wrong {
-      border-color: var(--err);
-      background: var(--err-soft);
-    }
+    .opt-letter { font-weight: 800; color: var(--primary); min-width: 22px; }
+    .opt-btn.selected { border-color: var(--primary); background: var(--primary-soft); }
+    .opt-btn.correct { border-color: var(--ok); background: var(--ok-soft); }
+    .opt-btn.wrong { border-color: var(--err); background: var(--err-soft); }
 
     .feedback-box {
       margin-top: 14px;
@@ -825,45 +798,24 @@
       border-top: 1px solid var(--border);
     }
 
-    /* Results Screen */
     .result-hero {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
       margin-bottom: 16px;
     }
-
     .result-stat {
       background: var(--surface-alt);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 11px;
       padding: 12px;
       text-align: center;
     }
+    .result-stat .lbl { font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+    .result-stat .val { font-size: 1.32rem; font-weight: 800; margin-top: 2px; }
 
-    .result-stat .lbl {
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .result-stat .val {
-      font-size: 1.35rem;
-      font-weight: 800;
-      margin-top: 3px;
-    }
-
-    .breakdown-row {
-      margin-bottom: 10px;
-    }
-    .breakdown-head {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.86rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
+    .breakdown-row { margin-bottom: 10px; }
+    .breakdown-head { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; }
 
     .review-card {
       background: var(--surface);
@@ -878,527 +830,166 @@
     .hidden { display: none !important; }
     .print-only { display: none; }
 
-    .intuition-box {
-      margin-top: 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: var(--accent-soft);
-      border-left: 4px solid var(--accent);
-      font-size: 0.92rem;
-    }
-    .intuition-box strong.int-title {
-      display: block;
-      color: var(--accent);
-      margin-bottom: 4px;
-      font-size: 0.95rem;
+    @media (max-width: 860px) {
+      .notes-shell { grid-template-columns: 1fr; }
+      .notes-sidebar { display: none; }
+      .mobile-mod-bar { display: block; }
     }
 
-    .mini-lab {
-      margin-top: 12px;
-      padding: 14px;
-      border-radius: 12px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-    }
-    .mini-lab h4 {
-      margin: 0 0 8px;
-      font-size: 0.94rem;
-      color: var(--primary);
-    }
-    .lab-controls {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-      font-size: 0.88rem;
-    }
-    .lab-controls input[type="range"] {
-      flex: 1 1 160px;
-      accent-color: var(--primary);
-    }
-    .lab-outputs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 8px;
-    }
-    .lab-pill {
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      padding: 8px 10px;
-      text-align: center;
-      font-size: 0.84rem;
-    }
-    .lab-pill strong {
-      display: block;
-      font-size: 1.05rem;
-      color: var(--primary);
-    }
-
-    /* Mobile Responsive */
     @media (max-width: 640px) {
-      .tabs-desktop { display: none; }
+      .nav-desktop { display: none; }
       .bottom-nav { display: block; }
-      main { padding: 14px 0 92px; }
-      .brand h1 { font-size: 1.06rem; }
-      .brand p { font-size: 0.76rem; }
-      .btn-glass span.hide-sm { display: none; }
-      .topic-grid, .traps-grid, .formula-cards { grid-template-columns: 1fr; }
+      main { padding: 14px 0 90px; }
+      .brand p { display: none; }
+      .btn .hide-sm { display: none; }
+      .chap-card { padding: 14px; }
       .quiz-footer-nav .btn { flex: 1 1 auto; }
     }
 
-    /* Print / PDF */
     @media print {
-      header .header-actions,
-      .tabs-desktop,
-      .bottom-nav,
-      .toolbar,
-      .study-tracker,
-      .module-actions-row,
-      #tab-quiz,
-      .trap-hint {
+      header .header-actions, .nav-desktop, .bottom-nav, .notes-sidebar, .mobile-mod-bar, .search-bar, .mod-footer-nav, #tab-quiz, .trap-hint {
         display: none !important;
       }
-      header {
-        position: static;
-        background: #ffffff !important;
-        color: #000000 !important;
-        border-bottom: 2px solid #000000;
-        box-shadow: none;
-      }
+      header { position: static; }
       body { background: #ffffff; color: #000000; font-size: 10pt; }
-      .module-card, .f-card, .trap-card { box-shadow: none; break-inside: avoid; }
-      .module-body { display: block !important; }
+      .notes-shell { display: block; }
+      .chap-card, .f-card, .trap-card { box-shadow: none; break-inside: avoid; }
       .trap-answer { display: block !important; }
       .tab-panel { display: none !important; }
       #tab-schema, #tab-formule { display: block !important; }
-      .print-only { display: block !important; margin: 18px 0 8px; }
+      .print-only { display: block !important; }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <div class="header-top">
+      <div class="header-inner">
         <div class="brand">
-          <h1>Matematica, Statistica &amp; Python</h1>
-          <p>Guida Cap. 1–34 &bull; Trappole Python &bull; Quiz Random a Tempo</p>
+          <div class="brand-mark">M</div>
+          <div>
+            <h1>Matematica, Statistica &amp; Python</h1>
+            <p>Tutti i 34 capitoli spiegati da zero &bull; Quiz Esame Random</p>
+          </div>
         </div>
+
+        <nav class="nav-desktop" role="tablist">
+          <button class="tab-btn active" data-tab="tab-schema" type="button">Appunti (Cap. 1–34)</button>
+          <button class="tab-btn" data-tab="tab-formule" type="button">Trappole &amp; Formule</button>
+          <button class="tab-btn" data-tab="tab-quiz" type="button">Quiz Esame</button>
+        </nav>
+
         <div class="header-actions">
-          <button class="btn btn-glass" id="btn-theme" type="button">&#127769; <span class="hide-sm">Tema</span></button>
-          <button class="btn btn-glass" id="btn-print" type="button">&#128424; <span class="hide-sm">PDF</span></button>
+          <button class="btn btn-sm" id="btn-theme" type="button">&#127769; <span class="hide-sm">Tema</span></button>
+          <button class="btn btn-sm btn-primary" id="btn-print" type="button">&#128424; <span class="hide-sm">PDF</span></button>
         </div>
       </div>
-
-      <nav class="tabs-desktop" role="tablist">
-        <button class="tab-btn active" data-tab="tab-schema" type="button">Schema (Cap. 1–34)</button>
-        <button class="tab-btn" data-tab="tab-formule" type="button">Formulario &amp; Trappole</button>
-        <button class="tab-btn" data-tab="tab-quiz" type="button">Quiz Esame a Tempo</button>
-      </nav>
     </div>
   </header>
 
   <main class="container">
-    <!-- TAB 1: SCHEMA SINTETICO -->
+    <!-- TAB 1: APPUNTI COMPLETI CAP. 01-34 -->
     <section id="tab-schema" class="tab-panel active">
-      <div class="card study-tracker">
-        <div class="tracker-bar-wrap">
-          <div class="tracker-label">
-            <span>Avanzamento Ripasso Moduli</span>
-            <span id="study-progress-text">0 / 6 completati</span>
+      <div class="notes-shell">
+        <!-- Desktop Sidebar -->
+        <aside class="notes-sidebar" aria-label="Indice capitoli">
+          <div class="sidebar-progress">
+            <div class="sidebar-progress-top">
+              <span>Ripasso Moduli</span>
+              <span id="study-progress-text">0 / 6</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="study-progress-fill"></div>
+            </div>
           </div>
-          <div class="progress-track">
-            <div class="progress-fill" id="study-progress-fill"></div>
+          <div id="sidebar-nav"></div>
+        </aside>
+
+        <!-- Main Reading Canvas -->
+        <div class="notes-main">
+          <div class="mobile-mod-bar">
+            <div class="chip-scroll" id="mobile-mod-chips"></div>
           </div>
-        </div>
-        <div class="chip-group">
-          <button class="btn btn-sm" id="btn-expand-all" type="button">Espandi tutti</button>
-          <button class="btn btn-sm" id="btn-collapse-all" type="button">Comprimi tutti</button>
+
+          <div class="search-bar">
+            <span>&#128269;</span>
+            <input id="search-input" type="search" placeholder="Cerca tra tutti i 34 capitoli (es. Bayes, derivata, QR, range, mediana, p-value...)" />
+          </div>
+
+          <div id="notes-content"></div>
         </div>
       </div>
-
-      <div class="card toolbar">
-        <div class="search-box">
-          <span>&#128269;</span>
-          <input id="search-input" type="search" placeholder="Cerca concetto, formula o Python (es. Bayes, range, QR, normale...)" />
-        </div>
-      </div>
-
-      <article class="module-card open" data-module-card data-mod-id="1">
-        <button class="module-header" type="button">
-          <div class="module-title-wrap">
-            <span class="badge">Modulo I</span>
-            <h2>Fondamenti di Matematica e Python (Cap. 1–7)</h2>
-            <span class="badge badge-ok hidden" data-done-badge>Ripassato &#10003;</span>
-          </div>
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="module-body">
-          <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Partire da zero: numeri, funzioni, somme, potenze, logaritmi e limiti</small>
-            <button class="btn btn-sm" data-mark-done="1" type="button">Segna come ripassato</button>
-          </div>
-          <div class="intuition-box">
-            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
-            Non si parte mai scrivendo codice a caso: prima capisci la <strong>domanda reale</strong> (es. "conviene il biglietto singolo da 2,20 € o l'abbonamento da 39 € al mese?"), poi traduci la regola in una <strong>formula</strong> e infine la fai calcolare a <strong>Python</strong>.
-          </div>
-          <div class="topic-grid">
-            <div class="topic-box">
-              <h3>1. Numeri e Divisioni in Python (Cap. 1–2)</h3>
-              <ul>
-                <li><strong>Tipi di numeri:</strong> Naturali (<code>0, 1, 2...</code> per contare), Interi (anche negativi per debiti/saldi), Razionali (frazioni), Reali (anche <code>&radic;2, &pi;</code>).</li>
-                <li><strong>Quoziente e resto:</strong> con 53 € e biglietti da 8 €, quanti ne compri? <code>53 // 8 = 6</code> biglietti e ti avanzano <code>53 % 8 = 5</code> €. In Python: <code>divmod(53, 8)</code> ti d&agrave; subito <code>(6, 5)</code>.</li>
-                <li><strong>Attenzione ai decimali (<code>float</code>):</strong> il PC lavora in binario, quindi <code>0.1 + 0.2</code> fa <code>0.30000000000000004</code>! Per confrontarli usa <code>math.isclose()</code>.</li>
-                <li><strong>Potenza:</strong> in Python si scrive <code>**</code> (es. <code>2**3 = 8</code>) e <code>-2**2</code> significa <code>-(2**2) = -4</code>.</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>2. Funzioni e Sommatorie (Cap. 3–4)</h3>
-              <ul>
-                <li><strong>Funzione:</strong> è una "macchina" che prende un ingresso <code>x</code> (es. ore) e restituisce <strong>un solo</strong> risultato <code>f(x)</code> (es. prezzo). <strong>Dominio</strong> = ingressi permessi; <strong>Immagine</strong> = uscite reali.</li>
-                <li><strong>Retta <span class="formula">f(x) = mx + b</span>:</strong> <code>b</code> è il costo fisso iniziale (a 0 ore), <code>m</code> è quanto cresce ogni ora.</li>
-                <li><strong>Sommatoria &Sigma;:</strong> significa "somma tutto dal primo all'ultimo". Sommare da <code>1</code> a <code>n</code> vale <span class="formula">n(n+1)/2</span> (es. 1+2+3+4 = 4&times;5/2 = 10).</li>
-                <li><strong>Trappola Python <code>range</code>:</strong> <code>range(3, 9)</code> parte da <code>3</code> e si ferma a <code>8</code> (l'ultimo numero è sempre escluso!).</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>3. Crescita, Logaritmi &amp; Limiti (Cap. 5–7)</h3>
-              <ul>
-                <li><strong>Crescita composta <span class="formula">N(t) = N<sub>0</sub>(1+r)<sup>t</sup></span>:</strong> se parti da 200 iscritti e cresci del 10% a settimana, moltiplichi ogni settimana per <code>1,10</code> (non sommi sempre 20!).</li>
-                <li><strong>Logaritmo = "trovare l'esponente":</strong> se <code>10<sup>3</sup> = 1000</code>, allora <code>log<sub>10</sub>(1000) = 3</code>. Serve per rispondere a: <em>"Tra quanti anni raddoppio il capitale?"</em> &rarr; <span class="formula">t = ln(2)/ln(1+r)</span>.</li>
-                <li><strong>Limite:</strong> guarda a cosa si avvicina <code>f(x)</code> quando ti avvicini a un punto da sinistra e da destra, anche se proprio lì c'è un "buco" (<code>0/0</code> si semplifica prima!).</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="module-card" data-module-card data-mod-id="2">
-        <button class="module-header" type="button">
-          <div class="module-title-wrap">
-            <span class="badge">Modulo II</span>
-            <h2>Calcolo Infinitesimale: Derivate e Integrali (Cap. 8–9)</h2>
-            <span class="badge badge-ok hidden" data-done-badge>Ripassato &#10003;</span>
-          </div>
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="module-body">
-          <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Due idee opposte: velocità istantanea (derivata) e accumulo totale (integrale)</small>
-            <button class="btn btn-sm" data-mark-done="2" type="button">Segna come ripassato</button>
-          </div>
-          <div class="intuition-box">
-            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
-            Immagina di guidare un'auto: la <strong>derivata</strong> è il tachimetro che ti dice a che velocità stai andando <em>in questo preciso istante</em> (pendenza della curva); l'<strong>integrale</strong> è il contachilometri che somma tutti i piccoli tratti percorsi per dirti <em>quanta strada hai accumulato in totale</em>.
-          </div>
-          <div class="topic-grid">
-            <div class="topic-box">
-              <h3>1. Derivata = Pendenza Istantanea (Cap. 8)</h3>
-              <ul>
-                <li><strong>Cos'è:</strong> quanto cambia l'uscita se aumenti di un soffio l'ingresso (<span class="formula">h &rarr; 0</span>). In economia si chiama <strong>costo marginale</strong>.</li>
-                <li><strong>Regole facili:</strong> un numero fisso sparisce (<code>0</code>); per <code>x<sup>n</sup></code> porti giù l'esponente e scali di 1 (<code>x<sup>3</sup> &rarr; 3x<sup>2</sup></code>); <code>e<sup>x</sup></code> resta <code>e<sup>x</sup></code>; <code>ln(x) &rarr; 1/x</code>.</li>
-                <li><strong>Due trappole d'esame:</strong> <code>|x|</code> ha uno spigolo in <code>0</code> (continua ma <strong>non derivabile</strong>); derivata zero in un punto non garantisce un massimo o minimo (es. <code>x<sup>3</sup></code> in <code>0</code>).</li>
-                <li><strong>Più variabili (Parziali &amp; Gradiente):</strong> derivi una lettera alla volta trattando le altre come numeri fissi. SymPy: <code>diff(expr, x)</code>.</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>2. Integrale = Somma / Accumulo (Cap. 9)</h3>
-              <ul>
-                <li><strong>Cos'è:</strong> moltiplica altezza &times; base su tantissime fettine sottili e somma tutto. È l'area sotto la curva.</li>
-                <li><strong>Come si calcola:</strong> trovi una funzione <code>F</code> la cui derivata sia <code>f</code> (primitiva), poi fai <span class="formula">F(arrivo) &minus; F(partenza)</span>.</li>
-                <li><strong>Esempio concreto:</strong> potenza <code>P(t) = 2t</code> kW per <code>0..3</code> ore &rarr; primitiva <code>t<sup>2</sup></code> &rarr; <code>3<sup>2</sup> &minus; 0<sup>2</sup> = 9 kWh</code>.</li>
-                <li><strong>Segno:</strong> l'integrale dà il <strong>saldo netto</strong> (entrate positive, uscite negative). SymPy: <code>integrate(expr, (x, a, b))</code>.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="module-card" data-module-card data-mod-id="3">
-        <button class="module-header" type="button">
-          <div class="module-title-wrap">
-            <span class="badge">Modulo III</span>
-            <h2>Probabilit&agrave; e Distribuzioni (Cap. 10–15)</h2>
-            <span class="badge badge-ok hidden" data-done-badge>Ripassato &#10003;</span>
-          </div>
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="module-body">
-          <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Scommesse, filtro antispam (Bayes), lanci ripetuti (Binomiale) e stima (Beta)</small>
-            <button class="btn btn-sm" data-mark-done="3" type="button">Segna come ripassato</button>
-          </div>
-          <div class="intuition-box">
-            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
-            La probabilità misura quanto è plausibile un evento da <code>0</code> (impossibile) a <code>1</code> (certo). Il <strong>Teorema di Bayes</strong> risponde alla domanda più importante della vita reale: <em>"Dato che è scattato l'allarme, quanto è probabile che sia un vero pericolo e non un falso allarme?"</em>.
-          </div>
-          <div class="topic-grid">
-            <div class="topic-box">
-              <h3>1. Regole Base, Unione &amp; Indipendenza (Cap. 10–11)</h3>
-              <ul>
-                <li><strong>Odds:</strong> rapporto tra favorevoli e contrari: <span class="formula">p / (1&minus;p)</span>. Se <code>p = 0,2</code>, le odds sono <code>0,2 / 0,8 = 1 a 4</code>.</li>
-                <li><strong>Unione ("almeno uno dei due"):</strong> <span class="formula">P(A&cup;B) = P(A) + P(B) &minus; P(A&cap;B)</span>. Si sottrae l'intersezione per non contare due volte chi fa entrambe le cose!</li>
-                <li><strong>Trucco "Almeno uno":</strong> calcola il contrario ("nessuno") e fai <code>1 &minus; P(nessuno)</code>.</li>
-                <li><strong>Incompatibili vs Indipendenti:</strong> se due eventi non possono accadere insieme (<code>P(A&cap;B)=0</code>), sapere che è successo A ti dice che B è impossibile: quindi sono <strong>dipendenti</strong>!</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>2. Bayes &amp; Variabili Casuali (Cap. 12–13)</h3>
-              <ul>
-                <li><strong>Bayes in 10 secondi:</strong> usa una tabella su 1.000 casi! Dividi i <strong>veri positivi</strong> per <strong>tutti i segnalati (veri + falsi positivi)</strong>.</li>
-                <li><strong>Discreta vs Continua:</strong> se conti (0, 1, 2 figli) ogni valore ha una probabilità; se misuri (tempo continuo da 0 a 10 min) la probabilità è un'<strong>area</strong> e un singolo punto esatto vale sempre <strong>0</strong>.</li>
-                <li><strong>Cumulata <code>F(x)</code>:</strong> è la probabilità di stare <code>&le; x</code>. Tra <code>a</code> e <code>b</code> fai <code>F(b) &minus; F(a)</code>.</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>3. Binomiale &amp; Beta (Cap. 14–15)</h3>
-              <ul>
-                <li><strong>Binomiale(n, p):</strong> conti quanti successi ottieni in <code>n</code> prove identiche e indipendenti (es. 10 tiri a canestro). Media = <span class="formula">np</span>.</li>
-                <li><strong>Python <code>binom.sf</code>:</strong> per "almeno 4 successi" (<code>X &ge; 4</code>) in SciPy si scrive <code>binom.sf(3, n, p)</code> (sempre <code>k &minus; 1</code>!).</li>
-                <li><strong>Beta(&alpha;, &beta;):</strong> descrive quanto sei sicuro del tasso <code>p</code>. Se parti da <code>Beta(2, 2)</code> e osservi 7 successi e 3 insuccessi, sommi semplicemente: <code>Beta(2+7, 2+3) = Beta(9, 5)</code>! Media = <code>9/14</code>.</li>
-              </ul>
-            </div>
-          </div>
-          <div class="mini-lab" id="lab-bayes">
-            <h4>Mini-Lab Interattivo: Perché un allarme può essere un falso allarme (Bayes, Cap. 12)</h4>
-            <div class="lab-controls">
-              <label for="bayes-prior"><strong>% Spam reale in arrivo:</strong> <span id="bayes-prior-val">10%</span></label>
-              <input id="bayes-prior" type="range" min="1" max="50" value="10" />
-            </div>
-            <div class="lab-outputs">
-              <div class="lab-pill"><span>Veri Spam segnalati (90%)</span><strong id="bayes-tp">90</strong></div>
-              <div class="lab-pill"><span>Falsi allarmi su sane (5%)</span><strong id="bayes-fp">45</strong></div>
-              <div class="lab-pill"><span>Totale segnalate</span><strong id="bayes-tot">135</strong></div>
-              <div class="lab-pill"><span>P(Spam | Segnalata)</span><strong id="bayes-post">66.7%</strong></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="module-card" data-module-card data-mod-id="4">
-        <button class="module-header" type="button">
-          <div class="module-title-wrap">
-            <span class="badge">Modulo IV</span>
-            <h2>Statistica Descrittiva e Inferenziale (Cap. 16–23)</h2>
-            <span class="badge badge-ok hidden" data-done-badge>Ripassato &#10003;</span>
-          </div>
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="module-body">
-          <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Riassumere i dati, campana Normale, errore standard, intervalli e p-value</small>
-            <button class="btn btn-sm" data-mark-done="4" type="button">Segna come ripassato</button>
-          </div>
-          <div class="intuition-box">
-            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
-            La <strong>descrittiva</strong> riassume i dati che hai già davanti (media, mediana, dispersione). L'<strong>inferenziale</strong> fa il salto dal campione all'intera popolazione, rispondendo con un margine di incertezza (<strong>Intervallo di Confidenza</strong>) o verificando un'affermazione (<strong>p-value</strong>).
-          </div>
-          <div class="topic-grid">
-            <div class="topic-box">
-              <h3>1. Media, Mediana, Bias &amp; Varianza (Cap. 16–18)</h3>
-              <ul>
-                <li><strong>Bias (distorsione):</strong> se intervisti solo chi entra dal parcheggio per capire come si spostano i dipendenti, escludi chi viene in treno. Aumentare il numero di interviste lì <strong>non</strong> elimina il bias!</li>
-                <li><strong>Media vs Mediana:</strong> la media è trascinata dai valori estremi (outlier); la mediana guarda solo chi sta in mezzo ed è robusta.</li>
-                <li><strong>Varianza campionaria <code>n &minus; 1</code>:</strong> per il campione si divide per <code>n &minus; 1</code>. Trappola Python: <code>np.var(x)</code> divide per <code>n</code>, devi mettere <code>ddof=1</code>!</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>2. Normale, TLC &amp; Errore Standard (Cap. 19–21)</h3>
-              <ul>
-                <li><strong>Curva Normale:</strong> a campana simmetrica. Regola <strong>68% – 95% – 99,7%</strong> entro 1, 2 e 3 deviazioni standard dalla media.</li>
-                <li><strong>Z-score:</strong> <span class="formula">(x &minus; &mu;) / &sigma;</span> ti dice a quante deviazioni standard sei dalla media.</li>
-                <li><strong>Errore Standard <span class="formula">SE = &sigma;/&radic;n</span>:</strong> misura quanto oscilla la <em>media</em> tra un campione e l'altro. Per dimezzare l'errore devi <strong>quadruplicare</strong> i dati!</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>3. Intervalli &amp; Test delle Ipotesi (Cap. 22–23)</h3>
-              <ul>
-                <li><strong>Intervallo di Confidenza:</strong> <code>stima &plusmn; margine</code>. Se &sigma; è ignota usi la <code>t</code> di Student (<code>n&minus;1</code> gdl); se è nota usi <code>z</code> (<code>1,96</code> al 95%).</li>
-                <li><strong>p-value:</strong> è la probabilità di vedere un risultato così strano <em>se l'ipotesi di partenza H<sub>0</sub> fosse vera</em>. Se <code>p &le; &alpha;</code> (es. 0,05) rifiuti H<sub>0</sub>.</li>
-                <li><strong>Errore:</strong> <code>p-value = 0,04</code> NON vuol dire "H<sub>0</sub> è vera al 4%"!</li>
-              </ul>
-            </div>
-          </div>
-          <div class="mini-lab" id="lab-outlier">
-            <h4>Mini-Lab Interattivo: Perché la Media mente con un valore estremo (Cap. 17)</h4>
-            <div class="lab-controls">
-              <label for="outlier-slider"><strong>5&ordf; consegna: [10, 11, 11, 12, <span id="outlier-val">56</span>] min</strong></label>
-              <input id="outlier-slider" type="range" min="12" max="200" value="56" />
-            </div>
-            <div class="lab-outputs">
-              <div class="lab-pill"><span>Media (trascinata)</span><strong id="out-mean">20.0 min</strong></div>
-              <div class="lab-pill"><span>Mediana (stabile)</span><strong id="out-median">11.0 min</strong></div>
-              <div class="lab-pill"><span>Moda (più frequente)</span><strong>11 min</strong></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="module-card" data-module-card data-mod-id="5">
-        <button class="module-header" type="button">
-          <div class="module-title-wrap">
-            <span class="badge">Modulo V</span>
-            <h2>Algebra Lineare: Vettori, Matrici e Sistemi (Cap. 24–28)</h2>
-            <span class="badge badge-ok hidden" data-done-badge>Ripassato &#10003;</span>
-          </div>
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="module-body">
-          <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Frecce nello spazio, direzioni indipendenti, rotazioni e più equazioni insieme</small>
-            <button class="btn btn-sm" data-mark-done="5" type="button">Segna come ripassato</button>
-          </div>
-          <div class="intuition-box">
-            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
-            Un <strong>vettore</strong> è una freccia (o una lista ordinata di numeri, come 3 km a Est e 2 a Sud: <code>(3, -2)</code>). Una <strong>matrice</strong> è una tabella di numeri che trasforma i vettori (es. li ruota o li scala) oppure raccoglie più equazioni da risolvere insieme.
-          </div>
-          <div class="topic-grid">
-            <div class="topic-box">
-              <h3>1. Vettori, Norma &amp; Prodotto Scalare (Cap. 24–25)</h3>
-              <ul>
-                <li><strong>Spostamento:</strong> <code>arrivo &minus; partenza</code>. Da <code>(2,1)</code> a <code>(5,0)</code> ti sposti di <code>(3, -1)</code>.</li>
-                <li><strong>Norma (lunghezza):</strong> Teorema di Pitagora! Per <code>(3, 4)</code> è <code>&radic;(3<sup>2</sup>+4<sup>2</sup>) = 5</code>.</li>
-                <li><strong>Prodotto scalare <code>v @ w</code>:</strong> moltiplichi coppia a coppia e sommi. Se fa <strong>0</strong> (con vettori non nulli), i vettori sono a <strong>90&deg; (ortogonali)</strong>!</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>2. Indipendenza, Base &amp; Rango (Cap. 26)</h3>
-              <ul>
-                <li><strong>Dipendenza:</strong> <code>(2, 2)</code> è solo il doppio di <code>(1, 1)</code>, quindi punta nella stessa direzione (non aggiunge nulla).</li>
-                <li><strong>Rango:</strong> è il numero di direzioni davvero indipendenti. Se metti <code>(1,1)</code>, <code>(2,2)</code> e <code>(1,0)</code> in matrice, il rango è <strong>2</strong> (non 3!).</li>
-                <li><strong>Base:</strong> il set minimo di vettori indipendenti che permette di raggiungere tutto lo spazio.</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>3. Matrici &amp; Sistemi Lineari (Cap. 27–28)</h3>
-              <ul>
-                <li><strong>Prodotto <code>A @ B</code>:</strong> in Python si usa <code>@</code> (mai <code>*</code>). L'ordine conta: <code>AB &ne; BA</code> e <span class="formula">(AB)<sup>-1</sup> = B<sup>-1</sup>A<sup>-1</sup></span>.</li>
-                <li><strong>Determinante <code>det(A)</code>:</strong> se vale <code>0</code> la matrice schiaccia lo spazio e <strong>non è invertibile</strong>.</li>
-                <li><strong>Sistemi <code>Ax = b</code>:</strong> 2 caffè + 1 panino = 7 €, 1 caffè + 2 panini = 8 € &rarr; <code>np.linalg.solve(A, b)</code> trova <code>[2, 3]</code>. Se le rette sono parallele senza incontrarsi, il sistema è incompatibile.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <article class="module-card" data-module-card data-mod-id="6">
-        <button class="module-header" type="button">
-          <div class="module-title-wrap">
-            <span class="badge">Modulo VI</span>
-            <h2>Regressione e Fondamenti di ML (Cap. 29–34)</h2>
-            <span class="badge badge-ok hidden" data-done-badge>Ripassato &#10003;</span>
-          </div>
-          <span class="chevron">&#9660;</span>
-        </button>
-        <div class="module-body">
-          <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Prevedere un numero dai dati, misurare l'errore, allenare il modello e verificarlo</small>
-            <button class="btn btn-sm" data-mark-done="6" type="button">Segna come ripassato</button>
-          </div>
-          <div class="intuition-box">
-            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
-            Hai i dati dei tuoi allenamenti (km percorsi e minuti impiegati) e vuoi tracciare la <strong>retta migliore</strong> per prevedere il tempo di una nuova distanza. Il computer trova la retta che rende più piccoli possibile gli errori al quadrato (<strong>minimi quadrati</strong>) oppure scende passo dopo passo verso l'errore minimo (<strong>discesa del gradiente</strong>).
-          </div>
-          <div class="topic-grid">
-            <div class="topic-box">
-              <h3>1. Retta, Residui &amp; Metriche (Cap. 29–30, 34)</h3>
-              <ul>
-                <li><strong>Retta <span class="formula">&ycirc; = b<sub>0</sub> + b<sub>1</sub>x</span>:</strong> passa sempre per il punto delle medie <code>(x&#772;, y&#772;)</code>.</li>
-                <li><strong>Residuo:</strong> <span class="formula">e = reale &minus; previsto</span>. Se è positivo, il modello ha sottostimato.</li>
-                <li><strong>MAE vs RMSE:</strong> <code>MAE</code> è la media degli errori senza segno; <code>RMSE = &radic;MSE</code> pesa molto di più gli errori grandi (perché li eleva al quadrato!).</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>2. QR, Gradiente &amp; Correlazione (Cap. 31–33)</h3>
-              <ul>
-                <li><strong>Decomposizione QR (<code>Rb = Q<sup>T</sup>y</code>):</strong> si usa al posto di <code>X<sup>T</sup>Xb = X<sup>T</sup>y</code> perché è numericamente più stabile.</li>
-                <li><strong>Discesa del gradiente:</strong> <span class="formula">b<sub>nuovo</sub> = b &minus; &eta;&nabla;L(b)</span>. Si <strong>sottrae</strong> il gradiente per scendere! Se il passo <code>&eta;</code> è troppo grande, il modello esplode invece di convergere.</li>
-                <li><strong>Pearson <code>r</code>:</strong> misura solo se i punti seguono una <strong>retta</strong>. Su una parabola <code>y = x<sup>2</sup></code> fa <code>r = 0</code>! E ricorda: correlazione non significa causa.</li>
-              </ul>
-            </div>
-            <div class="topic-box">
-              <h3>3. Diagnostica &amp; Test Separati (Cap. 34)</h3>
-              <ul>
-                <li><strong>Mai testare sugli stessi dati di addestramento:</strong> tieni sempre da parte un <strong>Test set</strong> (in ordine cronologico se prevedi il futuro).</li>
-                <li><strong>Grafico dei residui:</strong> se forma una <strong>U</strong>, manca una curva; se si allarga a <strong>ventaglio</strong>, l'errore cresce coi valori alti.</li>
-                <li><strong>Errore standard stima:</strong> <span class="formula">s<sub>res</sub> = &radic;[SSE / (n &minus; p)]</span> dove <code>p</code> è il numero di coefficienti (es. 2 per retta con intercetta).</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </article>
     </section>
 
-    <!-- TAB 2: FORMULARIO & TRAPPOLE PYTHON INTERATTIVE -->
+    <!-- TAB 2: TRAPPOLE PYTHON & FORMULARIO -->
     <section id="tab-formule" class="tab-panel">
-      <h2 class="print-only">Formulario &amp; Trappole Python d'Esame</h2>
+      <h2 class="print-only">Trappole Python &amp; Formulario</h2>
 
       <div class="section-head">
         <h2>Trappole Python d'Esame (tocca una card per scoprire la risposta)</h2>
-        <button class="btn btn-sm" id="btn-toggle-traps" type="button">Mostra tutte le soluzioni</button>
+        <button class="btn btn-sm" id="btn-toggle-traps" type="button">Mostra tutte</button>
       </div>
 
-      <div class="traps-grid" id="traps-grid">
+      <div class="traps-grid">
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 1</span><code>2 ^ 3</code> vs <code>2 ** 3</code></div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 02 / 05</span><code>2 ^ 3</code> vs <code>2 ** 3</code></div>
           <div class="trap-q">Quanto fa <code>2 ^ 3</code> e quanto fa <code>-2 ** 2</code> in Python?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
-          <div class="trap-answer"><code>2 ^ 3</code> fa lo <strong>XOR bit a bit (= 1)</strong>! La potenza &egrave; <code>2 ** 3</code> (= 8). Inoltre <code>-2 ** 2</code> si legge <code>-(2 ** 2) = -4</code>.</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
+          <div class="trap-answer"><code>2 ^ 3</code> fa lo <strong>XOR bit a bit (= 1)</strong>! La potenza &egrave; <code>2 ** 3</code> (= 8). Inoltre <code>-2 ** 2</code> significa <code>-(2 ** 2) = -4</code>.</div>
         </button>
 
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 2</span><code>//</code> vs <code>/</code></div>
-          <div class="trap-q">Come ottieni quoziente intero e resto di <code>53 / 8</code>?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
-          <div class="trap-answer"><code>53 / 8</code> d&agrave; <code>6.625</code> (float). Usa <code>53 // 8</code> (= 6) e <code>53 % 8</code> (= 5), oppure <code>divmod(53, 8)</code>.</div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 02</span><code>//</code> vs <code>/</code></div>
+          <div class="trap-q">Come ottieni quoziente intero e resto di <code>74 / 9</code>?</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
+          <div class="trap-answer"><code>74 / 9</code> d&agrave; <code>8.222...</code>. Usa <code>74 // 9</code> (= 8) e <code>74 % 9</code> (= 2), oppure <code>divmod(74, 9)</code> &rarr; <code>(8, 2)</code>.</div>
         </button>
 
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 3</span><code>range(a, b)</code></div>
-          <div class="trap-q">Quale istruzione somma gli interi da 3 a 8 <em>compresi</em>?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 04</span><code>range(a, b)</code></div>
+          <div class="trap-q">Come sommi gli interi da 3 a 8 <em>compresi</em>?</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
           <div class="trap-answer"><code>sum(range(3, 9))</code> (= 33). L'estremo superiore di <code>range(a, b)</code> &egrave; sempre <strong>escluso</strong>!</div>
         </button>
 
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 4</span><code>np.var</code> vs <code>ddof=1</code></div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 18</span><code>np.var</code> vs <code>ddof=1</code></div>
           <div class="trap-q">Quale divide per <code>n &minus; 1</code> di default tra <code>statistics.variance</code> e <code>np.var</code>?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
-          <div class="trap-answer"><code>statistics.variance(x)</code> usa <code>n &minus; 1</code>. <code>np.var(x)</code> di default usa <code>n</code> (popolazione): per il campione serve <code>np.var(x, ddof=1)</code>!</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
+          <div class="trap-answer"><code>statistics.variance(x)</code> usa <code>n &minus; 1</code>. <code>np.var(x)</code> di default divide per <code>n</code>: per il campione devi scrivere <code>np.var(x, ddof=1)</code>!</div>
         </button>
 
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 5</span><code>binom.sf</code></div>
-          <div class="trap-q">Come calcoli <code>P(X &ge; 4)</code> nella binomiale con <code>scipy.stats.binom</code>?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
-          <div class="trap-answer"><code>binom.sf(3, n, p)</code>! Perch&eacute; <code>sf(k)</code> calcola <code>P(X &gt; k)</code> (strettamente maggiore): va passato <code>k &minus; 1</code>.</div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 14</span><code>binom.sf</code></div>
+          <div class="trap-q">Come calcoli <code>P(X &ge; 4)</code> nella binomiale con SciPy?</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
+          <div class="trap-answer"><code>binom.sf(3, n, p)</code>! Perch&eacute; <code>sf(k)</code> calcola <code>P(X &gt; k)</code>: devi sempre passare <code>k &minus; 1</code>.</div>
         </button>
 
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 6</span><code>ppf</code> &amp; <code>inv_cdf</code></div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 21</span><code>ppf</code> &amp; <code>inv_cdf</code></div>
           <div class="trap-q">Cosa passi a <code>NormalDist(m, s).inv_cdf(...)</code> per il 90&deg; percentile?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
           <div class="trap-answer">Passi <code>0.90</code> (probabilit&agrave; tra 0 e 1), <strong>non</strong> <code>90</code>!</div>
         </button>
 
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 7</span><code>@</code> vs <code>*</code></div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 25 / 27</span><code>@</code> vs <code>*</code></div>
           <div class="trap-q">Che differenza c'&egrave; tra <code>v * w</code> e <code>v @ w</code> in NumPy?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
-          <div class="trap-answer"><code>v * w</code> moltiplica elemento per elemento. Il prodotto scalare e il prodotto matriciale usano l'operatore <code>@</code>.</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
+          <div class="trap-answer"><code>v * w</code> moltiplica elemento per elemento. Il prodotto scalare e il prodotto matriciale usano <code>@</code>.</div>
         </button>
 
         <button class="trap-card" type="button">
-          <div class="trap-top"><span class="badge badge-warn">Trappola 8</span><code>solve</code> vs <code>inv</code></div>
-          <div class="trap-q">Qual &egrave; il modo migliore in NumPy per risolvere <code>Ax = b</code>?</div>
-          <div class="trap-hint">Tocca per verificare &rarr;</div>
-          <div class="trap-answer">Usa <code>np.linalg.solve(A, b)</code> (o <code>lstsq</code> per rango ridotto), evitando <code>np.linalg.inv(A) @ b</code>.</div>
+          <div class="trap-top"><span class="badge badge-warn">Cap. 28 / 31</span><code>solve</code> vs <code>inv</code></div>
+          <div class="trap-q">Come conviene risolvere <code>Ax = b</code> o i minimi quadrati in NumPy?</div>
+          <div class="trap-hint">Tocca per vedere &rarr;</div>
+          <div class="trap-answer">Usa <code>np.linalg.solve(A, b)</code> (o <code>np.linalg.lstsq</code> per sistemi sovradeterminati), evitando <code>np.linalg.inv(A) @ b</code>.</div>
         </button>
       </div>
 
       <div class="section-head">
-        <h2>Formulario Compatto</h2>
+        <h2>Formulario Compatto (Cap. 1–34)</h2>
       </div>
       <div class="formula-cards">
         <div class="f-card">
@@ -1450,14 +1041,13 @@
       </div>
     </section>
 
-    <!-- TAB 3: SIMULATORE ESAME A TEMPO -->
+    <!-- TAB 3: QUIZ ESAME A TEMPO -->
     <section id="tab-quiz" class="tab-panel">
-      <!-- SCREEN 1: CONFIGURAZIONE LOBBY -->
-      <div id="quiz-lobby" class="lobby-grid">
+      <div id="quiz-lobby">
         <div class="card">
           <h2 style="margin:0 0 4px;">Configura il tuo Quiz d'Esame</h2>
           <p style="margin:0 0 16px;font-size:0.9rem;color:var(--text-muted);">
-            Banca dati da <strong>40 domande tipo esame</strong>. A ogni partita domande e opzioni vengono estratte e mescolate in ordine casuale.
+            <strong>40 domande tipo esame</strong> prese direttamente dai capitoli 1–34 del PDF. A ogni partita domande e opzioni vengono mescolate in ordine casuale.
           </p>
 
           <p class="config-section-title">1. Scegli i Moduli</p>
@@ -1479,7 +1069,7 @@
             <button class="chip" data-count="20" type="button">20</button>
             <button class="chip" data-count="30" type="button">30</button>
             <button class="chip" data-count="all" type="button">Tutte</button>
-            <input class="custom-num" id="custom-count" type="number" min="1" max="40" value="10" aria-label="Numero personalizzato di domande" />
+            <input class="custom-num" id="custom-count" type="number" min="1" max="40" value="10" aria-label="Numero personalizzato" />
           </div>
 
           <p class="config-section-title">3. Tempo limite (minuti)</p>
@@ -1490,7 +1080,7 @@
             <button class="chip" data-time="15" type="button">15 min</button>
             <button class="chip" data-time="25" type="button">25 min</button>
             <input class="custom-num" id="custom-time" type="number" min="0" max="120" value="10" aria-label="Minuti personalizzati" />
-            <span style="font-size:0.84rem;color:var(--text-muted)">min (0 = libero)</span>
+            <span style="font-size:0.83rem;color:var(--text-muted)">min (0 = libero)</span>
           </div>
 
           <p class="config-section-title">4. Modalit&agrave;</p>
@@ -1516,7 +1106,7 @@
           </div>
         </div>
 
-        <div class="card" id="history-card">
+        <div class="card">
           <div class="section-head" style="margin-bottom:8px;">
             <h3 style="margin:0;font-size:0.98rem;">Ultimi tentativi</h3>
             <button class="btn btn-sm" id="btn-clear-history" type="button">Pulisci storico</button>
@@ -1525,7 +1115,6 @@
         </div>
       </div>
 
-      <!-- SCREEN 2: ACTIVE QUIZ STAGE -->
       <div id="quiz-stage" class="hidden">
         <div class="card">
           <div class="quiz-topbar">
@@ -1551,9 +1140,7 @@
           </div>
 
           <p class="q-stage-text" id="stage-q-text"></p>
-
           <div class="options-list" id="stage-options"></div>
-
           <div class="feedback-box" id="stage-feedback"></div>
 
           <div class="quiz-footer-nav">
@@ -1566,32 +1153,17 @@
         </div>
       </div>
 
-      <!-- SCREEN 3: RESULTS & REVIEW -->
       <div id="quiz-results" class="hidden">
         <div class="card">
           <h2 id="res-headline" style="margin:0 0 12px;">Risultato Esame</h2>
           <div class="result-hero">
-            <div class="result-stat">
-              <div class="lbl">Voto Esame</div>
-              <div class="val" id="res-voto">0/30</div>
-            </div>
-            <div class="result-stat">
-              <div class="lbl">Corrette</div>
-              <div class="val" id="res-correct">0 / 0</div>
-            </div>
-            <div class="result-stat">
-              <div class="lbl">Precisione</div>
-              <div class="val" id="res-pct">0%</div>
-            </div>
-            <div class="result-stat">
-              <div class="lbl">Tempo</div>
-              <div class="val" id="res-time">00:00</div>
-            </div>
+            <div class="result-stat"><div class="lbl">Voto Esame</div><div class="val" id="res-voto">0/30</div></div>
+            <div class="result-stat"><div class="lbl">Corrette</div><div class="val" id="res-correct">0 / 0</div></div>
+            <div class="result-stat"><div class="lbl">Precisione</div><div class="val" id="res-pct">0%</div></div>
+            <div class="result-stat"><div class="lbl">Tempo</div><div class="val" id="res-time">00:00</div></div>
           </div>
-
           <h3 style="margin:0 0 8px;font-size:0.96rem;">Rendimento per Modulo</h3>
           <div id="res-breakdown" style="margin-bottom:14px;"></div>
-
           <div class="chip-group">
             <button class="btn btn-primary" id="btn-play-again" type="button">Nuova partita random</button>
             <button class="btn btn-accent" id="btn-retry-errors" type="button">Riprova solo gli errori</button>
@@ -1613,18 +1185,9 @@
 
   <nav class="bottom-nav" aria-label="Navigazione mobile">
     <div class="bottom-nav-inner">
-      <button class="bnav-btn active" data-tab="tab-schema" type="button">
-        <span class="bnav-ico">&#128218;</span>
-        <span>Schema</span>
-      </button>
-      <button class="bnav-btn" data-tab="tab-formule" type="button">
-        <span class="bnav-ico">&#9889;</span>
-        <span>Trappole</span>
-      </button>
-      <button class="bnav-btn" data-tab="tab-quiz" type="button">
-        <span class="bnav-ico">&#127919;</span>
-        <span>Quiz Esame</span>
-      </button>
+      <button class="bnav-btn active" data-tab="tab-schema" type="button"><span>&#128218;</span><span>Appunti</span></button>
+      <button class="bnav-btn" data-tab="tab-formule" type="button"><span>&#9889;</span><span>Trappole</span></button>
+      <button class="bnav-btn" data-tab="tab-quiz" type="button"><span>&#127919;</span><span>Quiz Esame</span></button>
     </div>
   </nav>
 
@@ -1634,110 +1197,553 @@
 
       // --- 1. THEME & PRINT ---
       var themeBtn = document.getElementById("btn-theme");
-      var savedTheme = null;
-      try { savedTheme = localStorage.getItem("study_theme_v2"); } catch (e) {}
-      if (savedTheme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
+      try {
+        if (localStorage.getItem("study_theme_v3") === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+        }
+      } catch (e) {}
       themeBtn.addEventListener("click", function () {
         var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", next);
-        try { localStorage.setItem("study_theme_v2", next); } catch (e) {}
+        try { localStorage.setItem("study_theme_v3", next); } catch (e) {}
       });
+      document.getElementById("btn-print").addEventListener("click", function () { window.print(); });
 
-      document.getElementById("btn-print").addEventListener("click", function () {
-        window.print();
-      });
-
-      // --- 2. TABS (DESKTOP + MOBILE BOTTOM NAV SYNC) ---
+      // --- 2. TABS ---
       var tabTriggers = document.querySelectorAll("[data-tab]");
       var tabPanels = document.querySelectorAll(".tab-panel");
       function activateTab(tabId) {
-        tabTriggers.forEach(function (el) {
-          el.classList.toggle("active", el.getAttribute("data-tab") === tabId);
-        });
-        tabPanels.forEach(function (panel) {
-          panel.classList.toggle("active", panel.id === tabId);
-        });
+        tabTriggers.forEach(function (el) { el.classList.toggle("active", el.getAttribute("data-tab") === tabId); });
+        tabPanels.forEach(function (p) { p.classList.toggle("active", p.id === tabId); });
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
       tabTriggers.forEach(function (el) {
-        el.addEventListener("click", function () {
-          activateTab(el.getAttribute("data-tab"));
-        });
+        el.addEventListener("click", function () { activateTab(el.getAttribute("data-tab")); });
       });
 
-      // --- 3. SCHEMA ACCORDION, SEARCH & PROGRESS TRACKER ---
-      var moduleCards = document.querySelectorAll("[data-module-card]");
-      var reviewedSet = {};
-      try {
-        reviewedSet = JSON.parse(localStorage.getItem("study_reviewed_v2") || "{}");
-      } catch (e) { reviewedSet = {}; }
+      // --- 3. ALL 34 CHAPTERS DATA (COMPLETE & BEGINNER-FRIENDLY) ---
+      var STUDY_MODULES = [
+        {
+          id: 1,
+          short: "I. Basi & Python",
+          title: "Modulo I — Fondamenti di Matematica e Python (Cap. 01–07)",
+          intro: "Impariamo a tradurre un problema di tutti i giorni in numeri, formule e prime righe di Python senza dare nulla per scontato.",
+          chapters: [
+            {
+              num: "01", title: "La matematica come linguaggio dei dati",
+              simple: "Non si parte mai scrivendo codice a caso: prima capisci la domanda reale, poi scegli i dati giusti, costruisci una formula semplice e infine la fai calcolare a Python.",
+              example: "Biglietto singolo 2,20 € (2 viaggi/giorno = 4,40 €/giorno) vs abbonamento da 39 €/mese. Su 18 giorni spendi 79,20 € (risparmi 40,20 €); il punto di pareggio è 39 / 4,40 ≈ 8,86 giorni (da 9 giorni conviene l'abbonamento).",
+              formula: "Spesa = giorni × (viaggi × costo)",
+              python: "print(f\"{risparmio:.2f} euro\")"
+            },
+            {
+              num: "02", title: "Numeri, operazioni e variabili",
+              simple: "I numeri servono per scopi diversi: naturali (0,1,2...) per contare, interi (anche negativi) per debiti/saldi, frazioni per dividere spese, reali (con √2 e π) per misure continue. In Python '=' salva un valore in una variabile.",
+              example: "Con 74 € e biglietti da 9 €, fai 74 // 9 = 8 biglietti interi e ti restano 74 % 9 = 2 € (divmod(74, 9) dà (8, 2)). Attenzione ai float: 0.1 + 0.2 in binario approssima!",
+              formula: "a = bq + r (0 ≤ r < b)",
+              python: "divmod(a, b), //, %, -2**2 == -4, math.isclose()"
+            },
+            {
+              num: "03", title: "Funzioni e rappresentazione grafica",
+              simple: "Una funzione è una regola che, dato un ingresso x (es. ore), restituisce UNA sola uscita y (es. prezzo). Il dominio è ciò che puoi inserire; l'immagine è l'insieme dei risultati reali.",
+              example: "Tariffa A: 3 € fissi + 2 €/ora; Tariffa B: 1 € + 3 €/ora. Si incontrano a 3 + 2x = 1 + 3x → x = 2 ore (7 €). Prima conviene B, dopo conviene A.",
+              formula: "f(x) = mx + b | g(f(x))",
+              python: "def tariffa(ore): return 3 + 2 * ore"
+            },
+            {
+              num: "04", title: "Sommatorie e sequenze",
+              simple: "Il simbolo Σ (Sigma) significa semplicemente 'somma tutti i termini dal primo all'ultimo'. Se sommi da m a n inclusi, gli elementi sono n − m + 1.",
+              example: "Somma degli interi da 3 a 8 compresi: 3+4+5+6+7+8 = 33. In Python range(3, 9) include 3 ed esclude 9.",
+              formula: "∑(1..n) = n(n+1)/2 | Geom: (1−r^n)/(1−r)",
+              python: "sum(range(3, 9)), enumerate(lista, start=1)"
+            },
+            {
+              num: "05", title: "Potenze, radici ed esponenti",
+              simple: "Aggiungere sempre la stessa cifra (es. +20) è crescita lineare; crescere sempre della stessa percentuale (es. +10% ogni settimana) significa moltiplicare ogni volta per 1,10 (crescita esponenziale).",
+              example: "Da 200 iscritti al +10%/settimana: dopo 3 settimane sono 200 × 1,10³ = 266,2. Un dispositivo che perde il 20%/ora arriva in 3 ore a 100 × 0,8³ = 51,2%.",
+              formula: "N(t) = N₀(1 + r)^t | a^(p/q) = (q√a)^p",
+              python: "2 ** 3 (potenza, NON ^ che fa XOR!), math.sqrt(x)"
+            },
+            {
+              num: "06", title: "Logaritmi e numero di Eulero",
+              simple: "Il logaritmo fa l'operazione inversa della potenza: risponde alla domanda 'A quale esponente devo elevare la base per ottenere questo numero?'. Il numero di Eulero e ≈ 2,71828 nasce nella crescita continua.",
+              example: "Capitale al 10%/anno composto: quando raddoppia? Risolvi 1,10^t = 2 → t = ln(2) / ln(1,10) ≈ 7,27 anni. Con 1.000 € al 5% per 2 anni: semplice 1.100 €, composto 1.102,50 €, continuo 1.105,17 €.",
+              formula: "log_b(x) = ln(x)/ln(b) | A = P·e^(rt)",
+              python: "math.log(x), math.log10(x), math.exp(x), math.log1p(r)"
+            },
+            {
+              num: "07", title: "Limiti e continuità",
+              simple: "Il limite guarda a quale valore si avvicina f(x) quando x si avvicina a un punto da sinistra e da destra, anche se proprio in quel punto la formula fa 0/0 (un 'buco'). Una funzione è continua se non ha buchi né salti.",
+              example: "In x = 3, (x² − 9)/(x − 3) farebbe 0/0. Per x ≠ 3 si semplifica in x + 3, quindi il limite è 6 (definire f(3) = 6 colma il buco).",
+              formula: "lim(x→a) f(x) = f(a) (continuità)",
+              python: "SymPy: limit(expr, x, a, dir='-' / '+')"
+            }
+          ]
+        },
+        {
+          id: 2,
+          short: "II. Calcolo",
+          title: "Modulo II — Calcolo Infinitesimale (Cap. 08–09)",
+          intro: "Due facce della stessa medaglia: la derivata misura quanto velocemente cambia qualcosa in un istante; l'integrale somma tutti i piccoli contributi nel tempo.",
+          chapters: [
+            {
+              num: "08", title: "Derivate e tassi di variazione",
+              simple: "La derivata è il tachimetro dell'auto: misura la pendenza della curva in un punto preciso (quanto sale l'uscita se sposti l'ingresso di un soffio h). Con più variabili usi le derivate parziali (una lettera alla volta) e le raccogli nel gradiente.",
+              example: "Costo C(q) = 20 + 2q + 0,1q² → derivata C'(q) = 2 + 0,2q. A q = 10 il costo marginale è 4 €/unità. Attenzione: |x| è continua in 0 ma ha uno spigolo (non derivabile); x³ ha derivata 0 in 0 ma continua a salire.",
+              formula: "f'(x) = lim(h→0) [f(x+h)−f(x)]/h | (uv)' = u'v + uv'",
+              python: "SymPy: diff(expr, x)"
+            },
+            {
+              num: "09", title: "Integrali e accumulazione",
+              simple: "L'integrale definito è il contachilometri: divide il tempo in fettine sottilissime, moltiplica altezza × larghezza e le somma tutte. Misura l'area con segno (saldo netto tra entrate e uscite).",
+              example: "Potenza P(t) = 2t kW per 0..3 ore → primitiva t² → energia = 3² − 0² = 9 kWh (potenza media = 9 / 3 = 3 kW). Pompa 4 + t litri/min per 2 min → 4t + t²/2 → 10 litri.",
+              formula: "∫[a..b] f(x)dx = F(b) − F(a) | Media = ∫/(b−a)",
+              python: "SymPy: integrate(expr, (x, a, b))"
+            }
+          ]
+        },
+        {
+          id: 3,
+          short: "III. Probabilità",
+          title: "Modulo III — Probabilità e Distribuzioni (Cap. 10–15)",
+          intro: "Impariamo a ragionare sull'incertezza: dalle scommesse alle probabilità condizionate (Bayes), fino ai modelli per conteggi (Binomiale) e tassi incerti (Beta).",
+          chapters: [
+            {
+              num: "10", title: "Introduzione alla probabilità",
+              simple: "Ω è l'insieme di tutti gli esiti possibili. La probabilità sta sempre tra 0 e 1. Le odds confrontano favorevoli vs contrari. La verosimiglianza fissa i dati osservati e chiede quale parametro p li rende più plausibili.",
+              example: "Se un evento ha probabilità p = 0,2, le odds a favore sono 0,2 / 0,8 = 1/4 (1 a 4). Su 50 prove ti aspetti 50 × 0,2 = 10 successi.",
+              formula: "P(A) = |A|/|Ω| | Odds = p / (1 − p)",
+              python: "from fractions import Fraction"
+            },
+            {
+              num: "11", title: "Operazioni con le probabilità",
+              simple: "Per trovare 'almeno uno tra A e B' sommi i due e togli l'intersezione (per non contarla due volte). Se due eventi sono incompatibili (non possono avvenire insieme) e hanno P > 0, sono DIPENDENTI!",
+              example: "Due voli indipendenti hanno ritardo 0,1 e 0,2: P(nessun ritardo) = 0,9 × 0,8 = 0,72 → P(almeno un ritardo) = 1 − 0,72 = 0,28.",
+              formula: "P(A∪B) = P(A) + P(B) − P(A∩B) | Indip: P(A∩B)=P(A)P(B)",
+              python: "Insiemi Python: A & B (intersezione), A | B (unione)"
+            },
+            {
+              num: "12", title: "Probabilità condizionata e teorema di Bayes",
+              simple: "Bayes aggiorna la nostra fiducia iniziale (prior) dopo aver visto un indizio/segnale. Non confondere mai P(spam | segnalata) con P(segnalata | spam)!",
+              example: "Su 1.000 email, 100 sono spam (10%). Il filtro segnala il 90% degli spam (90) e il 5% delle sane (45). Tra le 135 segnalate, i veri spam sono 90/135 = 66,67%. Se lo spam scende al 2%, scende a 18/67 ≈ 26,87%!",
+              formula: "P(A|B) = P(B|A)·P(A) / P(B)",
+              python: "Calcolo con tabella su 1.000 casi o veri/(veri+falsi)"
+            },
+            {
+              num: "13", title: "Variabili casuali e distribuzioni",
+              simple: "Se conti (0, 1, 2 coincidenze) hai una variabile discreta con probabilità su ogni numero. Se misuri (attesa tra 0 e 20 min) hai una continua: la probabilità è un'AREA, quindi un singolo punto esatto vale sempre 0!",
+              example: "Attesa uniforme 0..20 min: densità 1/20 al minuto. P(5 < X ≤ 9) = 4 × (1/20) = 0,2; mentre P(X = 5) = 0.",
+              formula: "F(t) = P(X ≤ t) | P(a < X ≤ b) = F(b) − F(a)",
+              python: "Dizionari per masse discrete; area/CDF per continue"
+            },
+            {
+              num: "14", title: "Distribuzione binomiale",
+              simple: "Conta quanti successi ottieni in n prove identiche e indipendenti con stessa probabilità p (es. 10 post ciascuno al 30% di successo).",
+              example: "4 tiri indipendenti con p = 1/2: P(X ≥ 3) = 4/16 + 1/16 = 5/16 = 31,25%. Con SciPy per P(X ≥ k) si usa sf(k−1)!",
+              formula: "P(X=k) = C(n,k)p^k(1−p)^(n−k) | Media = np, Var = np(1−p)",
+              python: "math.comb(n,k) | binom.pmf, binom.cdf, binom.sf(k-1, n, p)"
+            },
+            {
+              num: "15", title: "Distribuzione Beta",
+              simple: "Mentre la Binomiale fissa p e prevede i successi, la Beta fa l'opposto: descrive quanto è incerto il tasso p tra 0 e 1 dopo aver osservato s successi e f insuccessi.",
+              example: "Parti da Beta(2, 2), osservi 7 successi e 3 insuccessi: sommi ai parametri e ottieni Beta(9, 5), con media 9 / (9 + 5) ≈ 0,643.",
+              formula: "Media = α/(α+β) | Aggiornamento: Beta(α+s, β+f)",
+              python: "scipy.stats.beta.pdf / cdf / sf"
+            }
+          ],
+          lab: "bayes"
+        },
+        {
+          id: 4,
+          short: "IV. Statistica",
+          title: "Modulo IV — Statistica Descrittiva e Inferenziale (Cap. 16–23)",
+          intro: "Come riassumere i dati senza farsi ingannare dagli outlier o da campioni sbilanciati, e come valutare margini di errore e ipotesi.",
+          chapters: [
+            {
+              num: "16", title: "Introduzione alla statistica",
+              simple: "La popolazione è tutto il gruppo (parametro), il campione è chi osservi davvero (statistica). Un bias (errore di copertura o mancata risposta) NON si cura raccogliendo più dati nello stesso posto sbagliato!",
+              example: "Su 200 invitati rispondono in 80 (tasso risposta 40%) e 20 prendono il treno (25% tra i rispondenti, ma tra tutti gli invitati potrebbe andare dal 10% al 70%).",
+              formula: "p̂ = k / n",
+              python: "from collections import Counter"
+            },
+            {
+              num: "17", title: "Indicatori di posizione",
+              simple: "La media divide il totale in parti uguali (ma un singolo ritardo enorme la rovina). La mediana è il valore centrale dopo aver ordinato i dati (non teme gli estremi). La moda è il più frequente (va bene anche per categorie).",
+              example: "Tempi [10, 11, 11, 12, 56] min → Media = 20, Mediana = 11, Moda = 11. Prezzo medio di 2 pezzi a 12 € e 8 a 7 €: media ponderata = (24 + 56)/10 = 8 €.",
+              formula: "Media ponderata = ∑(w_i·x_i) / ∑w_i",
+              python: "statistics.mean, median, multimode | np.average(v, weights=p)"
+            },
+            {
+              num: "18", title: "Variabilità e dispersione",
+              simple: "Due squadre possono avere entrambe media 10 punti, ma una fa [8,10,12] (regolare) e l'altra [2,10,18] (altalenante). Per un campione si divide la somma dei quadrati per n − 1 (1 grado di libertà usato dalla media). La deviazione standard riporta l'unità originale.",
+              example: "Tempi [9, 12, 15] min (media 12): scarti² = 9 + 0 + 9 = 18. Varianza campionaria = 18 / (3 − 1) = 9 min² → Deviazione standard = √9 = 3 min.",
+              formula: "s² = ∑(x_i − x̄)² / (n − 1) | IQR = Q₃ − Q₁",
+              python: "statistics.stdev (n-1) | np.var(x, ddof=1)!"
+            },
+            {
+              num: "19", title: "Distribuzione normale",
+              simple: "Quando tanti piccoli fattori casuali si sommano, nasce la curva a campana (Normale), simmetrica attorno a μ. Regola d'oro: 68% dei dati entro ±1σ, 95% entro ±2σ, 99,7% entro ±3σ.",
+              example: "Media μ = 70 e deviazione σ = 5: il valore 80 ha Z-score = (80 − 70)/5 = +2 deviazioni standard sopra la media (oltre +2 rimane solo ~2,28%).",
+              formula: "Z = (X − μ) / σ",
+              python: "statistics.NormalDist(mu, sigma).cdf(x)"
+            },
+            {
+              num: "20", title: "Fondamenti di statistica inferenziale",
+              simple: "La Legge dei Grandi Numeri dice che la media campionaria x̄ si avvicina a μ. Il Teorema del Limite Centrale dice che la distribuzione delle medie diventa una Normale. L'Errore Standard (SE) misura quanto balla x̄ tra un campione e l'altro.",
+              example: "Con σ = 18 min, per portare l'SE <= 2 min serve 18/√n <= 2 → √n >= 9 → servono almeno n = 81 osservazioni indipendenti! (Quadruplicare n dimezza SE).",
+              formula: "SE(x̄) = σ / √n",
+              python: "random.Random(seed) per simulazioni ripetibili"
+            },
+            {
+              num: "21", title: "Distribuzioni cumulative e intervalli",
+              simple: "Domande opposte: 'Che % finisce entro 35 min?' usi la cumulata F(x) = cdf. 'Entro quanti minuti finisce il 90%?' usi il quantile (percentile 90) = inv_cdf(0.90) o ppf(0.90).",
+              example: "Con F(20) = 0,10 e F(30) = 0,60, la probabilità tra 20 e 30 è 0,60 − 0,10 = 0,50. Oltre 30 resta 1 − 0,60 = 0,40.",
+              formula: "P(a < X ≤ b) = F(b) − F(a)",
+              python: "cdf(x), sf(x), inv_cdf(0.90) / ppf(0.90)"
+            },
+            {
+              num: "22", title: "Stima statistica e intervalli di confidenza",
+              simple: "Un singolo numero stimato non basta: dai un intervallo stima ± margine. Se conosci σ usi la Normale z (1,96 al 95%); se σ è ignota usi la t di Student con n − 1 gradi di libertà (code più larghe).",
+              example: "Con σ = 8 e n = 64: SE = 8/8 = 1 → margine al 95% ≈ 1,96. Con n = 256 (4 volte più grande) il margine si dimezza a ~0,98.",
+              formula: "IC = x̄ ± t_crit · (s / √n)",
+              python: "scipy.stats.t.ppf(1 - alpha/2, df=n-1)"
+            },
+            {
+              num: "23", title: "Verifica delle ipotesi",
+              simple: "Metti alla prova un'ipotesi di partenza H₀ (es. μ = 40). Il p-value ti dice quanto sarebbe raro il tuo campione SE H₀ fosse vera. Se p <= α (es. 0,05) rifiuti H₀. Attenzione: il p-value NON è la probabilità che H₀ sia vera!",
+              example: "x̄ = 44, μ₀ = 40, σ = 10, n = 25 → SE = 2 → z = (44−40)/2 = 2 → p-value bilaterale ≈ 0,0455 <= 0,05 (rifiuti H₀ al 5%, non all'1%).",
+              formula: "z = (x̄ − μ₀)/(σ/√n) | Potenza = 1 − β",
+              python: "scipy.stats.ttest_1samp(dati, popmean=40)"
+            }
+          ],
+          lab: "outlier"
+        },
+        {
+          id: 5,
+          short: "V. Algebra",
+          title: "Modulo V — Algebra Lineare (Cap. 24–28)",
+          intro: "Vettori per rappresentare più dati insieme, matrici per trasformarli e sistemi lineari per risolvere più equazioni simultaneamente.",
+          chapters: [
+            {
+              num: "24", title: "Introduzione ai vettori",
+              simple: "Un vettore è una freccia (o una lista di numeri in ordine: es. Est e Nord). Attenzione a non confondere una posizione fissa con uno spostamento (arrivo − partenza) e controlla sempre le scale delle unità!",
+              example: "Da (2, 1, 4) a (5, 0, 6) metri, lo spostamento è (5−2, 0−1, 6−4) = (3, −1, 2) metri.",
+              formula: "v = (v₁, ..., v_d) | v = v₁e₁ + v₂e₂",
+              python: "np.array([3, -2]), spostamento.shape == (2,)"
+            },
+            {
+              num: "25", title: "Operazioni sui vettori",
+              simple: "La norma è la lunghezza della freccia (Pitagora). Il prodotto scalare v·w misura quanto due frecce puntano nella stessa direzione: se fa 0 (e non sono nulle), sono perpendicolari a 90°!",
+              example: "v = (1, 2) e w = (2, −1) → 1×2 + 2×(−1) = 0 → angolo di 90°. Per (3, 4) la norma è √(3²+4²) = 5.",
+              formula: "v · w = ∑v_i·w_i = ‖v‖‖w‖cos θ",
+              python: "np.linalg.norm(v), v @ w (NON v*w!), np.cross(v, w)"
+            },
+            {
+              num: "26", title: "Spazi vettoriali e dipendenza lineare",
+              simple: "Se un vettore è solo un multiplo di un altro (es. (2,2) rispetto a (1,1)), è ridondante: insieme restano su una retta. Una base è il set minimo di vettori indipendenti; il rango conta quante direzioni indipendenti hai davvero.",
+              example: "Le colonne (1,1), (2,2) e (1,0) sono 3 vettori nel piano, ma il rango è 2 perché (2,2) dipende da (1,1). (2,0) e (0,3) formano una base del piano.",
+              formula: "span(v₁..v_k) | Indipendenti ⇔ rango = k",
+              python: "np.column_stack([v, w]), np.linalg.matrix_rank(A)"
+            },
+            {
+              num: "27", title: "Matrici e trasformazioni lineari",
+              simple: "Moltiplicare una matrice A per un vettore x lo trasforma (rotazione, scala, riflessione). L'ordine conta (AB ≠ BA)! Il determinante misura di quanto cambiano le aree: se det(A) = 0, lo spazio viene schiacciato e non puoi tornare indietro (niente inversa).",
+              example: "Matrice [[0, −1], [1, 0]] ruota di 90° antiorario: (3, 2) diventa (−2, 3). Per annullare prima B poi A serve (AB)^(-1) = B^(-1) A^(-1).",
+              formula: "y = Ax | (AB)^(-1) = B^(-1)A^(-1)",
+              python: "A @ B, np.eye(n), np.linalg.inv(A)"
+            },
+            {
+              num: "28", title: "Sistemi di equazioni lineari",
+              simple: "Due scontrini diversi con quantità diverse ti permettono di scoprire i prezzi unitari. Geometricamente cerchi dove si incrociano le rette: 1 incrocio (soluzione unica), rette sovrapposte (infinite), rette parallele (incompatibile).",
+              example: "2c + p = 7 e c + 2p = 8 → c = 2 €, p = 3 €. Se raddoppi x + y = 5 ma scrivi 2x + 2y = 11, le rette sono parallele → incompatibile!",
+              formula: "Ax = b | Rango(A) = Rango(A|b) = n_inc ⇒ unica",
+              python: "np.linalg.solve(A, b) | assert np.allclose(A @ x, b)"
+            }
+          ]
+        },
+        {
+          id: 6,
+          short: "VI. Regressione & ML",
+          title: "Modulo VI — Regressione e Machine Learning (Cap. 29–34)",
+          intro: "Come far imparare al computer una retta dai dati, misurare quanto sbaglia, trovare i coefficienti in modo stabile e validare il modello su dati nuovi.",
+          chapters: [
+            {
+              num: "29", title: "Introduzione alla regressione lineare",
+              simple: "Dato un ingresso x (km) e un bersaglio y (minuti), tracciamo la retta che li lega meglio. La pendenza b₁ dice di quanto sale y per +1 di x; l'intercetta b₀ è il valore a x = 0. La retta passa sempre per il punto delle medie (x̄, ȳ).",
+              example: "Retta ŷ = 6 + 3x (km → min): a 0 km stima 6 min, ogni km aggiunge 3 min, a 8 km prevede 6 + 24 = 30 min.",
+              formula: "ŷ = b₀ + b₁x | b₀ = ȳ − b₁x̄",
+              python: "LinearRegression().fit(X, y).predict(X_nuovo)"
+            },
+            {
+              num: "30", title: "Residui e funzione di errore",
+              simple: "Il residuo è l'errore su un singolo dato: reale − previsto. Se sommi i residui, i positivi e i negativi si cancellano! Per questo si elevano al quadrato (SSE/MSE) e poi si fa la radice (RMSE) per tornare nell'unità originale (es. minuti).",
+              example: "Residui [2, −1, −1]: somma = 0, ma SSE = 4+1+1 = 6 min², MSE = 2 min², RMSE = √2 ≈ 1,41 min.",
+              formula: "e_i = y_i − ŷ_i | MSE = ∑e_i²/n | RMSE = √MSE",
+              python: "np.mean((y - stime)**2), mean_squared_error"
+            },
+            {
+              num: "31", title: "Calcolo dei coefficienti della regressione",
+              simple: "I minimi quadrati cercano la proiezione ortogonale di y sullo spazio delle colonne di X. Invece di calcolare (X^T X)^(-1), che può perdere precisione numerica, si usa la decomposizione QR ridotta (più stabile) o lstsq.",
+              example: "Per x = [0,1,2] e y = [1,3,4], la retta migliore è 7/6 + 1,5x con residui [−1/6, 1/3, −1/6] che sommano a zero.",
+              formula: "X^T X b = X^T y | QR: R b = Q^T y",
+              python: "np.linalg.qr(X, mode='reduced'), np.linalg.lstsq"
+            },
+            {
+              num: "32", title: "Discesa del gradiente",
+              simple: "Invece di risolvere tutto in un colpo solo, parti da un valore a caso e fai piccoli passi nella direzione opposta alla salita (sottrai il gradiente!) per scendere in fondo alla 'conca' dell'errore. Se il passo η è troppo grande, rimbalzi fuori!",
+              example: "L(b) = (b − 5)², parti da b = 1 con η = 0,25: gradiente = 2(1−5) = −8 → b_nuovo = 1 − 0,25·(−8) = 3. Poi da b = 3 arriva a 4.",
+              formula: "b_nuovo = b − η · ∇L(b)",
+              python: "Ciclo for: b -= eta * gradiente"
+            },
+            {
+              num: "33", title: "Correlazione e relazione tra variabili",
+              simple: "Pearson r (tra −1 e +1) misura SOLO se i punti seguono una RETTA. Una curva a U perfetta può dare r = 0! Spearman controlla invece se salgono/scendono insieme anche in curva. E ricorda: correlazione non prova causalità.",
+              example: "Per x = [−2, −1, 0, 1, 2] e y = x², r = 0 per simmetria anche se y dipende esattamente da x! Per x=[1,2,3], y=[9,7,5] vale r = −1.",
+              formula: "r = ∑(x−x̄)(y−ȳ) / √[∑(x−x̄)²∑(y−ȳ)²]",
+              python: "statistics.correlation(x, y), df.corr()"
+            },
+            {
+              num: "34", title: "Valutazione della regressione",
+              simple: "Non valutare mai il modello sugli stessi dati su cui ha studiato: tieni un Test set separato (in ordine di tempo per serie temporali). Controlla il grafico dei residui: una U vuol dire che manca una curva, un ventaglio vuol dire varianza non costante.",
+              example: "12 dati di train, 2 parametri, SSE = 90 → s_res = √(90/(12−2)) = 3 min. Sul test residui [−2,0,2,4]: MAE = 2 min, RMSE = √6 ≈ 2,45 min.",
+              formula: "s_res = √[SSE/(n−p)] | R² = 1 − SSE/SST",
+              python: "s_res = sqrt(sse / (n - parametri))"
+            }
+          ],
+          lab: "gradient"
+        }
+      ];
 
-      function syncStudyProgress() {
-        var doneCount = 0;
-        moduleCards.forEach(function (card) {
-          var id = card.getAttribute("data-mod-id");
-          var isDone = Boolean(reviewedSet[id]);
-          if (isDone) doneCount += 1;
-          card.classList.toggle("reviewed", isDone);
-          var badge = card.querySelector("[data-done-badge]");
-          if (badge) badge.classList.toggle("hidden", !isDone);
-          var btn = card.querySelector("[data-mark-done]");
-          if (btn) {
-            btn.textContent = isDone ? "Segnato come ripassato ✓" : "Segna come ripassato";
-            btn.classList.toggle("btn-accent", isDone);
-          }
-        });
-        document.getElementById("study-progress-text").textContent = doneCount + " / 6 completati";
-        document.getElementById("study-progress-fill").style.width = Math.round((doneCount / 6) * 100) + "%";
+      var currentModuleId = 1;
+      var reviewedSet = {};
+      try { reviewedSet = JSON.parse(localStorage.getItem("study_reviewed_v3") || "{}"); } catch (e) {}
+
+      function syncProgress() {
+        var done = STUDY_MODULES.filter(function (m) { return Boolean(reviewedSet[m.id]); }).length;
+        document.getElementById("study-progress-text").textContent = done + " / 6 moduli";
+        document.getElementById("study-progress-fill").style.width = Math.round((done / 6) * 100) + "%";
       }
 
-      moduleCards.forEach(function (card) {
-        card.querySelector(".module-header").addEventListener("click", function () {
-          card.classList.toggle("open");
-        });
-        var markBtn = card.querySelector("[data-mark-done]");
-        markBtn.addEventListener("click", function (e) {
-          e.stopPropagation();
-          var id = markBtn.getAttribute("data-mark-done");
-          reviewedSet[id] = !reviewedSet[id];
-          try { localStorage.setItem("study_reviewed_v2", JSON.stringify(reviewedSet)); } catch (err) {}
-          syncStudyProgress();
-        });
-      });
-      syncStudyProgress();
+      function renderSidebarAndMobileBar() {
+        var sbHtml = "";
+        var mobHtml = "";
+        STUDY_MODULES.forEach(function (m) {
+          var isActive = m.id === currentModuleId;
+          var isDone = Boolean(reviewedSet[m.id]);
+          sbHtml += "<button type='button' class='mod-nav-btn " + (isActive ? "active" : "") + "' data-select-mod='" + m.id + "'>" +
+            "<span>" + m.short + "</span>" +
+            (isDone ? "<span class='badge badge-ok'>✓</span>" : "<span style='font-size:0.75rem;color:var(--text-muted)'>" + m.chapters.length + " cap</span>") +
+            "</button>";
+          sbHtml += "<div class='chap-toc " + (isActive ? "open" : "") + "'>";
+          m.chapters.forEach(function (c) {
+            sbHtml += "<a class='chap-link' href='#cap-" + c.num + "'>Cap. " + c.num + " — " + c.title + "</a>";
+          });
+          sbHtml += "</div>";
 
-      document.getElementById("btn-expand-all").addEventListener("click", function () {
-        moduleCards.forEach(function (c) { c.classList.add("open"); });
-      });
-      document.getElementById("btn-collapse-all").addEventListener("click", function () {
-        moduleCards.forEach(function (c) { c.classList.remove("open"); });
-      });
-      document.getElementById("search-input").addEventListener("input", function (e) {
-        var q = e.target.value.trim().toLowerCase();
-        moduleCards.forEach(function (card) {
-          var match = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
-          card.classList.toggle("hidden", !match);
-          if (q && match) card.classList.add("open");
+          mobHtml += "<button type='button' class='chip " + (isActive ? "active" : "") + "' data-select-mod='" + m.id + "'>" + m.short + (isDone ? " ✓" : "") + "</button>";
         });
-      });
+        document.getElementById("sidebar-nav").innerHTML = sbHtml;
+        document.getElementById("mobile-mod-chips").innerHTML = mobHtml;
+
+        document.querySelectorAll("[data-select-mod]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            currentModuleId = Number(btn.getAttribute("data-select-mod"));
+            document.getElementById("search-input").value = "";
+            renderNotes();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+        });
+      }
+
+      function renderChapterCard(c) {
+        return "<article class='chap-card' id='cap-" + c.num + "'>" +
+          "<div class='chap-head'><span class='chap-num'>Cap. " + c.num + "</span><h3>" + c.title + "</h3></div>" +
+          "<div class='chap-blocks'>" +
+            "<div class='block-simple'><strong class='blk-lbl'>In parole semplici</strong>" + c.simple + "</div>" +
+            "<div class='block-example'><strong class='blk-lbl'>Esempio concreto (dal PDF)</strong>" + c.example + "</div>" +
+            "<div class='block-tech'>" +
+              "<span class='formula'>" + c.formula + "</span>" +
+              "<code>" + c.python + "</code>" +
+            "</div>" +
+          "</div>" +
+        "</article>";
+      }
+
+      function renderLabHTML(labType) {
+        if (labType === "bayes") {
+          return "<div class='mini-lab'>" +
+            "<h4>Mini-Lab Interattivo: Capire Bayes con 1.000 Email (Cap. 12)</h4>" +
+            "<div class='lab-controls'><label for='bayes-prior'><strong>% Spam reale:</strong> <span id='bayes-prior-val'>10%</span></label>" +
+            "<input id='bayes-prior' type='range' min='1' max='50' value='10' /></div>" +
+            "<div class='lab-outputs'>" +
+              "<div class='lab-pill'><span>Veri Spam segnalati (90%)</span><strong id='bayes-tp'>90</strong></div>" +
+              "<div class='lab-pill'><span>Falsi allarmi (5%)</span><strong id='bayes-fp'>45</strong></div>" +
+              "<div class='lab-pill'><span>Totale segnalate</span><strong id='bayes-tot'>135</strong></div>" +
+              "<div class='lab-pill'><span>P(Spam | Segnalata)</span><strong id='bayes-post'>66.7%</strong></div>" +
+            "</div></div>";
+        }
+        if (labType === "outlier") {
+          return "<div class='mini-lab'>" +
+            "<h4>Mini-Lab Interattivo: Perché la Media mente con un valore estremo (Cap. 17)</h4>" +
+            "<div class='lab-controls'><label for='outlier-slider'><strong>Tempi [10, 11, 11, 12, <span id='outlier-val'>56</span>] min:</strong></label>" +
+            "<input id='outlier-slider' type='range' min='12' max='200' value='56' /></div>" +
+            "<div class='lab-outputs'>" +
+              "<div class='lab-pill'><span>Media (trascinata)</span><strong id='out-mean'>20.0 min</strong></div>" +
+              "<div class='lab-pill'><span>Mediana (stabile)</span><strong id='out-median'>11.0 min</strong></div>" +
+              "<div class='lab-pill'><span>Moda</span><strong>11 min</strong></div>" +
+            "</div></div>";
+        }
+        if (labType === "gradient") {
+          return "<div class='mini-lab'>" +
+            "<h4>Mini-Lab Interattivo: Discesa del Gradiente su L(b) = (b &minus; 3)&sup2; (Cap. 32)</h4>" +
+            "<div class='lab-controls'>" +
+              "<label for='gd-eta'><strong>Passo &eta;:</strong> <span id='gd-eta-val'>0.10</span></label>" +
+              "<input id='gd-eta' type='range' min='0.05' max='1.10' step='0.05' value='0.10' />" +
+              "<button class='btn btn-sm btn-primary' id='gd-step-btn' type='button'>Fai 1 passo</button>" +
+              "<button class='btn btn-sm' id='gd-reset-btn' type='button'>Reset (b=0)</button>" +
+            "</div>" +
+            "<div class='lab-outputs'>" +
+              "<div class='lab-pill'><span>Valore attuale b (obiettivo 3)</span><strong id='gd-b'>0.00</strong></div>" +
+              "<div class='lab-pill'><span>Errore / Loss (b&minus;3)&sup2;</span><strong id='gd-loss'>9.00</strong></div>" +
+              "<div class='lab-pill'><span>Passi fatti</span><strong id='gd-steps'>0</strong></div>" +
+            "</div></div>";
+        }
+        return "";
+      }
+
+      function bindLabEvents() {
+        var bayesSlider = document.getElementById("bayes-prior");
+        if (bayesSlider) {
+          var updBayes = function () {
+            var priorPct = Number(bayesSlider.value);
+            var spamCount = Math.round(1000 * (priorPct / 100));
+            var legitCount = 1000 - spamCount;
+            var tp = Math.round(spamCount * 0.90);
+            var fp = Math.round(legitCount * 0.05);
+            var tot = tp + fp;
+            var post = tot > 0 ? ((tp / tot) * 100).toFixed(1) : "0.0";
+            document.getElementById("bayes-prior-val").textContent = priorPct + "%";
+            document.getElementById("bayes-tp").textContent = String(tp);
+            document.getElementById("bayes-fp").textContent = String(fp);
+            document.getElementById("bayes-tot").textContent = String(tot);
+            document.getElementById("bayes-post").textContent = post + "%";
+          };
+          bayesSlider.addEventListener("input", updBayes);
+          updBayes();
+        }
+
+        var outlierSlider = document.getElementById("outlier-slider");
+        if (outlierSlider) {
+          var updOut = function () {
+            var x = Number(outlierSlider.value);
+            var arr = [10, 11, 11, 12, x].sort(function (a, b) { return a - b; });
+            var mean = arr.reduce(function (acc, v) { return acc + v; }, 0) / arr.length;
+            document.getElementById("outlier-val").textContent = String(x);
+            document.getElementById("out-mean").textContent = mean.toFixed(1) + " min";
+            document.getElementById("out-median").textContent = arr[2].toFixed(1) + " min";
+          };
+          outlierSlider.addEventListener("input", updOut);
+          updOut();
+        }
+
+        var gdEta = document.getElementById("gd-eta");
+        if (gdEta) {
+          var gdB = 0;
+          var gdSteps = 0;
+          var syncGD = function () {
+            document.getElementById("gd-eta-val").textContent = Number(gdEta.value).toFixed(2);
+            document.getElementById("gd-b").textContent = gdB.toFixed(2);
+            document.getElementById("gd-loss").textContent = Math.pow(gdB - 3, 2).toFixed(2);
+            document.getElementById("gd-steps").textContent = String(gdSteps);
+          };
+          gdEta.addEventListener("input", syncGD);
+          document.getElementById("gd-step-btn").addEventListener("click", function () {
+            var eta = Number(gdEta.value);
+            var grad = 2 * (gdB - 3);
+            gdB = gdB - eta * grad;
+            gdSteps += 1;
+            syncGD();
+          });
+          document.getElementById("gd-reset-btn").addEventListener("click", function () {
+            gdB = 0; gdSteps = 0; syncGD();
+          });
+          syncGD();
+        }
+      }
+
+      function renderNotes() {
+        syncProgress();
+        renderSidebarAndMobileBar();
+
+        var q = document.getElementById("search-input").value.trim().toLowerCase();
+        var container = document.getElementById("notes-content");
+
+        if (q) {
+          var matches = [];
+          STUDY_MODULES.forEach(function (m) {
+            m.chapters.forEach(function (c) {
+              var hay = (c.num + " " + c.title + " " + c.simple + " " + c.example + " " + c.formula + " " + c.python).toLowerCase();
+              if (hay.indexOf(q) !== -1) matches.push(c);
+            });
+          });
+          if (matches.length === 0) {
+            container.innerHTML = "<div class='card'><p style='margin:0;'>Nessun capitolo trovato per <strong>" + q + "</strong>.</p></div>";
+          } else {
+            container.innerHTML = "<p style='margin:0 0 12px;font-size:0.88rem;color:var(--text-muted);'>Trovati <strong>" + matches.length + "</strong> capitoli corrispondenti:</p>" +
+              matches.map(renderChapterCard).join("");
+          }
+          return;
+        }
+
+        var mod = STUDY_MODULES.filter(function (m) { return m.id === currentModuleId; })[0];
+        var isDone = Boolean(reviewedSet[mod.id]);
+        var html = "<div class='mod-hero'>" +
+          "<div class='mod-hero-top'>" +
+            "<div><span class='badge'>Modulo " + mod.id + " di 6</span><h2>" + mod.title + "</h2><p>" + mod.intro + "</p></div>" +
+            "<button class='btn btn-sm " + (isDone ? "btn-accent" : "") + "' id='btn-mark-curr-mod' type='button'>" + (isDone ? "Ripassato ✓" : "Segna modulo ripassato") + "</button>" +
+          "</div></div>";
+
+        html += mod.chapters.map(renderChapterCard).join("");
+        if (mod.lab) html += renderLabHTML(mod.lab);
+
+        html += "<div class='mod-footer-nav'>" +
+          "<button class='btn' id='btn-prev-mod' type='button' " + (mod.id === 1 ? "disabled" : "") + ">&larr; Modulo precedente</button>" +
+          "<button class='btn btn-primary' id='btn-next-mod' type='button' " + (mod.id === 6 ? "disabled" : "") + ">Modulo successivo &rarr;</button>" +
+        "</div>";
+
+        container.innerHTML = html;
+
+        document.getElementById("btn-mark-curr-mod").addEventListener("click", function () {
+          reviewedSet[mod.id] = !reviewedSet[mod.id];
+          try { localStorage.setItem("study_reviewed_v3", JSON.stringify(reviewedSet)); } catch (e) {}
+          renderNotes();
+        });
+        document.getElementById("btn-prev-mod").addEventListener("click", function () {
+          if (currentModuleId > 1) { currentModuleId -= 1; renderNotes(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+        });
+        document.getElementById("btn-next-mod").addEventListener("click", function () {
+          if (currentModuleId < 6) { currentModuleId += 1; renderNotes(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+        });
+
+        bindLabEvents();
+      }
+
+      document.getElementById("search-input").addEventListener("input", renderNotes);
+      renderNotes();
 
       // --- 4. INTERACTIVE PYTHON TRAP CARDS ---
       var trapCards = document.querySelectorAll(".trap-card");
       trapCards.forEach(function (card) {
-        card.addEventListener("click", function () {
-          card.classList.toggle("revealed");
-        });
+        card.addEventListener("click", function () { card.classList.toggle("revealed"); });
       });
       var allTrapsShown = false;
       document.getElementById("btn-toggle-traps").addEventListener("click", function () {
         allTrapsShown = !allTrapsShown;
         trapCards.forEach(function (c) { c.classList.toggle("revealed", allTrapsShown); });
-        this.textContent = allTrapsShown ? "Nascondi tutte" : "Mostra tutte le soluzioni";
+        this.textContent = allTrapsShown ? "Nascondi tutte" : "Mostra tutte";
       });
 
-      // --- 5. QUESTION BANK (40 DISTINCT EXAM QUESTIONS ACROSS 6 MODULES) ---
+      // --- 5. QUESTION BANK (40 DISTINCT PDF-ALIGNED EXAM QUESTIONS) ---
       var MODULE_NAMES = {
         1: "Modulo I — Fondamenti & Python",
         2: "Modulo II — Derivate & Integrali",
@@ -1748,379 +1754,57 @@
       };
 
       var QUESTIONS = [
-        // MODULO I (7 domande)
-        {
-          id: 1, module: 1, chapter: "Cap. 02",
-          question: "In Python, quanto vale l'espressione -2 ** 2 + 13 // 4?",
-          options: ["7", "-1", "7.25", "-0.75"],
-          correct: 1,
-          explanation: "In Python ** ha precedenza sul segno meno unario: -2**2 vale -(2**2) = -4. La divisione intera 13 // 4 vale 3. Quindi -4 + 3 = -1."
-        },
-        {
-          id: 2, module: 1, chapter: "Cap. 04",
-          question: "Qual è la somma degli interi da 3 a 8 compresi, e come si scrive in Python?",
-          options: ["33 con sum(range(3, 9))", "33 con sum(range(3, 8))", "25 con sum(range(3, 8))", "36 con sum(range(3, 9))"],
-          correct: 0,
-          explanation: "3+4+5+6+7+8 = 33. range(a, b) include a ed esclude b, quindi per arrivare a 8 incluso serve range(3, 9)."
-        },
-        {
-          id: 3, module: 1, chapter: "Cap. 02",
-          question: "Cosa restituisce divmod(74, 9) in Python?",
-          options: ["8.22", "(8, 2)", "(9, 2)", "2"],
-          correct: 1,
-          explanation: "divmod(a, b) restituisce la coppia (quoziente intero, resto): 8 * 9 = 72 con resto 2, quindi (8, 2)."
-        },
-        {
-          id: 4, module: 1, chapter: "Cap. 06",
-          question: "Un capitale cresce del 10% all'anno in regime composto. Quale formula ricava il tempo t di raddoppio?",
-          options: ["t = 2 / 0,10", "t = ln(2) / ln(1,10)", "t = ln(1,10) / ln(2)", "t = exp(0,10 * 2)"],
-          correct: 1,
-          explanation: "Da (1 + 0,10)^t = 2 si applica ln ai due membri: t * ln(1,10) = ln(2), quindi t = ln(2) / ln(1,10)."
-        },
-        {
-          id: 5, module: 1, chapter: "Cap. 07",
-          question: "Quanto vale il limite per x -> 3 di (x² - 9) / (x - 3)?",
-          options: ["Non esiste perché il denominatore si annulla", "0", "3", "6"],
-          correct: 3,
-          explanation: "Per x != 3 si fattorizza: (x - 3)(x + 3) / (x - 3) = x + 3, che per x -> 3 tende a 6."
-        },
-        {
-          id: 6, module: 1, chapter: "Cap. 03",
-          question: "Un servizio costa 3 € fissi più 2 €/ora; un secondo costa 1 € fisso più 3 €/ora. A quante ore hanno lo stesso costo?",
-          options: ["1 ora", "2 ore (7 €)", "3 ore (9 €)", "Non coincidono mai"],
-          correct: 1,
-          explanation: "Uguagliando 3 + 2x = 1 + 3x si ottiene x = 2 ore, con costo pari a 7 €."
-        },
-        {
-          id: 7, module: 1, chapter: "Cap. 02",
-          question: "Perché in Python il confronto 0.1 + 0.2 == 0.3 può restituire False?",
-          options: [
-            "Perché Python non supporta i numeri decimali",
-            "Perché 0.1 e 0.2 in binario hanno sviluppo infinito e vengono approssimati nei float",
-            "Perché l'operatore == confronta solo numeri interi",
-            "Perché 0.1 + 0.2 vale sempre 0.3000001 per arrotondamento decimale"
-          ],
-          correct: 1,
-          explanation: "Un float memorizza una frazione binaria finita: 1/10 in base 2 è periodico. Per i confronti si usa math.isclose() o Decimal."
-        },
+        { id: 1, module: 1, chapter: "Cap. 02", question: "In Python, quanto vale l'espressione -2 ** 2 + 13 // 4?", options: ["7", "-1", "7.25", "-0.75"], correct: 1, explanation: "In Python ** ha precedenza sul meno unario: -2**2 vale -(2**2) = -4. 13 // 4 vale 3. Quindi -4 + 3 = -1." },
+        { id: 2, module: 1, chapter: "Cap. 04", question: "Qual è la somma degli interi da 3 a 8 compresi, e come si scrive in Python?", options: ["33 con sum(range(3, 9))", "33 con sum(range(3, 8))", "25 con sum(range(3, 8))", "36 con sum(range(3, 9))"], correct: 0, explanation: "3+4+5+6+7+8 = 33. range(a, b) include a ed esclude b, quindi serve range(3, 9)." },
+        { id: 3, module: 1, chapter: "Cap. 02", question: "Cosa restituisce divmod(74, 9) in Python?", options: ["8.22", "(8, 2)", "(9, 2)", "2"], correct: 1, explanation: "divmod(a, b) restituisce (quoziente intero, resto): 8 * 9 = 72 con resto 2 -> (8, 2)." },
+        { id: 4, module: 1, chapter: "Cap. 06", question: "Un capitale cresce del 10% all'anno in regime composto. Quale formula ricava il tempo t di raddoppio?", options: ["t = 2 / 0,10", "t = ln(2) / ln(1,10)", "t = ln(1,10) / ln(2)", "t = exp(0,10 * 2)"], correct: 1, explanation: "Da 1,10^t = 2 si applica ln: t * ln(1,10) = ln(2), quindi t = ln(2) / ln(1,10)." },
+        { id: 5, module: 1, chapter: "Cap. 07", question: "Quanto vale il limite per x -> 3 di (x² - 9) / (x - 3)?", options: ["Non esiste perché il denominatore si annulla", "0", "3", "6"], correct: 3, explanation: "Per x != 3 si semplifica (x - 3)(x + 3)/(x - 3) = x + 3, che tende a 6." },
+        { id: 6, module: 1, chapter: "Cap. 03", question: "Un servizio costa 3 € fissi più 2 €/ora; un secondo costa 1 € fisso più 3 €/ora. A quante ore hanno lo stesso costo?", options: ["1 ora", "2 ore (7 €)", "3 ore (9 €)", "Non coincidono mai"], correct: 1, explanation: "3 + 2x = 1 + 3x -> x = 2 ore, costo 7 €." },
+        { id: 7, module: 1, chapter: "Cap. 02", question: "Perché in Python 0.1 + 0.2 == 0.3 può restituire False?", options: ["Perché Python non supporta i decimali", "Perché 0.1 e 0.2 in binario hanno sviluppo infinito e vengono approssimati nei float", "Perché == confronta solo interi", "Perché 0.1 + 0.2 vale sempre 0.3000001"], correct: 1, explanation: "Un float memorizza una frazione binaria finita: 1/10 in base 2 è periodico. Usa math.isclose() o Decimal." },
 
-        // MODULO II (6 domande)
-        {
-          id: 8, module: 2, chapter: "Cap. 08",
-          question: "Quale affermazione sulla derivabilità di una funzione è CORRETTA?",
-          options: [
-            "Ogni funzione continua è sempre derivabile",
-            "Se f'(a) = 0, allora a è certamente un massimo o un minimo locale",
-            "La funzione f(x) = |x| è continua in 0 ma non derivabile in 0",
-            "La derivata di g(f(x)) è g'(x) * f'(x)"
-          ],
-          correct: 2,
-          explanation: "|x| è continua in 0 ma ha pendenza -1 a sinistra e +1 a destra. Inoltre f'(0)=0 per x³ è un flesso crescente, non un estremo."
-        },
-        {
-          id: 9, module: 2, chapter: "Cap. 08",
-          question: "Un costo vale C(q) = 20 + 2q + 0,1q². Quanto vale il costo marginale C'(q) a q = 10?",
-          options: ["2 €/unità", "4 €/unità", "4,10 €/unità", "50 €/unità"],
-          correct: 1,
-          explanation: "La derivata è C'(q) = 2 + 0,2q. Valutata in q = 10 dà 2 + 2 = 4 €/unità."
-        },
-        {
-          id: 10, module: 2, chapter: "Cap. 08",
-          question: "Per C(x, y) = 3x² + xy, quanto vale la derivata parziale rispetto a x?",
-          options: ["6x", "6x + y", "6x + x", "3x² + y"],
-          correct: 1,
-          explanation: "Derivando rispetto a x si mantiene y costante: la derivata di 3x² è 6x e quella di xy è y, quindi 6x + y."
-        },
-        {
-          id: 11, module: 2, chapter: "Cap. 09",
-          question: "Una potenza varia come P(t) = 2t kW per 0 <= t <= 3 ore. Qual è l'energia totale accumulata?",
-          options: ["6 kWh", "9 kWh", "18 kWh", "3 kWh"],
-          correct: 1,
-          explanation: "La primitiva di 2t è t². L'integrale tra 0 e 3 vale 3² - 0² = 9 kWh."
-        },
-        {
-          id: 12, module: 2, chapter: "Cap. 09",
-          question: "Una pompa eroga 4 + t litri/minuto per 2 minuti (da t = 0 a t = 2). Quanti litri eroga in totale?",
-          options: ["8 litri", "10 litri", "12 litri", "6 litri"],
-          correct: 1,
-          explanation: "La primitiva è 4t + t²/2. A t = 2 vale 8 + 2 = 10 litri; a t = 0 vale 0."
-        },
-        {
-          id: 13, module: 2, chapter: "Cap. 09",
-          question: "Se un flusso f(t) può assumere valori positivi (entrate) e negativi (uscite), cosa calcola l'integrale definito di f(t)?",
-          options: [
-            "La somma assoluta di tutte le entrate e le uscite",
-            "Il saldo netto (area con segno)",
-            "Sempre un valore strettamente positivo",
-            "Il valore massimo raggiunto dal flusso"
-          ],
-          correct: 1,
-          explanation: "L'integrale definito misura l'area con segno (saldo netto); per l'ampiezza totale si integra |f(t)|."
-        },
+        { id: 8, module: 2, chapter: "Cap. 08", question: "Quale affermazione sulla derivabilità di una funzione è CORRETTA?", options: ["Ogni funzione continua è sempre derivabile", "Se f'(a) = 0, allora a è certamente un massimo o minimo locale", "La funzione f(x) = |x| è continua in 0 ma non derivabile in 0", "La derivata di g(f(x)) è g'(x) * f'(x)"], correct: 2, explanation: "|x| è continua in 0 ma ha pendenza -1 a sinistra e +1 a destra (spigolo)." },
+        { id: 9, module: 2, chapter: "Cap. 08", question: "Un costo vale C(q) = 20 + 2q + 0,1q². Quanto vale il costo marginale C'(q) a q = 10?", options: ["2 €/unità", "4 €/unità", "4,10 €/unità", "50 €/unità"], correct: 1, explanation: "C'(q) = 2 + 0,2q. A q = 10 vale 2 + 2 = 4 €/unità." },
+        { id: 10, module: 2, chapter: "Cap. 08", question: "Per C(x, y) = 3x² + xy, quanto vale la derivata parziale rispetto a x?", options: ["6x", "6x + y", "6x + x", "3x² + y"], correct: 1, explanation: "Derivando rispetto a x si tiene y costante: 6x + y." },
+        { id: 11, module: 2, chapter: "Cap. 09", question: "Una potenza varia come P(t) = 2t kW per 0 <= t <= 3 ore. Qual è l'energia totale accumulata?", options: ["6 kWh", "9 kWh", "18 kWh", "3 kWh"], correct: 1, explanation: "Primitiva t² -> 3² - 0² = 9 kWh." },
+        { id: 12, module: 2, chapter: "Cap. 09", question: "Una pompa eroga 4 + t litri/minuto per 2 minuti (da 0 a 2). Quanti litri eroga in totale?", options: ["8 litri", "10 litri", "12 litri", "6 litri"], correct: 1, explanation: "Primitiva 4t + t²/2 -> a t = 2 vale 8 + 2 = 10 litri." },
+        { id: 13, module: 2, chapter: "Cap. 09", question: "Se un flusso f(t) può assumere valori positivi e negativi, cosa calcola l'integrale definito?", options: ["La somma assoluta di entrate e uscite", "Il saldo netto (area con segno)", "Sempre un valore positivo", "Il valore massimo del flusso"], correct: 1, explanation: "L'integrale definito misura l'area con segno (saldo); per l'ampiezza totale si integra |f(t)|." },
 
-        // MODULO III (7 domande)
-        {
-          id: 14, module: 3, chapter: "Cap. 10",
-          question: "Se un evento ha probabilità p = 0,2, quali sono le odds a favore?",
-          options: ["1 a 5", "1 a 4 (0,25)", "4 a 1 (4,0)", "0,80"],
-          correct: 1,
-          explanation: "Le odds a favore sono p / (1 - p) = 0,2 / 0,8 = 1/4, ossia 1 a 4."
-        },
-        {
-          id: 15, module: 3, chapter: "Cap. 11",
-          question: "Due eventi A e B hanno P(A) = 0,4 e P(B) = 0,3 e sono incompatibili. Quale affermazione è VERA?",
-          options: [
-            "Sono indipendenti e P(A ∪ B) = 0,7",
-            "Sono dipendenti e P(A ∪ B) = 0,7",
-            "Sono indipendenti e P(A ∪ B) = 0,58",
-            "Sono dipendenti e P(A ∪ B) = 0,12"
-          ],
-          correct: 1,
-          explanation: "Incompatibili significa P(A ∩ B) = 0 != P(A)P(B) = 0,12, quindi sono dipendenti. L'unione vale 0,4 + 0,3 = 0,7."
-        },
-        {
-          id: 16, module: 3, chapter: "Cap. 11",
-          question: "Due voli indipendenti hanno probabilità di ritardo 0,1 e 0,2. Qual è la probabilità di ALMENO un ritardo?",
-          options: ["0,30", "0,28", "0,02", "0,72"],
-          correct: 1,
-          explanation: "Il complemento di 'almeno un ritardo' è 'nessun ritardo': 0,9 * 0,8 = 0,72. Quindi 1 - 0,72 = 0,28."
-        },
-        {
-          id: 17, module: 3, chapter: "Cap. 12",
-          question: "Un filtro antispam ha sensibilità 90% e falsi positivi 5%. Su 1.000 email, 100 sono spam. Se un'email è segnalata, qual è P(spam | segnalata)?",
-          options: ["90%", "66,67% (90 / 135)", "9%", "50%"],
-          correct: 1,
-          explanation: "Su 1.000 email ci sono 90 veri positivi (100*0,90) e 45 falsi positivi (900*0,05): 90 / (90 + 45) = 90/135 = 66,67%."
-        },
-        {
-          id: 18, module: 3, chapter: "Cap. 13",
-          question: "Per un tempo di attesa continuo uniforme tra 0 e 20 minuti, quanto vale P(X = 5)?",
-          options: ["1/20 = 0,05", "0,25", "0", "0,20"],
-          correct: 2,
-          explanation: "In qualsiasi distribuzione continua la probabilità di un singolo punto esatto è sempre 0 (ampiezza dell'intervallo nulla)."
-        },
-        {
-          id: 19, module: 3, chapter: "Cap. 14",
-          question: "In una distribuzione binomiale con n = 10 e p = 0,3, quale istruzione SciPy calcola P(X >= 4)?",
-          options: [
-            "binom.cdf(4, 10, 0.3)",
-            "binom.sf(4, 10, 0.3)",
-            "binom.sf(3, 10, 0.3)",
-            "binom.pmf(4, 10, 0.3)"
-          ],
-          correct: 2,
-          explanation: "sf(k) restituisce P(X > k). Per includere k = 4 nella coda destra occorre passare k - 1 = 3: binom.sf(3, 10, 0.3)."
-        },
-        {
-          id: 20, module: 3, chapter: "Cap. 15",
-          question: "Partendo da un prior Beta(2, 2), osservi 7 successi e 3 insuccessi. Qual è la media della Beta a posteriori?",
-          options: ["7 / 10 = 0,70", "9 / 14 ≈ 0,643", "9 / 5 = 1,80", "5 / 14 ≈ 0,357"],
-          correct: 1,
-          explanation: "I parametri diventano Beta(2+7, 2+3) = Beta(9, 5). La media è alfa / (alfa + beta) = 9 / 14 ≈ 0,643."
-        },
+        { id: 14, module: 3, chapter: "Cap. 10", question: "Se un evento ha probabilità p = 0,2, quali sono le odds a favore?", options: ["1 a 5", "1 a 4 (0,25)", "4 a 1 (4,0)", "0,80"], correct: 1, explanation: "Odds = p / (1 - p) = 0,2 / 0,8 = 1/4 (1 a 4)." },
+        { id: 15, module: 3, chapter: "Cap. 11", question: "Due eventi A e B hanno P(A) = 0,4 e P(B) = 0,3 e sono incompatibili. Quale affermazione è VERA?", options: ["Sono indipendenti e P(A ∪ B) = 0,7", "Sono dipendenti e P(A ∪ B) = 0,7", "Sono indipendenti e P(A ∪ B) = 0,58", "Sono dipendenti e P(A ∪ B) = 0,12"], correct: 1, explanation: "Incompatibili -> P(A ∩ B) = 0 != 0,4*0,3 (dipendenti). Unione = 0,4 + 0,3 = 0,7." },
+        { id: 16, module: 3, chapter: "Cap. 11", question: "Due voli indipendenti hanno probabilità di ritardo 0,1 e 0,2. Qual è la probabilità di ALMENO un ritardo?", options: ["0,30", "0,28", "0,02", "0,72"], correct: 1, explanation: "Nessun ritardo = 0,9 * 0,8 = 0,72. Almeno uno = 1 - 0,72 = 0,28." },
+        { id: 17, module: 3, chapter: "Cap. 12", question: "Un filtro antispam ha sensibilità 90% e falsi positivi 5%. Su 1.000 email, 100 sono spam. Se un'email è segnalata, qual è P(spam | segnalata)?", options: ["90%", "66,67% (90 / 135)", "9%", "50%"], correct: 1, explanation: "90 veri positivi e 45 falsi positivi = 135 segnalate. 90/135 = 66,67%." },
+        { id: 18, module: 3, chapter: "Cap. 13", question: "Per un tempo di attesa continuo uniforme tra 0 e 20 minuti, quanto vale P(X = 5)?", options: ["1/20 = 0,05", "0,25", "0", "0,20"], correct: 2, explanation: "In ogni distribuzione continua la probabilità di un singolo punto esatto è 0." },
+        { id: 19, module: 3, chapter: "Cap. 14", question: "In una binomiale con n = 10 e p = 0,3, quale istruzione SciPy calcola P(X >= 4)?", options: ["binom.cdf(4, 10, 0.3)", "binom.sf(4, 10, 0.3)", "binom.sf(3, 10, 0.3)", "binom.pmf(4, 10, 0.3)"], correct: 2, explanation: "sf(k) è P(X > k). Per includere 4 occorre sf(3, 10, 0.3)." },
+        { id: 20, module: 3, chapter: "Cap. 15", question: "Partendo da un prior Beta(2, 2), osservi 7 successi e 3 insuccessi. Qual è la media a posteriori?", options: ["7 / 10 = 0,70", "9 / 14 ≈ 0,643", "9 / 5 = 1,80", "5 / 14 ≈ 0,357"], correct: 1, explanation: "Beta(2+7, 2+3) = Beta(9, 5). Media = 9 / 14 ≈ 0,643." },
 
-        // MODULO IV (7 domande)
-        {
-          id: 21, module: 4, chapter: "Cap. 16",
-          question: "Su 200 persone invitate a un sondaggio, rispondono 80 (di cui 20 usano il treno) e 120 non rispondono. Perché aumentare i soli intervistati al parcheggio non risolve il bias?",
-          options: [
-            "Perché aumentare il campione fa sempre crescere il bias di misura",
-            "Perché un difetto di copertura/selezione resta anche in campioni molto grandi",
-            "Perché la media campionaria non esiste senza 200 risposte",
-            "Perché i dati diventano ordinali anziché nominali"
-          ],
-          correct: 1,
-          explanation: "Aumentare n riduce la variabilità casuale ma NON corregge un bias sistematico di copertura o mancata risposta."
-        },
-        {
-          id: 22, module: 4, chapter: "Cap. 17",
-          question: "I tempi di consegna sono [10, 11, 11, 12, 56] minuti. Quale coppia (media, mediana) è corretta?",
-          options: ["Media 11, Mediana 20", "Media 20, Mediana 11", "Media 11, Mediana 11", "Media 20, Mediana 12"],
-          correct: 1,
-          explanation: "Media = (10+11+11+12+56)/5 = 20 (spostata dal valore estremo 56). Mediana = valore centrale ordinato = 11."
-        },
-        {
-          id: 23, module: 4, chapter: "Cap. 17",
-          question: "Un negozio vende 2 articoli a 12 € e 8 articoli a 7 €. Qual è il prezzo medio per articolo?",
-          options: ["9,50 €", "8,00 €", "10,00 €", "7,50 €"],
-          correct: 1,
-          explanation: "Media ponderata: (2*12 + 8*7) / (2 + 8) = (24 + 56) / 10 = 80 / 10 = 8,00 €."
-        },
-        {
-          id: 24, module: 4, chapter: "Cap. 18",
-          question: "Perché la varianza campionaria s² divide per n - 1, e qual è il comportamento predefinito di np.var(x)?",
-          options: [
-            "Per avere uno stimatore non distorto (1 gdl usato da x̄); np.var divide per n di default (serve ddof=1)",
-            "Per annullare gli outlier; np.var divide per n - 1 di default",
-            "Solo se i dati sono normali; np.var divide per n - 1 di default",
-            "Perché gli scarti al quadrato sommano a zero; np.var divide per n di default"
-          ],
-          correct: 0,
-          explanation: "Stimare x̄ consuma 1 grado di libertà; dividere per n - 1 evita la sottostima sistematica. NumPy usa ddof=0 (n) di default."
-        },
-        {
-          id: 25, module: 4, chapter: "Cap. 20",
-          question: "Con σ = 18 minuti, quale numerosità campionaria minima n porta l'errore standard SE a essere <= 2 minuti?",
-          options: ["n >= 9", "n >= 36", "n >= 81", "n >= 18"],
-          correct: 2,
-          explanation: "Da 18 / sqrt(n) <= 2 si ha sqrt(n) >= 9, quindi n >= 9² = 81 osservazioni indipendenti."
-        },
-        {
-          id: 26, module: 4, chapter: "Cap. 20",
-          question: "Che differenza c'è tra Legge dei Grandi Numeri (LGN) e Teorema del Limite Centrale (TLC)?",
-          options: [
-            "La LGN afferma che x̄ si avvicina a μ; il TLC descrive la forma normale della distribuzione di x̄ al crescere di n",
-            "Il TLC vale solo se le singole osservazioni sono già normali",
-            "La LGN vale solo per varianza infinita",
-            "Sono due nomi equivalenti per la regola 68-95-99,7"
-          ],
-          correct: 0,
-          explanation: "La LGN riguarda la convergenza della media campionaria verso μ; il TLC riguarda la forma normale delle medie campionarie (anche partendo da dati asimmetrici)."
-        },
-        {
-          id: 27, module: 4, chapter: "Cap. 23",
-          question: "In un test bilaterale al 5% ottieni p-value = 0,0455. Quale conclusione è CORRETTA?",
-          options: [
-            "C'è il 4,55% di probabilità che H0 sia vera",
-            "Si rifiuta H0 al 5%, perché sotto H0 un risultato almeno così estremo ha probabilità 4,55%",
-            "Non si rifiuta H0 perché p > 0,01",
-            "L'effetto è sicuramente grande e decisivo nella pratica"
-          ],
-          correct: 1,
-          explanation: "Poiché p <= α (0,0455 <= 0,05), si rifiuta H0. Il p-value NON misura la probabilità che H0 sia vera."
-        },
+        { id: 21, module: 4, chapter: "Cap. 16", question: "Su 200 invitati rispondono 80 (20 in treno). Perché aumentare le sole interviste al parcheggio non elimina il bias?", options: ["Perché aumentare il campione aumenta il bias di misura", "Perché un difetto di copertura/selezione resta anche in campioni grandi", "Perché la media non esiste senza 200 risposte", "Perché i dati diventano ordinali"], correct: 1, explanation: "Aumentare n riduce la variabilità casuale ma non corregge il bias di selezione." },
+        { id: 22, module: 4, chapter: "Cap. 17", question: "I tempi di consegna sono [10, 11, 11, 12, 56] minuti. Quale coppia (media, mediana) è corretta?", options: ["Media 11, Mediana 20", "Media 20, Mediana 11", "Media 11, Mediana 11", "Media 20, Mediana 12"], correct: 1, explanation: "Media = 100/5 = 20; Mediana = valore centrale ordinato = 11." },
+        { id: 23, module: 4, chapter: "Cap. 17", question: "Un negozio vende 2 articoli a 12 € e 8 articoli a 7 €. Qual è il prezzo medio per articolo?", options: ["9,50 €", "8,00 €", "10,00 €", "7,50 €"], correct: 1, explanation: "(2*12 + 8*7) / 10 = 80 / 10 = 8,00 €." },
+        { id: 24, module: 4, chapter: "Cap. 18", question: "Perché s² divide per n - 1, e cosa usa np.var(x) di default?", options: ["Per avere uno stimatore non distorto; np.var divide per n di default (serve ddof=1)", "Per annullare gli outlier; np.var divide per n-1", "Solo per dati normali; np.var divide per n-1", "Perché gli scarti² sommano a zero; np.var divide per n"], correct: 0, explanation: "La media consuma 1 gdl -> n-1. NumPy usa ddof=0 di default." },
+        { id: 25, module: 4, chapter: "Cap. 20", question: "Con σ = 18 minuti, quale n minimo porta l'errore standard SE <= 2 minuti?", options: ["n >= 9", "n >= 36", "n >= 81", "n >= 18"], correct: 2, explanation: "18 / sqrt(n) <= 2 -> sqrt(n) >= 9 -> n >= 81." },
+        { id: 26, module: 4, chapter: "Cap. 20", question: "Che differenza c'è tra Legge dei Grandi Numeri (LGN) e Teorema del Limite Centrale (TLC)?", options: ["LGN: x̄ si avvicina a μ; TLC: la distribuzione di x̄ tende alla Normale", "Il TLC vale solo se i dati originali sono normali", "La LGN vale solo con varianza infinita", "Sono nomi equivalenti per la regola 68-95-99,7"], correct: 0, explanation: "LGN = convergenza a μ; TLC = forma normale della media campionaria." },
+        { id: 27, module: 4, chapter: "Cap. 23", question: "In un test bilaterale al 5% ottieni p-value = 0,0455. Quale conclusione è CORRETTA?", options: ["C'è il 4,55% di probabilità che H0 sia vera", "Si rifiuta H0 al 5%, perché sotto H0 un risultato così estremo ha probabilità 4,55%", "Non si rifiuta H0 perché p > 0,01", "L'effetto è sicuramente grande nella pratica"], correct: 1, explanation: "p <= 0,05 -> rifiuti H0. Il p-value non è P(H0 vera)." },
 
-        // MODULO V (6 domande)
-        {
-          id: 28, module: 5, chapter: "Cap. 24",
-          question: "Una posizione passa da (2, 1, 4) a (5, 0, 6) metri. Qual è il vettore spostamento?",
-          options: ["(7, 1, 10)", "(3, -1, 2)", "(-3, 1, -2)", "(10, 0, 24)"],
-          correct: 1,
-          explanation: "Lo spostamento è arrivo minus partenza componente per componente: (5-2, 0-1, 6-4) = (3, -1, 2)."
-        },
-        {
-          id: 29, module: 5, chapter: "Cap. 25",
-          question: "Quanto vale il prodotto scalare di v = (1, 2) e w = (2, -1), e che angolo formano?",
-          options: ["0: sono ortogonali (90°)", "0: sono paralleli", "4: angolo acuto", "(-2, -2): vettore ortogonale"],
-          correct: 0,
-          explanation: "v · w = 1*2 + 2*(-1) = 0. Vettori non nulli con prodotto scalare zero formano un angolo di 90 gradi."
-        },
-        {
-          id: 30, module: 5, chapter: "Cap. 26",
-          question: "Qual è il rango della matrice con colonne (1, 1), (2, 2) e (1, 0)?",
-          options: ["3", "1", "2", "0"],
-          correct: 2,
-          explanation: "(2, 2) = 2*(1, 1) è dipendente, mentre (1, 1) e (1, 0) sono indipendenti e coprono il piano R²: rango = 2."
-        },
-        {
-          id: 31, module: 5, chapter: "Cap. 27",
-          question: "In un vettore 2D, ruotando di 90° in senso antiorario il punto (3, 2) e usando la matrice [[0, -1], [1, 0]], cosa ottieni?",
-          options: ["(2, -3)", "(-2, 3)", "(-3, -2)", "(3, -2)"],
-          correct: 1,
-          explanation: "Prima riga: 0*3 + (-1)*2 = -2. Seconda riga: 1*3 + 0*2 = 3. Il punto ruotato è (-2, 3)."
-        },
-        {
-          id: 32, module: 5, chapter: "Cap. 27",
-          question: "Quale affermazione su matrici e inverse è CORRETTA?",
-          options: [
-            "AB è sempre uguale a BA",
-            "Se det(A) = 0, A è sempre invertibile",
-            "Se A e B sono invertibili, allora (AB)^(-1) = B^(-1) A^(-1)",
-            "In NumPy A * B esegue il prodotto matriciale riga per colonna"
-          ],
-          correct: 2,
-          explanation: "Invertire una composizione AB richiede di invertire in ordine opposto: B^(-1) A^(-1). Il prodotto matriciale usa @."
-        },
-        {
-          id: 33, module: 5, chapter: "Cap. 28",
-          question: "Quando il sistema lineare Ax = b è incompatibile (nessuna soluzione)?",
-          options: [
-            "Quando rango(A) è diverso dal rango della matrice aumentata (A|b)",
-            "Quando rango(A) = rango(A|b) = numero di incognite",
-            "Quando A è una matrice diagonale con elementi non nulli",
-            "Quando il residuo Ax - b è uguale a zero"
-          ],
-          correct: 0,
-          explanation: "Se nella riduzione a scala compare una riga [0 ... 0 | c] con c != 0, rango(A) < rango(A|b) e il sistema è incompatibile."
-        },
+        { id: 28, module: 5, chapter: "Cap. 24", question: "Una posizione passa da (2, 1, 4) a (5, 0, 6) metri. Qual è il vettore spostamento?", options: ["(7, 1, 10)", "(3, -1, 2)", "(-3, 1, -2)", "(10, 0, 24)"], correct: 1, explanation: "Arrivo minus partenza: (5-2, 0-1, 6-4) = (3, -1, 2)." },
+        { id: 29, module: 5, chapter: "Cap. 25", question: "Quanto vale il prodotto scalare di v = (1, 2) e w = (2, -1), e che angolo formano?", options: ["0: sono ortogonali (90°)", "0: sono paralleli", "4: angolo acuto", "(-2, -2): vettore ortogonale"], correct: 0, explanation: "1*2 + 2*(-1) = 0 -> ortogonali (90°)." },
+        { id: 30, module: 5, chapter: "Cap. 26", question: "Qual è il rango della matrice con colonne (1, 1), (2, 2) e (1, 0)?", options: ["3", "1", "2", "0"], correct: 2, explanation: "(2, 2) dipende da (1, 1); (1, 1) e (1, 0) sono indipendenti -> rango = 2." },
+        { id: 31, module: 5, chapter: "Cap. 27", question: "Ruotando di 90° antiorario (3, 2) con la matrice [[0, -1], [1, 0]], cosa ottieni?", options: ["(2, -3)", "(-2, 3)", "(-3, -2)", "(3, -2)"], correct: 1, explanation: "0*3 + (-1)*2 = -2; 1*3 + 0*2 = 3 -> (-2, 3)." },
+        { id: 32, module: 5, chapter: "Cap. 27", question: "Quale affermazione su matrici e inverse è CORRETTA?", options: ["AB è sempre uguale a BA", "Se det(A) = 0, A è invertibile", "Se A e B sono invertibili, (AB)^(-1) = B^(-1) A^(-1)", "In NumPy A * B calcola il prodotto matriciale"], correct: 2, explanation: "L'inversa di un prodotto inverte l'ordine: B^(-1) A^(-1). Il prodotto matriciale usa @." },
+        { id: 33, module: 5, chapter: "Cap. 28", question: "Quando il sistema lineare Ax = b è incompatibile (nessuna soluzione)?", options: ["Quando rango(A) != rango(A|b)", "Quando rango(A) = rango(A|b) = incognite", "Quando A è diagonale non nulla", "Quando il residuo Ax - b è zero"], correct: 0, explanation: "Se rango(A) < rango(A|b), c'è una riga impossibile 0 = c (c != 0)." },
 
-        // MODULO VI (7 domande)
-        {
-          id: 34, module: 6, chapter: "Cap. 29",
-          question: "Per la retta di regressione y_hat = 6 + 3x (x in km, y in minuti), cosa prevede a 8 km e cosa indica l'intercetta?",
-          options: [
-            "Prevede 30 min; l'intercetta stima 6 min a distanza zero",
-            "Prevede 24 min; l'intercetta è la pendenza",
-            "Prevede 51 min; l'intercetta è 3",
-            "Prevede 30 min; ogni km aggiunge 6 minuti"
-          ],
-          correct: 0,
-          explanation: "A x = 8: 6 + 3*8 = 30 minuti. L'intercetta b0 = 6 è il valore previsto a x = 0; la pendenza b1 = 3 è l'incremento per km."
-        },
-        {
-          id: 35, module: 6, chapter: "Cap. 30",
-          question: "Un modello prevede 20 minuti per una consegna che dura effettivamente 24 minuti. Quanto vale il residuo e_i?",
-          options: ["-4 minuti (sovrastima)", "+4 minuti (sottostima)", "16 minuti", "0 minuti"],
-          correct: 1,
-          explanation: "Il residuo è definito come osservato minus previsto: e_i = y_i - y_hat_i = 24 - 20 = +4 (segno positivo = sottostima)."
-        },
-        {
-          id: 36, module: 6, chapter: "Cap. 34",
-          question: "Sul test set osservi residui [-2, 0, 2, 4] minuti. Quanto valgono MAE e RMSE?",
-          options: [
-            "MAE = 1 min, RMSE = 2 min",
-            "MAE = 2 min, RMSE = sqrt(6) ≈ 2,45 min",
-            "MAE = 4 min, RMSE = 6 min",
-            "MAE = 2 min, RMSE = 2 min"
-          ],
-          correct: 1,
-          explanation: "MAE = (2+0+2+4)/4 = 2 min. MSE = (4+0+4+16)/4 = 6 min², quindi RMSE = sqrt(6) ≈ 2,45 min."
-        },
-        {
-          id: 37, module: 6, chapter: "Cap. 31",
-          question: "Perché la decomposizione QR ridotta (Rb = Q^T y) è spesso preferita alle equazioni normali X^T X b = X^T y?",
-          options: [
-            "Perché costruire X^T X può amplificare il mal condizionamento numerico, mentre QR è più stabile",
-            "Perché QR garantisce R² = 1 su qualsiasi test set",
-            "Perché le equazioni normali non minimizzano la SSE",
-            "Perché QR funziona solo con una sola colonna in X"
-          ],
-          correct: 0,
-          explanation: "Formare X^T X quadra il numero di condizionamento; la QR ridotta evita questa perdita di precisione numerica."
-        },
-        {
-          id: 38, module: 6, chapter: "Cap. 32",
-          question: "Nella discesa del gradiente per L(b) = (b - 5)², con b iniziale = 1 e learning rate eta = 0,25, quanto vale b dopo il primo passo?",
-          options: ["-1", "3", "4", "2"],
-          correct: 1,
-          explanation: "L'(b) = 2(b - 5). A b = 1 vale -8. Quindi b_nuovo = 1 - 0,25 * (-8) = 1 + 2 = 3."
-        },
-        {
-          id: 39, module: 6, chapter: "Cap. 33",
-          question: "Per x = [-2, -1, 0, 1, 2] e y = x², la correlazione di Pearson è r = 0. Cosa puoi concludere?",
-          options: [
-            "x e y sono indipendenti",
-            "Non c'è associazione lineare, ma esiste una relazione curva deterministica",
-            "Il modello lineare ha R² = 1",
-            "y è necessariamente costante"
-          ],
-          correct: 1,
-          explanation: "Pearson misura solo l'allineamento lineare: per simmetria della parabola, r = 0 anche se y = x² è esatta."
-        },
-        {
-          id: 40, module: 6, chapter: "Cap. 34",
-          question: "Con 12 osservazioni di stima, intercetta e pendenza (p = 2 parametri), e SSE = 90 min², quanto vale l'errore standard della stima s_res?",
-          options: ["sqrt(90/12) ≈ 2,74 min", "sqrt(90/10) = 3,0 min", "90/10 = 9,0 min", "sqrt(90/11) ≈ 2,86 min"],
-          correct: 1,
-          explanation: "s_res = sqrt[SSE / (n - p)] = sqrt(90 / (12 - 2)) = sqrt(9) = 3,0 minuti."
-        }
+        { id: 34, module: 6, chapter: "Cap. 29", question: "Per y_hat = 6 + 3x (x in km, y in min), cosa prevede a 8 km e cosa indica l'intercetta?", options: ["Prevede 30 min; l'intercetta stima 6 min a distanza zero", "Prevede 24 min; l'intercetta è la pendenza", "Prevede 51 min; l'intercetta è 3", "Prevede 30 min; ogni km aggiunge 6 min"], correct: 0, explanation: "6 + 3*8 = 30 min; 6 è il valore stimato a x = 0." },
+        { id: 35, module: 6, chapter: "Cap. 30", question: "Un modello prevede 20 minuti per una consegna reale di 24 minuti. Quanto vale il residuo e_i?", options: ["-4 min (sovrastima)", "+4 min (sottostima)", "16 min", "0 min"], correct: 1, explanation: "Residuo = osservato - previsto = 24 - 20 = +4 min (sottostima)." },
+        { id: 36, module: 6, chapter: "Cap. 34", question: "Sul test set osservi residui [-2, 0, 2, 4] minuti. Quanto valgono MAE e RMSE?", options: ["MAE = 1, RMSE = 2", "MAE = 2 min, RMSE = sqrt(6) ≈ 2,45 min", "MAE = 4, RMSE = 6", "MAE = 2, RMSE = 2"], correct: 1, explanation: "MAE = (2+0+2+4)/4 = 2; MSE = (4+0+4+16)/4 = 6 -> RMSE = sqrt(6) ≈ 2,45." },
+        { id: 37, module: 6, chapter: "Cap. 31", question: "Perché la QR ridotta (Rb = Q^T y) è preferita alle equazioni normali X^T X b = X^T y?", options: ["Perché X^T X amplifica il mal condizionamento numerico, mentre QR è più stabile", "Perché QR garantisce R² = 1", "Perché le equazioni normali non minimizzano la SSE", "Perché QR funziona solo con 1 colonna"], correct: 0, explanation: "Formare X^T X quadra il numero di condizionamento; QR evita questa perdita di stabilità." },
+        { id: 38, module: 6, chapter: "Cap. 32", question: "Nella discesa del gradiente per L(b) = (b - 5)², con b = 1 e eta = 0,25, quanto vale b dopo 1 passo?", options: ["-1", "3", "4", "2"], correct: 1, explanation: "L'(1) = 2(1 - 5) = -8. b_nuovo = 1 - 0,25*(-8) = 3." },
+        { id: 39, module: 6, chapter: "Cap. 33", question: "Per x = [-2, -1, 0, 1, 2] e y = x², la correlazione di Pearson è r = 0. Cosa concludi?", options: ["x e y sono indipendenti", "Non c'è associazione lineare, ma esiste una relazione curva deterministica", "R² lineare vale 1", "y è costante"], correct: 1, explanation: "Pearson misura solo l'associazione lineare: per simmetria r = 0 anche su y = x²." },
+        { id: 40, module: 6, chapter: "Cap. 34", question: "Con n = 12 osservazioni, p = 2 parametri e SSE = 90 min², quanto vale s_res?", options: ["sqrt(90/12) ≈ 2,74 min", "sqrt(90/10) = 3,0 min", "90/10 = 9,0 min", "sqrt(90/11) ≈ 2,86 min"], correct: 1, explanation: "s_res = sqrt[SSE / (n - p)] = sqrt(90 / 10) = 3,0 minuti." }
       ];
 
-      // --- 6. QUIZ STATE & CONFIG LOBBY ---
+      // --- 6. QUIZ ENGINE ---
       var lobbyEl = document.getElementById("quiz-lobby");
       var stageEl = document.getElementById("quiz-stage");
       var resultsEl = document.getElementById("quiz-results");
-
       var modChips = document.querySelectorAll("#mod-chips .chip");
       var countChips = document.querySelectorAll("#count-chips .chip");
       var customCountInput = document.getElementById("custom-count");
@@ -2131,18 +1815,12 @@
       var availHint = document.getElementById("avail-hint");
       var lobbySummary = document.getElementById("lobby-summary");
 
-      var config = {
-        modules: "all", // "all" or array of numbers
-        count: 10,      // number or "all"
-        minutes: 10,
-        mode: "exam",
-        shuffleOpts: true
-      };
+      var config = { modules: "all", count: 10, minutes: 10, mode: "exam", shuffleOpts: true };
+      var run = null;
+      var timerInterval = null;
 
       function getSelectedModulesPool(customIds) {
-        if (customIds) {
-          return QUESTIONS.filter(function (q) { return customIds.indexOf(q.id) !== -1; });
-        }
+        if (customIds) return QUESTIONS.filter(function (q) { return customIds.indexOf(q.id) !== -1; });
         if (config.modules === "all") return QUESTIONS.slice();
         return QUESTIONS.filter(function (q) { return config.modules.indexOf(q.module) !== -1; });
       }
@@ -2152,9 +1830,7 @@
         availHint.textContent = "(" + poolLen + " disponibili)";
         customCountInput.max = String(poolLen);
         var effectiveCount = config.count === "all" ? poolLen : Math.min(Number(config.count) || 1, poolLen);
-        if (config.count !== "all" && Number(customCountInput.value) > poolLen) {
-          customCountInput.value = String(poolLen);
-        }
+        if (config.count !== "all" && Number(customCountInput.value) > poolLen) customCountInput.value = String(poolLen);
         var timeTxt = config.minutes > 0 ? config.minutes + " min" : "senza timer";
         var modeTxt = config.mode === "exam" ? "Esame a tempo" : "Allenamento";
         lobbySummary.textContent = "Pronto: " + effectiveCount + " domande random • " + timeTxt + " • " + modeTxt;
@@ -2170,8 +1846,7 @@
             var num = Number(val);
             var curr = config.modules === "all" ? [] : config.modules.slice();
             var idx = curr.indexOf(num);
-            if (idx === -1) curr.push(num);
-            else curr.splice(idx, 1);
+            if (idx === -1) curr.push(num); else curr.splice(idx, 1);
             if (curr.length === 0 || curr.length === 6) {
               config.modules = "all";
               modChips.forEach(function (c) { c.classList.toggle("active", c.getAttribute("data-mod") === "all"); });
@@ -2192,13 +1867,8 @@
           countChips.forEach(function (c) { c.classList.remove("active"); });
           chip.classList.add("active");
           var val = chip.getAttribute("data-count");
-          if (val === "all") {
-            config.count = "all";
-            customCountInput.value = String(getSelectedModulesPool().length);
-          } else {
-            config.count = Number(val);
-            customCountInput.value = String(val);
-          }
+          if (val === "all") { config.count = "all"; customCountInput.value = String(getSelectedModulesPool().length); }
+          else { config.count = Number(val); customCountInput.value = String(val); }
           syncLobbyUI();
         });
       });
@@ -2206,9 +1876,7 @@
       customCountInput.addEventListener("input", function () {
         var v = Math.max(1, Number(customCountInput.value) || 1);
         config.count = v;
-        countChips.forEach(function (c) {
-          c.classList.toggle("active", c.getAttribute("data-count") === String(v));
-        });
+        countChips.forEach(function (c) { c.classList.toggle("active", c.getAttribute("data-count") === String(v)); });
         syncLobbyUI();
       });
 
@@ -2226,9 +1894,7 @@
       customTimeInput.addEventListener("input", function () {
         var v = Math.max(0, Math.min(120, Number(customTimeInput.value) || 0));
         config.minutes = v;
-        timeChips.forEach(function (c) {
-          c.classList.toggle("active", Number(c.getAttribute("data-time")) === v);
-        });
+        timeChips.forEach(function (c) { c.classList.toggle("active", Number(c.getAttribute("data-time")) === v); });
         syncLobbyUI();
       });
 
@@ -2241,14 +1907,10 @@
         });
       });
 
-      shuffleOptsChk.addEventListener("change", function () {
-        config.shuffleOpts = shuffleOptsChk.checked;
-      });
+      shuffleOptsChk.addEventListener("change", function () { config.shuffleOpts = shuffleOptsChk.checked; });
 
-      // --- 7. HISTORY ---
       function loadHistory() {
-        try { return JSON.parse(localStorage.getItem("study_quiz_history_v2") || "[]"); }
-        catch (e) { return []; }
+        try { return JSON.parse(localStorage.getItem("study_quiz_history_v3") || "[]"); } catch (e) { return []; }
       }
       function renderHistory() {
         var list = document.getElementById("history-list");
@@ -2259,88 +1921,37 @@
         }
         list.innerHTML = hist.map(function (h) {
           var badgeCls = h.voto >= 18 ? "badge-ok" : "badge-warn";
-          return "<div class='history-item'>" +
-            "<span><strong>" + h.date + "</strong> &bull; " + h.modeLabel + " (" + h.correct + "/" + h.total + ")</span>" +
-            "<span class='badge " + badgeCls + "'>" + h.votoLabel + " (" + h.pct + "%) &bull; " + h.time + "</span>" +
-            "</div>";
+          return "<div class='history-item'><span><strong>" + h.date + "</strong> &bull; " + h.modeLabel + " (" + h.correct + "/" + h.total + ")</span>" +
+            "<span class='badge " + badgeCls + "'>" + h.votoLabel + " (" + h.pct + "%) &bull; " + h.time + "</span></div>";
         }).join("");
       }
       document.getElementById("btn-clear-history").addEventListener("click", function () {
-        try { localStorage.removeItem("study_quiz_history_v2"); } catch (e) {}
+        try { localStorage.removeItem("study_quiz_history_v3"); } catch (e) {}
         renderHistory();
       });
-
-      // --- 8. ACTIVE QUIZ ENGINE ---
-      var run = null;
-      var timerInterval = null;
 
       function shuffleArr(arr) {
         var copy = arr.slice();
         for (var i = copy.length - 1; i > 0; i--) {
           var j = Math.floor(Math.random() * (i + 1));
-          var tmp = copy[i];
-          copy[i] = copy[j];
-          copy[j] = tmp;
+          var tmp = copy[i]; copy[i] = copy[j]; copy[j] = tmp;
         }
         return copy;
       }
 
       function prepareRunQuestion(q, shuffleOptions) {
         if (!shuffleOptions) {
-          return {
-            id: q.id,
-            module: q.module,
-            chapter: q.chapter,
-            moduleName: MODULE_NAMES[q.module],
-            question: q.question,
-            options: q.options.slice(),
-            correct: q.correct,
-            explanation: q.explanation
-          };
+          return { id: q.id, module: q.module, chapter: q.chapter, moduleName: MODULE_NAMES[q.module], question: q.question, options: q.options.slice(), correct: q.correct, explanation: q.explanation };
         }
-        var paired = q.options.map(function (text, idx) {
-          return { text: text, isCorrect: idx === q.correct };
-        });
-        paired = shuffleArr(paired);
+        var paired = shuffleArr(q.options.map(function (text, idx) { return { text: text, isCorrect: idx === q.correct }; }));
         var newCorrect = 0;
-        paired.forEach(function (item, idx) {
-          if (item.isCorrect) newCorrect = idx;
-        });
-        return {
-          id: q.id,
-          module: q.module,
-          chapter: q.chapter,
-          moduleName: MODULE_NAMES[q.module],
-          question: q.question,
-          options: paired.map(function (item) { return item.text; }),
-          correct: newCorrect,
-          explanation: q.explanation
-        };
+        paired.forEach(function (item, idx) { if (item.isCorrect) newCorrect = idx; });
+        return { id: q.id, module: q.module, chapter: q.chapter, moduleName: MODULE_NAMES[q.module], question: q.question, options: paired.map(function (i) { return i.text; }), correct: newCorrect, explanation: q.explanation };
       }
 
       function formatTime(sec) {
         var s = Math.max(0, sec);
-        var m = String(Math.floor(s / 60)).padStart(2, "0");
-        var r = String(s % 60).padStart(2, "0");
-        return m + ":" + r;
-      }
-
-      function startTimerLoop() {
-        if (timerInterval) clearInterval(timerInterval);
-        updateTimerPill();
-        timerInterval = setInterval(function () {
-          if (!run || run.finished) return;
-          run.elapsed += 1;
-          if (run.limitSeconds > 0) {
-            run.remaining = Math.max(0, run.limitSeconds - run.elapsed);
-            updateTimerPill();
-            if (run.remaining === 0) {
-              finishQuiz(true);
-            }
-          } else {
-            updateTimerPill();
-          }
-        }, 1000);
+        return String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
       }
 
       function updateTimerPill() {
@@ -2355,31 +1966,34 @@
         }
       }
 
+      function startTimerLoop() {
+        if (timerInterval) clearInterval(timerInterval);
+        updateTimerPill();
+        timerInterval = setInterval(function () {
+          if (!run || run.finished) return;
+          run.elapsed += 1;
+          if (run.limitSeconds > 0) {
+            run.remaining = Math.max(0, run.limitSeconds - run.elapsed);
+            updateTimerPill();
+            if (run.remaining === 0) finishQuiz(true);
+          } else {
+            updateTimerPill();
+          }
+        }, 1000);
+      }
+
       function startQuiz(customIds) {
-        var pool = getSelectedModulesPool(customIds);
-        var shuffledPool = shuffleArr(pool);
-        var targetCount = customIds ? shuffledPool.length : (config.count === "all" ? shuffledPool.length : Math.min(config.count, shuffledPool.length));
-        var selected = shuffledPool.slice(0, targetCount).map(function (q) {
-          return prepareRunQuestion(q, config.shuffleOpts);
-        });
-
+        var pool = shuffleArr(getSelectedModulesPool(customIds));
+        var targetCount = customIds ? pool.length : (config.count === "all" ? pool.length : Math.min(config.count, pool.length));
         run = {
-          questions: selected,
-          index: 0,
-          answers: {},
-          flags: {},
-          mode: config.mode,
-          limitSeconds: config.minutes * 60,
-          remaining: config.minutes * 60,
-          elapsed: 0,
-          streak: 0,
-          finished: false
+          questions: pool.slice(0, targetCount).map(function (q) { return prepareRunQuestion(q, config.shuffleOpts); }),
+          index: 0, answers: {}, flags: {}, mode: config.mode,
+          limitSeconds: config.minutes * 60, remaining: config.minutes * 60,
+          elapsed: 0, streak: 0, finished: false
         };
-
         lobbyEl.classList.add("hidden");
         resultsEl.classList.add("hidden");
         stageEl.classList.remove("hidden");
-
         renderStage();
         startTimerLoop();
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2393,29 +2007,19 @@
         var hasChosen = chosen !== undefined;
 
         document.getElementById("stage-progress-badge").textContent = (run.index + 1) + " / " + total;
-        var answeredCount = Object.keys(run.answers).length;
-        document.getElementById("stage-progress-fill").style.width = Math.round((answeredCount / total) * 100) + "%";
+        document.getElementById("stage-progress-fill").style.width = Math.round((Object.keys(run.answers).length / total) * 100) + "%";
 
         var streakBadge = document.getElementById("stage-streak-badge");
         streakBadge.classList.toggle("hidden", !isStudy);
         streakBadge.textContent = "Serie: " + run.streak;
 
-        // Navigator pills
-        var pillsHtml = "";
-        run.questions.forEach(function (item, idx) {
-          var cls = "nav-pill";
-          if (idx === run.index) cls += " current";
-          if (run.flags[item.id]) cls += " flagged";
-          else if (run.answers[item.id] !== undefined) cls += " answered";
-          pillsHtml += "<button type='button' class='" + cls + "' data-jump='" + idx + "'>" + (idx + 1) + "</button>";
-        });
         var pillsEl = document.getElementById("nav-pills");
-        pillsEl.innerHTML = pillsHtml;
+        pillsEl.innerHTML = run.questions.map(function (item, idx) {
+          var cls = "nav-pill" + (idx === run.index ? " current" : "") + (run.flags[item.id] ? " flagged" : (run.answers[item.id] !== undefined ? " answered" : ""));
+          return "<button type='button' class='" + cls + "' data-jump='" + idx + "'>" + (idx + 1) + "</button>";
+        }).join("");
         pillsEl.querySelectorAll("[data-jump]").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            run.index = Number(btn.getAttribute("data-jump"));
-            renderStage();
-          });
+          btn.addEventListener("click", function () { run.index = Number(btn.getAttribute("data-jump")); renderStage(); });
         });
 
         document.getElementById("stage-mod-label").textContent = q.moduleName + " • " + q.chapter;
@@ -2424,28 +2028,19 @@
         flagBtn.classList.toggle("btn-accent", Boolean(run.flags[q.id]));
 
         document.getElementById("stage-q-text").textContent = q.question;
-
         var letters = ["A", "B", "C", "D"];
-        var optsHtml = "";
-        q.options.forEach(function (optText, oIdx) {
+        var optsEl = document.getElementById("stage-options");
+        optsEl.innerHTML = q.options.map(function (optText, oIdx) {
           var cls = "opt-btn";
           if (isStudy && hasChosen) {
             if (oIdx === q.correct) cls += " correct";
             else if (chosen === oIdx) cls += " wrong";
-          } else if (chosen === oIdx) {
-            cls += " selected";
-          }
+          } else if (chosen === oIdx) cls += " selected";
           var dis = (isStudy && hasChosen) ? " disabled" : "";
-          optsHtml += "<button type='button' class='" + cls + "' data-oidx='" + oIdx + "'" + dis + ">" +
-            "<span class='opt-letter'>" + letters[oIdx] + ")</span>" +
-            "<span>" + optText + "</span></button>";
-        });
-        var optsEl = document.getElementById("stage-options");
-        optsEl.innerHTML = optsHtml;
+          return "<button type='button' class='" + cls + "' data-oidx='" + oIdx + "'" + dis + "><span class='opt-letter'>" + letters[oIdx] + ")</span><span>" + optText + "</span></button>";
+        }).join("");
         optsEl.querySelectorAll(".opt-btn").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            selectOption(Number(btn.getAttribute("data-oidx")));
-          });
+          btn.addEventListener("click", function () { selectOption(Number(btn.getAttribute("data-oidx"))); });
         });
 
         var fb = document.getElementById("stage-feedback");
@@ -2454,8 +2049,7 @@
           fb.className = "feedback-box show " + (isOk ? "ok" : "err");
           fb.innerHTML = "<strong>" + (isOk ? "Esatto! " : "Sbagliato (corretta: " + letters[q.correct] + "). ") + "</strong>" + q.explanation;
         } else {
-          fb.className = "feedback-box";
-          fb.innerHTML = "";
+          fb.className = "feedback-box"; fb.innerHTML = "";
         }
 
         document.getElementById("btn-prev-q").disabled = run.index === 0;
@@ -2466,10 +2060,7 @@
         var q = run.questions[run.index];
         if (run.mode === "study" && run.answers[q.id] !== undefined) return;
         run.answers[q.id] = oIdx;
-        if (run.mode === "study") {
-          if (oIdx === q.correct) run.streak += 1;
-          else run.streak = 0;
-        }
+        if (run.mode === "study") run.streak = (oIdx === q.correct) ? run.streak + 1 : 0;
         renderStage();
       }
 
@@ -2478,20 +2069,12 @@
         run.finished = true;
         if (timerInterval) clearInterval(timerInterval);
 
-        var total = run.questions.length;
-        var correct = 0;
-        var modStats = {};
-        var wrongIds = [];
-
+        var total = run.questions.length, correct = 0, modStats = {}, wrongIds = [];
         run.questions.forEach(function (q) {
           if (!modStats[q.module]) modStats[q.module] = { ok: 0, total: 0 };
           modStats[q.module].total += 1;
-          if (run.answers[q.id] === q.correct) {
-            correct += 1;
-            modStats[q.module].ok += 1;
-          } else {
-            wrongIds.push(q.id);
-          }
+          if (run.answers[q.id] === q.correct) { correct += 1; modStats[q.module].ok += 1; }
+          else wrongIds.push(q.id);
         });
 
         var pct = total > 0 ? Math.round((correct / total) * 100) : 0;
@@ -2499,47 +2082,24 @@
         var votoLabel = correct === total && total > 0 ? "30 e Lode" : voto + "/30";
         var timeUsed = formatTime(run.elapsed);
 
-        document.getElementById("res-headline").textContent = timedOut
-          ? "Tempo scaduto! Esame consegnato"
-          : (voto >= 18 ? "Ottimo lavoro! Prova superata" : "Prova completata — Continua a esercitarti");
+        document.getElementById("res-headline").textContent = timedOut ? "Tempo scaduto! Esame consegnato" : (voto >= 18 ? "Ottimo lavoro! Prova superata" : "Prova completata — Continua a esercitarti");
         document.getElementById("res-voto").textContent = votoLabel;
         document.getElementById("res-correct").textContent = correct + " / " + total;
         document.getElementById("res-pct").textContent = pct + "%";
         document.getElementById("res-time").textContent = timeUsed;
 
-        // Per-module breakdown
-        var bdHtml = "";
-        Object.keys(modStats).sort().forEach(function (mKey) {
-          var st = modStats[mKey];
-          var mPct = Math.round((st.ok / st.total) * 100);
-          bdHtml += "<div class='breakdown-row'>" +
-            "<div class='breakdown-head'><span>" + MODULE_NAMES[mKey] + "</span><span>" + st.ok + "/" + st.total + " (" + mPct + "%)</span></div>" +
-            "<div class='progress-track'><div class='progress-fill' style='width:" + mPct + "%'></div></div>" +
-            "</div>";
-        });
-        document.getElementById("res-breakdown").innerHTML = bdHtml;
+        document.getElementById("res-breakdown").innerHTML = Object.keys(modStats).sort().map(function (mKey) {
+          var st = modStats[mKey], mPct = Math.round((st.ok / st.total) * 100);
+          return "<div class='breakdown-row'><div class='breakdown-head'><span>" + MODULE_NAMES[mKey] + "</span><span>" + st.ok + "/" + st.total + " (" + mPct + "%)</span></div><div class='progress-track'><div class='progress-fill' style='width:" + mPct + "%'></div></div></div>";
+        }).join("");
 
-        // Save history
         var hist = loadHistory();
-        var now = new Date();
-        var dStr = now.toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" });
-        hist.unshift({
-          date: dStr,
-          modeLabel: run.mode === "exam" ? "Esame" : "Allenamento",
-          correct: correct,
-          total: total,
-          pct: pct,
-          voto: voto,
-          votoLabel: votoLabel,
-          time: timeUsed
-        });
-        hist = hist.slice(0, 5);
-        try { localStorage.setItem("study_quiz_history_v2", JSON.stringify(hist)); } catch (e) {}
+        hist.unshift({ date: new Date().toLocaleTimeString("it-IT", { hour: "2-digit", minute: "2-digit" }), modeLabel: run.mode === "exam" ? "Esame" : "Allenamento", correct: correct, total: total, pct: pct, voto: voto, votoLabel: votoLabel, time: timeUsed });
+        try { localStorage.setItem("study_quiz_history_v3", JSON.stringify(hist.slice(0, 5))); } catch (e) {}
         renderHistory();
 
         run.wrongIds = wrongIds;
         document.getElementById("btn-retry-errors").disabled = wrongIds.length === 0;
-
         stageEl.classList.add("hidden");
         resultsEl.classList.remove("hidden");
         renderReview("all");
@@ -2552,8 +2112,7 @@
         var letters = ["A", "B", "C", "D"];
         var html = "";
         run.questions.forEach(function (q, idx) {
-          var chosen = run.answers[q.id];
-          var isOk = chosen === q.correct;
+          var chosen = run.answers[q.id], isOk = chosen === q.correct;
           if (filterType === "err" && isOk) return;
           var statusTxt = isOk ? "Corretta" : (chosen === undefined ? "Non risposta" : "Errata");
           var chosenTxt = chosen !== undefined ? letters[chosen] + ") " + q.options[chosen] : "Nessuna";
@@ -2562,98 +2121,29 @@
             "<p style='font-weight:700;margin:0 0 8px;'>" + q.question + "</p>" +
             "<p style='margin:0 0 4px;font-size:0.88rem;'><strong>Tua risposta:</strong> " + chosenTxt + "</p>" +
             "<p style='margin:0 0 6px;font-size:0.88rem;'><strong>Risposta corretta:</strong> " + letters[q.correct] + ") " + q.options[q.correct] + "</p>" +
-            "<p style='margin:0;font-size:0.85rem;color:var(--text-muted);'>" + q.explanation + "</p>" +
-            "</div>";
+            "<p style='margin:0;font-size:0.85rem;color:var(--text-muted);'>" + q.explanation + "</p></div>";
         });
-        if (!html) {
-          html = "<div class='card'><p style='margin:0;'>Nessun errore da mostrare: punteggio pieno!</p></div>";
-        }
-        document.getElementById("res-review-list").innerHTML = html;
+        document.getElementById("res-review-list").innerHTML = html || "<div class='card'><p style='margin:0;'>Nessun errore da mostrare: punteggio pieno!</p></div>";
       }
 
-      // Stage buttons
       document.getElementById("btn-start-quiz").addEventListener("click", function () { startQuiz(null); });
-      document.getElementById("btn-prev-q").addEventListener("click", function () {
-        if (run && run.index > 0) { run.index -= 1; renderStage(); }
-      });
-      document.getElementById("btn-next-q").addEventListener("click", function () {
-        if (run && run.index < run.questions.length - 1) { run.index += 1; renderStage(); }
-      });
-      document.getElementById("btn-flag-q").addEventListener("click", function () {
-        if (!run) return;
-        var qid = run.questions[run.index].id;
-        run.flags[qid] = !run.flags[qid];
-        renderStage();
-      });
-      document.getElementById("btn-finish-quiz").addEventListener("click", function () {
-        finishQuiz(false);
-      });
-      document.getElementById("btn-abort-quiz").addEventListener("click", function () {
-        if (timerInterval) clearInterval(timerInterval);
-        run = null;
-        stageEl.classList.add("hidden");
-        lobbyEl.classList.remove("hidden");
-      });
-
-      // Results buttons
+      document.getElementById("btn-prev-q").addEventListener("click", function () { if (run && run.index > 0) { run.index -= 1; renderStage(); } });
+      document.getElementById("btn-next-q").addEventListener("click", function () { if (run && run.index < run.questions.length - 1) { run.index += 1; renderStage(); } });
+      document.getElementById("btn-flag-q").addEventListener("click", function () { if (!run) return; var qid = run.questions[run.index].id; run.flags[qid] = !run.flags[qid]; renderStage(); });
+      document.getElementById("btn-finish-quiz").addEventListener("click", function () { finishQuiz(false); });
+      document.getElementById("btn-abort-quiz").addEventListener("click", function () { if (timerInterval) clearInterval(timerInterval); run = null; stageEl.classList.add("hidden"); lobbyEl.classList.remove("hidden"); });
       document.getElementById("btn-play-again").addEventListener("click", function () { startQuiz(null); });
-      document.getElementById("btn-retry-errors").addEventListener("click", function () {
-        if (run && run.wrongIds && run.wrongIds.length > 0) startQuiz(run.wrongIds);
-      });
-      document.getElementById("btn-back-lobby").addEventListener("click", function () {
-        resultsEl.classList.add("hidden");
-        lobbyEl.classList.remove("hidden");
-      });
+      document.getElementById("btn-retry-errors").addEventListener("click", function () { if (run && run.wrongIds && run.wrongIds.length > 0) startQuiz(run.wrongIds); });
+      document.getElementById("btn-back-lobby").addEventListener("click", function () { resultsEl.classList.add("hidden"); lobbyEl.classList.remove("hidden"); });
       document.getElementById("rev-filter-all").addEventListener("click", function () { renderReview("all"); });
       document.getElementById("rev-filter-err").addEventListener("click", function () { renderReview("err"); });
 
-      // Keyboard shortcuts when quiz stage is active
       document.addEventListener("keydown", function (e) {
         if (!run || run.finished || stageEl.classList.contains("hidden")) return;
-        if (e.key >= "1" && e.key <= "4") {
-          selectOption(Number(e.key) - 1);
-        } else if (e.key === "ArrowRight") {
-          if (run.index < run.questions.length - 1) { run.index += 1; renderStage(); }
-        } else if (e.key === "ArrowLeft") {
-          if (run.index > 0) { run.index -= 1; renderStage(); }
-        }
+        if (e.key >= "1" && e.key <= "4") selectOption(Number(e.key) - 1);
+        else if (e.key === "ArrowRight" && run.index < run.questions.length - 1) { run.index += 1; renderStage(); }
+        else if (e.key === "ArrowLeft" && run.index > 0) { run.index -= 1; renderStage(); }
       });
-
-      // --- 9. BEGINNER INTERACTIVE MINI-LABS ---
-      var bayesSlider = document.getElementById("bayes-prior");
-      function updateBayesLab() {
-        var priorPct = Number(bayesSlider.value);
-        var spamCount = Math.round(1000 * (priorPct / 100));
-        var legitCount = 1000 - spamCount;
-        var tp = Math.round(spamCount * 0.90);
-        var fp = Math.round(legitCount * 0.05);
-        var tot = tp + fp;
-        var post = tot > 0 ? ((tp / tot) * 100).toFixed(1) : "0.0";
-        document.getElementById("bayes-prior-val").textContent = priorPct + "%";
-        document.getElementById("bayes-tp").textContent = String(tp);
-        document.getElementById("bayes-fp").textContent = String(fp);
-        document.getElementById("bayes-tot").textContent = String(tot);
-        document.getElementById("bayes-post").textContent = post + "%";
-      }
-      if (bayesSlider) {
-        bayesSlider.addEventListener("input", updateBayesLab);
-        updateBayesLab();
-      }
-
-      var outlierSlider = document.getElementById("outlier-slider");
-      function updateOutlierLab() {
-        var x = Number(outlierSlider.value);
-        var arr = [10, 11, 11, 12, x].sort(function (a, b) { return a - b; });
-        var mean = arr.reduce(function (acc, v) { return acc + v; }, 0) / arr.length;
-        var median = arr[2];
-        document.getElementById("outlier-val").textContent = String(x);
-        document.getElementById("out-mean").textContent = mean.toFixed(1) + " min";
-        document.getElementById("out-median").textContent = median.toFixed(1) + " min";
-      }
-      if (outlierSlider) {
-        outlierSlider.addEventListener("input", updateOutlierLab);
-        updateOutlierLab();
-      }
 
       syncLobbyUI();
       renderHistory();
