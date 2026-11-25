@@ -878,6 +878,64 @@
     .hidden { display: none !important; }
     .print-only { display: none; }
 
+    .intuition-box {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      font-size: 0.92rem;
+    }
+    .intuition-box strong.int-title {
+      display: block;
+      color: var(--accent);
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+    }
+
+    .mini-lab {
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .mini-lab h4 {
+      margin: 0 0 8px;
+      font-size: 0.94rem;
+      color: var(--primary);
+    }
+    .lab-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+    }
+    .lab-controls input[type="range"] {
+      flex: 1 1 160px;
+      accent-color: var(--primary);
+    }
+    .lab-outputs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+    }
+    .lab-pill {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 8px 10px;
+      text-align: center;
+      font-size: 0.84rem;
+    }
+    .lab-pill strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--primary);
+    }
+
     /* Mobile Responsive */
     @media (max-width: 640px) {
       .tabs-desktop { display: none; }
@@ -978,36 +1036,38 @@
         </button>
         <div class="module-body">
           <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Dati, insiemi, funzioni, sequenze, potenze, logaritmi, limiti</small>
+            <small style="color:var(--text-muted)">Partire da zero: numeri, funzioni, somme, potenze, logaritmi e limiti</small>
             <button class="btn btn-sm" data-mark-done="1" type="button">Segna come ripassato</button>
+          </div>
+          <div class="intuition-box">
+            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
+            Non si parte mai scrivendo codice a caso: prima capisci la <strong>domanda reale</strong> (es. "conviene il biglietto singolo da 2,20 € o l'abbonamento da 39 € al mese?"), poi traduci la regola in una <strong>formula</strong> e infine la fai calcolare a <strong>Python</strong>.
           </div>
           <div class="topic-grid">
             <div class="topic-box">
-              <h3>Metodo &amp; Numeri (Cap. 1–2)</h3>
+              <h3>1. Numeri e Divisioni in Python (Cap. 1–2)</h3>
               <ul>
-                <li>Flusso: <strong>Problema &rarr; Dati &rarr; Modello &rarr; Codice &rarr; Decisione</strong>. Verifica sempre unit&agrave; di misura e punto di pareggio.</li>
-                <li>Insiemi: &#8469; &sub; &#8484; &sub; &#8474; &sub; &#8477; &sub; &#8450;. Divisione: <span class="formula">a = bq + r</span> (0 &le; r &lt; b).</li>
-                <li>Python: <code>//</code> quoziente intero, <code>%</code> resto, <code>divmod(a,b)</code>, <code>**</code> potenza (<code>-2**2 = -4</code>).</li>
-                <li>I <code>float</code> approssimano: <code>0.1 + 0.2 != 0.3</code> &rarr; usa <code>math.isclose()</code> o <code>Decimal</code>.</li>
+                <li><strong>Tipi di numeri:</strong> Naturali (<code>0, 1, 2...</code> per contare), Interi (anche negativi per debiti/saldi), Razionali (frazioni), Reali (anche <code>&radic;2, &pi;</code>).</li>
+                <li><strong>Quoziente e resto:</strong> con 53 € e biglietti da 8 €, quanti ne compri? <code>53 // 8 = 6</code> biglietti e ti avanzano <code>53 % 8 = 5</code> €. In Python: <code>divmod(53, 8)</code> ti d&agrave; subito <code>(6, 5)</code>.</li>
+                <li><strong>Attenzione ai decimali (<code>float</code>):</strong> il PC lavora in binario, quindi <code>0.1 + 0.2</code> fa <code>0.30000000000000004</code>! Per confrontarli usa <code>math.isclose()</code>.</li>
+                <li><strong>Potenza:</strong> in Python si scrive <code>**</code> (es. <code>2**3 = 8</code>) e <code>-2**2</code> significa <code>-(2**2) = -4</code>.</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Funzioni &amp; Sequenze (Cap. 3–4)</h3>
+              <h3>2. Funzioni e Sommatorie (Cap. 3–4)</h3>
               <ul>
-                <li><strong>Dominio</strong> = ingressi ammessi; <strong>Codominio</strong> = uscite dichiarate; <strong>Immagine</strong> = uscite effettive.</li>
-                <li>Retta: <span class="formula">f(x) = mx + b</span>. Iniettiva + suriettiva &rArr; invertibile. Composizione: <span class="formula">g(f(x))</span>.</li>
-                <li>&sum;<sub>i=m..n</sub> ha <span class="formula">n &minus; m + 1</span> termini. Somma 1..n: <span class="formula">n(n+1)/2</span>.</li>
-                <li>Prog. aritmetica: <span class="formula">n(a<sub>1</sub>+a<sub>n</sub>)/2</span>. Geometrica: <span class="formula">(1&minus;r<sup>n</sup>)/(1&minus;r)</span>.</li>
-                <li>Python: <code>range(a, b)</code> include <code>a</code> ed <strong>esclude <code>b</code></strong>.</li>
+                <li><strong>Funzione:</strong> è una "macchina" che prende un ingresso <code>x</code> (es. ore) e restituisce <strong>un solo</strong> risultato <code>f(x)</code> (es. prezzo). <strong>Dominio</strong> = ingressi permessi; <strong>Immagine</strong> = uscite reali.</li>
+                <li><strong>Retta <span class="formula">f(x) = mx + b</span>:</strong> <code>b</code> è il costo fisso iniziale (a 0 ore), <code>m</code> è quanto cresce ogni ora.</li>
+                <li><strong>Sommatoria &Sigma;:</strong> significa "somma tutto dal primo all'ultimo". Sommare da <code>1</code> a <code>n</code> vale <span class="formula">n(n+1)/2</span> (es. 1+2+3+4 = 4&times;5/2 = 10).</li>
+                <li><strong>Trappola Python <code>range</code>:</strong> <code>range(3, 9)</code> parte da <code>3</code> e si ferma a <code>8</code> (l'ultimo numero è sempre escluso!).</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Potenze, Logaritmi &amp; Limiti (Cap. 5–7)</h3>
+              <h3>3. Crescita, Logaritmi &amp; Limiti (Cap. 5–7)</h3>
               <ul>
-                <li>Crescita composta: <span class="formula">N(t)=N<sub>0</sub>(1+r)<sup>t</sup></span>; continua: <span class="formula">Pe<sup>rt</sup></span>.</li>
-                <li>Logaritmo: <span class="formula">log<sub>b</sub>(x)=y &hArr; b<sup>y</sup>=x</span>. Raddoppio: <span class="formula">t = ln(2)/ln(1+r)</span>.</li>
-                <li>Limite bilatero esiste se limite sinistro = destro. Continuit&agrave;: <span class="formula">f(a)</span> definita = limite.</li>
-                <li>Forme <code>0/0</code> vanno fattorizzate e semplificate prima di sostituire.</li>
+                <li><strong>Crescita composta <span class="formula">N(t) = N<sub>0</sub>(1+r)<sup>t</sup></span>:</strong> se parti da 200 iscritti e cresci del 10% a settimana, moltiplichi ogni settimana per <code>1,10</code> (non sommi sempre 20!).</li>
+                <li><strong>Logaritmo = "trovare l'esponente":</strong> se <code>10<sup>3</sup> = 1000</code>, allora <code>log<sub>10</sub>(1000) = 3</code>. Serve per rispondere a: <em>"Tra quanti anni raddoppio il capitale?"</em> &rarr; <span class="formula">t = ln(2)/ln(1+r)</span>.</li>
+                <li><strong>Limite:</strong> guarda a cosa si avvicina <code>f(x)</code> quando ti avvicini a un punto da sinistra e da destra, anche se proprio lì c'è un "buco" (<code>0/0</code> si semplifica prima!).</li>
               </ul>
             </div>
           </div>
@@ -1025,27 +1085,30 @@
         </button>
         <div class="module-body">
           <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Tassi istantanei, derivate parziali, accumulazione</small>
+            <small style="color:var(--text-muted)">Due idee opposte: velocità istantanea (derivata) e accumulo totale (integrale)</small>
             <button class="btn btn-sm" data-mark-done="2" type="button">Segna come ripassato</button>
+          </div>
+          <div class="intuition-box">
+            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
+            Immagina di guidare un'auto: la <strong>derivata</strong> è il tachimetro che ti dice a che velocità stai andando <em>in questo preciso istante</em> (pendenza della curva); l'<strong>integrale</strong> è il contachilometri che somma tutti i piccoli tratti percorsi per dirti <em>quanta strada hai accumulato in totale</em>.
           </div>
           <div class="topic-grid">
             <div class="topic-box">
-              <h3>Derivate &amp; Gradiente (Cap. 8)</h3>
+              <h3>1. Derivata = Pendenza Istantanea (Cap. 8)</h3>
               <ul>
-                <li><span class="formula">f'(x) = lim<sub>h&rarr;0</sub> [f(x+h)&minus;f(x)]/h</span> (pendenza della tangente).</li>
-                <li>Regole: <code>(c)'=0</code>, <code>(x<sup>n</sup>)'=nx<sup>n-1</sup></code>, <code>(e<sup>x</sup>)'=e<sup>x</sup></code>, <code>(ln x)'=1/x</code>.</li>
-                <li>Prodotto: <span class="formula">u'v + uv'</span>; Catena: <span class="formula">g'(f(x))f'(x)</span>.</li>
-                <li>Continua &not;&rArr; derivabile (es. <code>|x|</code> in 0). <span class="formula">f'(a)=0</span> non basta per massimo/minimo (es. <code>x<sup>3</sup></code>).</li>
-                <li>SymPy: <code>diff(expr, x)</code>. Derivate parziali raccolte formano il <strong>gradiente</strong>.</li>
+                <li><strong>Cos'è:</strong> quanto cambia l'uscita se aumenti di un soffio l'ingresso (<span class="formula">h &rarr; 0</span>). In economia si chiama <strong>costo marginale</strong>.</li>
+                <li><strong>Regole facili:</strong> un numero fisso sparisce (<code>0</code>); per <code>x<sup>n</sup></code> porti giù l'esponente e scali di 1 (<code>x<sup>3</sup> &rarr; 3x<sup>2</sup></code>); <code>e<sup>x</sup></code> resta <code>e<sup>x</sup></code>; <code>ln(x) &rarr; 1/x</code>.</li>
+                <li><strong>Due trappole d'esame:</strong> <code>|x|</code> ha uno spigolo in <code>0</code> (continua ma <strong>non derivabile</strong>); derivata zero in un punto non garantisce un massimo o minimo (es. <code>x<sup>3</sup></code> in <code>0</code>).</li>
+                <li><strong>Più variabili (Parziali &amp; Gradiente):</strong> derivi una lettera alla volta trattando le altre come numeri fissi. SymPy: <code>diff(expr, x)</code>.</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Integrali &amp; Accumulazione (Cap. 9)</h3>
+              <h3>2. Integrale = Somma / Accumulo (Cap. 9)</h3>
               <ul>
-                <li>Accumula un tasso nel tempo (area con segno).</li>
-                <li>Teorema fondamentale: <span class="formula">&int;<sub>a</sub><sup>b</sup> f(x)dx = F(b) &minus; F(a)</span> con <span class="formula">F'=f</span>.</li>
-                <li>Valore medio su <code>[a,b]</code>: <span class="formula">[1/(b&minus;a)] &int;<sub>a</sub><sup>b</sup> f(x)dx</span>.</li>
-                <li>Area geometrica totale: integra <code>|f(x)|</code>. SymPy: <code>integrate(expr, (x, a, b))</code>.</li>
+                <li><strong>Cos'è:</strong> moltiplica altezza &times; base su tantissime fettine sottili e somma tutto. È l'area sotto la curva.</li>
+                <li><strong>Come si calcola:</strong> trovi una funzione <code>F</code> la cui derivata sia <code>f</code> (primitiva), poi fai <span class="formula">F(arrivo) &minus; F(partenza)</span>.</li>
+                <li><strong>Esempio concreto:</strong> potenza <code>P(t) = 2t</code> kW per <code>0..3</code> ore &rarr; primitiva <code>t<sup>2</sup></code> &rarr; <code>3<sup>2</sup> &minus; 0<sup>2</sup> = 9 kWh</code>.</li>
+                <li><strong>Segno:</strong> l'integrale dà il <strong>saldo netto</strong> (entrate positive, uscite negative). SymPy: <code>integrate(expr, (x, a, b))</code>.</li>
               </ul>
             </div>
           </div>
@@ -1063,35 +1126,51 @@
         </button>
         <div class="module-body">
           <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Assiomi, Bayes, discrete/continue, Binomiale, Beta</small>
+            <small style="color:var(--text-muted)">Scommesse, filtro antispam (Bayes), lanci ripetuti (Binomiale) e stima (Beta)</small>
             <button class="btn btn-sm" data-mark-done="3" type="button">Segna come ripassato</button>
+          </div>
+          <div class="intuition-box">
+            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
+            La probabilità misura quanto è plausibile un evento da <code>0</code> (impossibile) a <code>1</code> (certo). Il <strong>Teorema di Bayes</strong> risponde alla domanda più importante della vita reale: <em>"Dato che è scattato l'allarme, quanto è probabile che sia un vero pericolo e non un falso allarme?"</em>.
           </div>
           <div class="topic-grid">
             <div class="topic-box">
-              <h3>Assiomi &amp; Operazioni (Cap. 10–11)</h3>
+              <h3>1. Regole Base, Unione &amp; Indipendenza (Cap. 10–11)</h3>
               <ul>
-                <li><span class="formula">0 &le; P(A) &le; 1</span>, <span class="formula">P(&Omega;)=1</span>. Odds a favore: <span class="formula">p/(1&minus;p)</span>.</li>
-                <li><strong>Verosimiglianza:</strong> fissa i dati osservati e varia il parametro <code>p</code>.</li>
-                <li>Unione: <span class="formula">P(A&cup;B) = P(A)+P(B)&minus;P(A&cap;B)</span>. Complemento: <span class="formula">1&minus;P(A)</span>.</li>
-                <li>Indipendenza: <span class="formula">P(A&cap;B)=P(A)P(B)</span>. Eventi <strong>incompatibili</strong> (P&gt;0) sono <strong>dipendenti</strong>!</li>
+                <li><strong>Odds:</strong> rapporto tra favorevoli e contrari: <span class="formula">p / (1&minus;p)</span>. Se <code>p = 0,2</code>, le odds sono <code>0,2 / 0,8 = 1 a 4</code>.</li>
+                <li><strong>Unione ("almeno uno dei due"):</strong> <span class="formula">P(A&cup;B) = P(A) + P(B) &minus; P(A&cap;B)</span>. Si sottrae l'intersezione per non contare due volte chi fa entrambe le cose!</li>
+                <li><strong>Trucco "Almeno uno":</strong> calcola il contrario ("nessuno") e fai <code>1 &minus; P(nessuno)</code>.</li>
+                <li><strong>Incompatibili vs Indipendenti:</strong> se due eventi non possono accadere insieme (<code>P(A&cap;B)=0</code>), sapere che è successo A ti dice che B è impossibile: quindi sono <strong>dipendenti</strong>!</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Bayes &amp; Variabili Casuali (Cap. 12–13)</h3>
+              <h3>2. Bayes &amp; Variabili Casuali (Cap. 12–13)</h3>
               <ul>
-                <li>Bayes: <span class="formula">P(A|B) = P(B|A)P(A)/P(B)</span>. Mai confondere <code>P(A|B)</code> con <code>P(B|A)</code>!</li>
-                <li><strong>Discrete:</strong> massa (PMF) <span class="formula">p(x)=P(X=x)</span>. <strong>Continue:</strong> densità (PDF), <span class="formula">P(X=x)=0</span> per un singolo punto!</li>
-                <li>CDF: <span class="formula">F(t)=P(X&le;t)</span>; <span class="formula">P(a &lt; X &le; b) = F(b) &minus; F(a)</span>.</li>
+                <li><strong>Bayes in 10 secondi:</strong> usa una tabella su 1.000 casi! Dividi i <strong>veri positivi</strong> per <strong>tutti i segnalati (veri + falsi positivi)</strong>.</li>
+                <li><strong>Discreta vs Continua:</strong> se conti (0, 1, 2 figli) ogni valore ha una probabilità; se misuri (tempo continuo da 0 a 10 min) la probabilità è un'<strong>area</strong> e un singolo punto esatto vale sempre <strong>0</strong>.</li>
+                <li><strong>Cumulata <code>F(x)</code>:</strong> è la probabilità di stare <code>&le; x</code>. Tra <code>a</code> e <code>b</code> fai <code>F(b) &minus; F(a)</code>.</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Binomiale &amp; Beta (Cap. 14–15)</h3>
+              <h3>3. Binomiale &amp; Beta (Cap. 14–15)</h3>
               <ul>
-                <li><strong>Binomiale(n,p):</strong> n prove indipendenti, 2 esiti, p costante. Media <span class="formula">np</span>, Var <span class="formula">np(1&minus;p)</span>.</li>
-                <li>Coda inclusiva: <span class="formula">P(X&ge;k) = 1&minus;F(k&minus;1)</span> &rarr; <code>binom.sf(k-1, n, p)</code>.</li>
-                <li><strong>Beta(&alpha;,&beta;):</strong> continua su <code>[0,1]</code> per stimare <code>p</code>. Media <span class="formula">&alpha;/(&alpha;+&beta;)</span>.</li>
-                <li>Con <code>s</code> successi e <code>f</code> insuccessi diventa <span class="formula">Beta(&alpha;+s, &beta;+f)</span>.</li>
+                <li><strong>Binomiale(n, p):</strong> conti quanti successi ottieni in <code>n</code> prove identiche e indipendenti (es. 10 tiri a canestro). Media = <span class="formula">np</span>.</li>
+                <li><strong>Python <code>binom.sf</code>:</strong> per "almeno 4 successi" (<code>X &ge; 4</code>) in SciPy si scrive <code>binom.sf(3, n, p)</code> (sempre <code>k &minus; 1</code>!).</li>
+                <li><strong>Beta(&alpha;, &beta;):</strong> descrive quanto sei sicuro del tasso <code>p</code>. Se parti da <code>Beta(2, 2)</code> e osservi 7 successi e 3 insuccessi, sommi semplicemente: <code>Beta(2+7, 2+3) = Beta(9, 5)</code>! Media = <code>9/14</code>.</li>
               </ul>
+            </div>
+          </div>
+          <div class="mini-lab" id="lab-bayes">
+            <h4>Mini-Lab Interattivo: Perché un allarme può essere un falso allarme (Bayes, Cap. 12)</h4>
+            <div class="lab-controls">
+              <label for="bayes-prior"><strong>% Spam reale in arrivo:</strong> <span id="bayes-prior-val">10%</span></label>
+              <input id="bayes-prior" type="range" min="1" max="50" value="10" />
+            </div>
+            <div class="lab-outputs">
+              <div class="lab-pill"><span>Veri Spam segnalati (90%)</span><strong id="bayes-tp">90</strong></div>
+              <div class="lab-pill"><span>Falsi allarmi su sane (5%)</span><strong id="bayes-fp">45</strong></div>
+              <div class="lab-pill"><span>Totale segnalate</span><strong id="bayes-tot">135</strong></div>
+              <div class="lab-pill"><span>P(Spam | Segnalata)</span><strong id="bayes-post">66.7%</strong></div>
             </div>
           </div>
         </div>
@@ -1108,34 +1187,49 @@
         </button>
         <div class="module-body">
           <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Posizione, varianza, Normale, TLC, IC, p-value</small>
+            <small style="color:var(--text-muted)">Riassumere i dati, campana Normale, errore standard, intervalli e p-value</small>
             <button class="btn btn-sm" data-mark-done="4" type="button">Segna come ripassato</button>
+          </div>
+          <div class="intuition-box">
+            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
+            La <strong>descrittiva</strong> riassume i dati che hai già davanti (media, mediana, dispersione). L'<strong>inferenziale</strong> fa il salto dal campione all'intera popolazione, rispondendo con un margine di incertezza (<strong>Intervallo di Confidenza</strong>) o verificando un'affermazione (<strong>p-value</strong>).
           </div>
           <div class="topic-grid">
             <div class="topic-box">
-              <h3>Descrittiva (Cap. 16–18)</h3>
+              <h3>1. Media, Mediana, Bias &amp; Varianza (Cap. 16–18)</h3>
               <ul>
-                <li>Il <strong>bias</strong> (errore sistematico di selezione/risposta) non sparisce aumentando <code>n</code>.</li>
-                <li><strong>Media</strong> (sensibile agli outlier) vs <strong>Mediana</strong> (robusta) vs <strong>Moda</strong> (anche nominale).</li>
-                <li>Varianza camp.: <span class="formula">s<sup>2</sup>=&sum;(x<sub>i</sub>&minus;x&#772;)<sup>2</sup>/(n&minus;1)</span>. NumPy <code>np.var</code> divide per <code>n</code> (usa <code>ddof=1</code>).</li>
+                <li><strong>Bias (distorsione):</strong> se intervisti solo chi entra dal parcheggio per capire come si spostano i dipendenti, escludi chi viene in treno. Aumentare il numero di interviste lì <strong>non</strong> elimina il bias!</li>
+                <li><strong>Media vs Mediana:</strong> la media è trascinata dai valori estremi (outlier); la mediana guarda solo chi sta in mezzo ed è robusta.</li>
+                <li><strong>Varianza campionaria <code>n &minus; 1</code>:</strong> per il campione si divide per <code>n &minus; 1</code>. Trappola Python: <code>np.var(x)</code> divide per <code>n</code>, devi mettere <code>ddof=1</code>!</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Normale, LGN &amp; TLC (Cap. 19–21)</h3>
+              <h3>2. Normale, TLC &amp; Errore Standard (Cap. 19–21)</h3>
               <ul>
-                <li>Normale: regola empirica <strong>68% / 95% / 99,7%</strong> entro &plusmn;1, 2, 3&sigma;. Z-score: <span class="formula">(X&minus;&mu;)/&sigma;</span>.</li>
-                <li><strong>LGN:</strong> x&#772; &rarr; &mu;. <strong>TLC:</strong> la distribuzione di x&#772; tende alla Normale.</li>
-                <li><strong>Errore Standard:</strong> <span class="formula">SE = &sigma;/&radic;n</span>. Quadruplicare <code>n</code> dimezza <code>SE</code>.</li>
+                <li><strong>Curva Normale:</strong> a campana simmetrica. Regola <strong>68% – 95% – 99,7%</strong> entro 1, 2 e 3 deviazioni standard dalla media.</li>
+                <li><strong>Z-score:</strong> <span class="formula">(x &minus; &mu;) / &sigma;</span> ti dice a quante deviazioni standard sei dalla media.</li>
+                <li><strong>Errore Standard <span class="formula">SE = &sigma;/&radic;n</span>:</strong> misura quanto oscilla la <em>media</em> tra un campione e l'altro. Per dimezzare l'errore devi <strong>quadruplicare</strong> i dati!</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>IC &amp; Verifica Ipotesi (Cap. 22–23)</h3>
+              <h3>3. Intervalli &amp; Test delle Ipotesi (Cap. 22–23)</h3>
               <ul>
-                <li><strong>IC:</strong> <span class="formula">x&#772; &plusmn; t<sub>crit</sub>&middot;s/&radic;n</span> (<code>t</code> con <code>n-1</code> gdl se &sigma; ignota; <code>z</code> se &sigma; nota).</li>
-                <li>Test: <span class="formula">z = (x&#772;&minus;&mu;<sub>0</sub>)/(&sigma;/&radic;n)</span>. Rifiuta H<sub>0</sub> se <span class="formula">p &le; &alpha;</span>.</li>
-                <li><strong>p-value:</strong> probabilit&agrave; di un esito cos&igrave; estremo <strong>sotto H<sub>0</sub></strong> (NON &egrave; P(H<sub>0</sub> vera)!).</li>
-                <li>Errore I tipo (&alpha;): rifiuto H<sub>0</sub> vera. II tipo (&beta;): non rifiuto H<sub>0</sub> falsa. Potenza = <span class="formula">1&minus;&beta;</span>.</li>
+                <li><strong>Intervallo di Confidenza:</strong> <code>stima &plusmn; margine</code>. Se &sigma; è ignota usi la <code>t</code> di Student (<code>n&minus;1</code> gdl); se è nota usi <code>z</code> (<code>1,96</code> al 95%).</li>
+                <li><strong>p-value:</strong> è la probabilità di vedere un risultato così strano <em>se l'ipotesi di partenza H<sub>0</sub> fosse vera</em>. Se <code>p &le; &alpha;</code> (es. 0,05) rifiuti H<sub>0</sub>.</li>
+                <li><strong>Errore:</strong> <code>p-value = 0,04</code> NON vuol dire "H<sub>0</sub> è vera al 4%"!</li>
               </ul>
+            </div>
+          </div>
+          <div class="mini-lab" id="lab-outlier">
+            <h4>Mini-Lab Interattivo: Perché la Media mente con un valore estremo (Cap. 17)</h4>
+            <div class="lab-controls">
+              <label for="outlier-slider"><strong>5&ordf; consegna: [10, 11, 11, 12, <span id="outlier-val">56</span>] min</strong></label>
+              <input id="outlier-slider" type="range" min="12" max="200" value="56" />
+            </div>
+            <div class="lab-outputs">
+              <div class="lab-pill"><span>Media (trascinata)</span><strong id="out-mean">20.0 min</strong></div>
+              <div class="lab-pill"><span>Mediana (stabile)</span><strong id="out-median">11.0 min</strong></div>
+              <div class="lab-pill"><span>Moda (più frequente)</span><strong>11 min</strong></div>
             </div>
           </div>
         </div>
@@ -1152,24 +1246,36 @@
         </button>
         <div class="module-body">
           <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Norma, prodotto scalare, span, rango, determinanti, sistemi</small>
+            <small style="color:var(--text-muted)">Frecce nello spazio, direzioni indipendenti, rotazioni e più equazioni insieme</small>
             <button class="btn btn-sm" data-mark-done="5" type="button">Segna come ripassato</button>
+          </div>
+          <div class="intuition-box">
+            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
+            Un <strong>vettore</strong> è una freccia (o una lista ordinata di numeri, come 3 km a Est e 2 a Sud: <code>(3, -2)</code>). Una <strong>matrice</strong> è una tabella di numeri che trasforma i vettori (es. li ruota o li scala) oppure raccoglie più equazioni da risolvere insieme.
           </div>
           <div class="topic-grid">
             <div class="topic-box">
-              <h3>Vettori &amp; Basi (Cap. 24–26)</h3>
+              <h3>1. Vettori, Norma &amp; Prodotto Scalare (Cap. 24–25)</h3>
               <ul>
-                <li>Norma: <span class="formula">&#8214;v&#8214;=&radic;(&sum;v<sub>i</sub><sup>2</sup>)</span>. Scalare: <span class="formula">v&middot;w=&#8214;v&#8214;&#8214;w&#8214;cos&theta;</span>.</li>
-                <li><span class="formula">v&middot;w = 0</span> (non nulli) &hArr; <strong>ortogonali</strong> (90&deg;). In &#8477;<sup>3</sup>, <code>np.cross(v,w)</code> &egrave; perpendicolare.</li>
-                <li><strong>Base:</strong> vettori indipendenti che generano lo spazio. <strong>Rango</strong> = dim(span) = colonne indipendenti.</li>
+                <li><strong>Spostamento:</strong> <code>arrivo &minus; partenza</code>. Da <code>(2,1)</code> a <code>(5,0)</code> ti sposti di <code>(3, -1)</code>.</li>
+                <li><strong>Norma (lunghezza):</strong> Teorema di Pitagora! Per <code>(3, 4)</code> è <code>&radic;(3<sup>2</sup>+4<sup>2</sup>) = 5</code>.</li>
+                <li><strong>Prodotto scalare <code>v @ w</code>:</strong> moltiplichi coppia a coppia e sommi. Se fa <strong>0</strong> (con vettori non nulli), i vettori sono a <strong>90&deg; (ortogonali)</strong>!</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Matrici &amp; Sistemi (Cap. 27–28)</h3>
+              <h3>2. Indipendenza, Base &amp; Rango (Cap. 26)</h3>
               <ul>
-                <li><code>A @ B</code> richiede <code>col(A)=righe(B)</code>; <code>AB &ne; BA</code>. <span class="formula">(AB)<sup>-1</sup>=B<sup>-1</sup>A<sup>-1</sup></span>.</li>
-                <li>Quadrata invertibile &hArr; rango pieno &hArr; <span class="formula">det(A) &ne; 0</span>. <code>|det(A)|</code> = scala aree.</li>
-                <li>Sistema <span class="formula">Ax=b</span>: <code>rango(A) &ne; rango(A|b)</code> &rArr; 0 soluzioni; uguali = incognite &rArr; 1 soluzione (<code>np.linalg.solve</code>); &lt; incognite &rArr; &infin; soluzioni.</li>
+                <li><strong>Dipendenza:</strong> <code>(2, 2)</code> è solo il doppio di <code>(1, 1)</code>, quindi punta nella stessa direzione (non aggiunge nulla).</li>
+                <li><strong>Rango:</strong> è il numero di direzioni davvero indipendenti. Se metti <code>(1,1)</code>, <code>(2,2)</code> e <code>(1,0)</code> in matrice, il rango è <strong>2</strong> (non 3!).</li>
+                <li><strong>Base:</strong> il set minimo di vettori indipendenti che permette di raggiungere tutto lo spazio.</li>
+              </ul>
+            </div>
+            <div class="topic-box">
+              <h3>3. Matrici &amp; Sistemi Lineari (Cap. 27–28)</h3>
+              <ul>
+                <li><strong>Prodotto <code>A @ B</code>:</strong> in Python si usa <code>@</code> (mai <code>*</code>). L'ordine conta: <code>AB &ne; BA</code> e <span class="formula">(AB)<sup>-1</sup> = B<sup>-1</sup>A<sup>-1</sup></span>.</li>
+                <li><strong>Determinante <code>det(A)</code>:</strong> se vale <code>0</code> la matrice schiaccia lo spazio e <strong>non è invertibile</strong>.</li>
+                <li><strong>Sistemi <code>Ax = b</code>:</strong> 2 caffè + 1 panino = 7 €, 1 caffè + 2 panini = 8 € &rarr; <code>np.linalg.solve(A, b)</code> trova <code>[2, 3]</code>. Se le rette sono parallele senza incontrarsi, il sistema è incompatibile.</li>
               </ul>
             </div>
           </div>
@@ -1187,25 +1293,36 @@
         </button>
         <div class="module-body">
           <div class="module-actions-row">
-            <small style="color:var(--text-muted)">Minimi quadrati, QR, discesa gradiente, Pearson, diagnostica</small>
+            <small style="color:var(--text-muted)">Prevedere un numero dai dati, misurare l'errore, allenare il modello e verificarlo</small>
             <button class="btn btn-sm" data-mark-done="6" type="button">Segna come ripassato</button>
+          </div>
+          <div class="intuition-box">
+            <strong class="int-title">L'idea in parole semplici (se parti da zero)</strong>
+            Hai i dati dei tuoi allenamenti (km percorsi e minuti impiegati) e vuoi tracciare la <strong>retta migliore</strong> per prevedere il tempo di una nuova distanza. Il computer trova la retta che rende più piccoli possibile gli errori al quadrato (<strong>minimi quadrati</strong>) oppure scende passo dopo passo verso l'errore minimo (<strong>discesa del gradiente</strong>).
           </div>
           <div class="topic-grid">
             <div class="topic-box">
-              <h3>Retta, Residui &amp; QR (Cap. 29–31)</h3>
+              <h3>1. Retta, Residui &amp; Metriche (Cap. 29–30, 34)</h3>
               <ul>
-                <li><span class="formula">&ycirc; = b<sub>0</sub>+b<sub>1</sub>x</span>, <span class="formula">b<sub>0</sub>=y&#772;&minus;b<sub>1</sub>x&#772;</span>. Residuo <span class="formula">e<sub>i</sub>=y<sub>i</sub>&minus;&ycirc;<sub>i</sub></span> (&gt;0 sottostima).</li>
-                <li><span class="formula">SSE=&sum;e<sub>i</sub><sup>2</sup></span>, <span class="formula">MSE=SSE/n</span>, <span class="formula">RMSE=&radic;MSE</span>.</li>
-                <li>Equazioni normali: <span class="formula">X<sup>T</sup>Xb=X<sup>T</sup>y</span>. <strong>QR ridotta</strong> (<span class="formula">Rb=Q<sup>T</sup>y</span>) evita il mal condizionamento di <code>X<sup>T</sup>X</code>.</li>
+                <li><strong>Retta <span class="formula">&ycirc; = b<sub>0</sub> + b<sub>1</sub>x</span>:</strong> passa sempre per il punto delle medie <code>(x&#772;, y&#772;)</code>.</li>
+                <li><strong>Residuo:</strong> <span class="formula">e = reale &minus; previsto</span>. Se è positivo, il modello ha sottostimato.</li>
+                <li><strong>MAE vs RMSE:</strong> <code>MAE</code> è la media degli errori senza segno; <code>RMSE = &radic;MSE</code> pesa molto di più gli errori grandi (perché li eleva al quadrato!).</li>
               </ul>
             </div>
             <div class="topic-box">
-              <h3>Gradiente, Correlazione &amp; Test (Cap. 32–34)</h3>
+              <h3>2. QR, Gradiente &amp; Correlazione (Cap. 31–33)</h3>
               <ul>
-                <li><strong>Discesa del gradiente:</strong> <span class="formula">b<sub>new</sub> = b &minus; &eta;&nabla;L(b)</span>. &eta; alto &rArr; diverge.</li>
-                <li><strong>Pearson <code>r</code>:</strong> solo linearit&agrave; (<span class="formula">r=0</span> su <span class="formula">y=x<sup>2</sup></span>). Correlazione &ne; causalit&agrave;.</li>
-                <li><span class="formula">s<sub>res</sub>=&radic;[SSE/(n&minus;p)]</span>, <span class="formula">R<sup>2</sup>=1&minus;SSE/SST</span>.</li>
-                <li>Usa sempre <strong>Train / Val / Test</strong> (split cronologico su serie temporali). Residui a U &rArr; manca curva.</li>
+                <li><strong>Decomposizione QR (<code>Rb = Q<sup>T</sup>y</code>):</strong> si usa al posto di <code>X<sup>T</sup>Xb = X<sup>T</sup>y</code> perché è numericamente più stabile.</li>
+                <li><strong>Discesa del gradiente:</strong> <span class="formula">b<sub>nuovo</sub> = b &minus; &eta;&nabla;L(b)</span>. Si <strong>sottrae</strong> il gradiente per scendere! Se il passo <code>&eta;</code> è troppo grande, il modello esplode invece di convergere.</li>
+                <li><strong>Pearson <code>r</code>:</strong> misura solo se i punti seguono una <strong>retta</strong>. Su una parabola <code>y = x<sup>2</sup></code> fa <code>r = 0</code>! E ricorda: correlazione non significa causa.</li>
+              </ul>
+            </div>
+            <div class="topic-box">
+              <h3>3. Diagnostica &amp; Test Separati (Cap. 34)</h3>
+              <ul>
+                <li><strong>Mai testare sugli stessi dati di addestramento:</strong> tieni sempre da parte un <strong>Test set</strong> (in ordine cronologico se prevedi il futuro).</li>
+                <li><strong>Grafico dei residui:</strong> se forma una <strong>U</strong>, manca una curva; se si allarga a <strong>ventaglio</strong>, l'errore cresce coi valori alti.</li>
+                <li><strong>Errore standard stima:</strong> <span class="formula">s<sub>res</sub> = &radic;[SSE / (n &minus; p)]</span> dove <code>p</code> è il numero di coefficienti (es. 2 per retta con intercetta).</li>
               </ul>
             </div>
           </div>
@@ -2501,6 +2618,42 @@
           if (run.index > 0) { run.index -= 1; renderStage(); }
         }
       });
+
+      // --- 9. BEGINNER INTERACTIVE MINI-LABS ---
+      var bayesSlider = document.getElementById("bayes-prior");
+      function updateBayesLab() {
+        var priorPct = Number(bayesSlider.value);
+        var spamCount = Math.round(1000 * (priorPct / 100));
+        var legitCount = 1000 - spamCount;
+        var tp = Math.round(spamCount * 0.90);
+        var fp = Math.round(legitCount * 0.05);
+        var tot = tp + fp;
+        var post = tot > 0 ? ((tp / tot) * 100).toFixed(1) : "0.0";
+        document.getElementById("bayes-prior-val").textContent = priorPct + "%";
+        document.getElementById("bayes-tp").textContent = String(tp);
+        document.getElementById("bayes-fp").textContent = String(fp);
+        document.getElementById("bayes-tot").textContent = String(tot);
+        document.getElementById("bayes-post").textContent = post + "%";
+      }
+      if (bayesSlider) {
+        bayesSlider.addEventListener("input", updateBayesLab);
+        updateBayesLab();
+      }
+
+      var outlierSlider = document.getElementById("outlier-slider");
+      function updateOutlierLab() {
+        var x = Number(outlierSlider.value);
+        var arr = [10, 11, 11, 12, x].sort(function (a, b) { return a - b; });
+        var mean = arr.reduce(function (acc, v) { return acc + v; }, 0) / arr.length;
+        var median = arr[2];
+        document.getElementById("outlier-val").textContent = String(x);
+        document.getElementById("out-mean").textContent = mean.toFixed(1) + " min";
+        document.getElementById("out-median").textContent = median.toFixed(1) + " min";
+      }
+      if (outlierSlider) {
+        outlierSlider.addEventListener("input", updateOutlierLab);
+        updateOutlierLab();
+      }
 
       syncLobbyUI();
       renderHistory();
